@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Itmatch - Sign Out</title>
+    <link rel="stylesheet" href="../assets/tailwind.css" />
+  </head>
+  <body class="m-0 min-h-screen font-sans antialiased">
+    <div class="min-h-screen bg-tertiary lg:flex">
+      <section
+        class="relative hidden overflow-hidden lg:flex lg:w-2/5 lg:flex-col lg:justify-center lg:px-12 lg:py-10"
+        style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center;"
+      >
+        <div class="absolute inset-0 bg-secondary/80"></div>
+        <div class="relative z-10 mb-10 text-lg font-semibold tracking-[0.2em] text-white">ITMATCH</div>
+        <div class="relative z-10 max-w-md space-y-6 text-white">
+          <h1 class="text-4xl font-bold leading-tight">See You Soon</h1>
+          <p class="text-base leading-7">
+            You are about to sign out of your account. You can log back in at any time.
+          </p>
+        </div>
+      </section>
+
+      <section class="flex min-h-screen w-full items-center justify-center px-4 py-10 sm:px-6 lg:w-3/5 lg:px-8">
+        <div class="w-full max-w-[420px] rounded-2xl bg-white p-8 shadow-md">
+          <div class="space-y-6">
+            <h2 class="text-3xl font-bold text-secondary">Sign out</h2>
+            <p class="text-sm leading-6 text-gray-600">
+              This will end your current session on this device.
+            </p>
+
+            <div class="space-y-4">
+              <button
+                id="open-signout-modal"
+                type="button"
+                class="w-full rounded-lg bg-primary py-3 font-semibold text-white transition hover:bg-primary-550"
+              >
+                Sign Out
+              </button>
+
+              <p class="text-center text-sm text-gray-500">
+                Changed your mind?
+                <a href="./login.html" class="font-medium text-primary">Back to login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="signout-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-secondary/60 px-4">
+      <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-md">
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-secondary">Confirm sign out</h3>
+          <p class="text-sm leading-6 text-gray-600">
+            Are you sure you want to sign out now?
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <button
+              id="cancel-signout"
+              type="button"
+              class="rounded-lg border border-gray-300 bg-white px-4 py-2.5 font-semibold text-secondary transition hover:border-primary"
+            >
+              Cancel
+            </button>
+            <button
+              id="confirm-signout"
+              type="button"
+              class="rounded-lg bg-primary px-4 py-2.5 font-semibold text-white transition hover:bg-primary-550"
+            >
+              Yes, Sign Out
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../src/signout.js"></script>
+  </body>
+</html>

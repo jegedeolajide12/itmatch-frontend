@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InternMatch - Home</title>
+    <link rel="stylesheet" href="../assets/tailwind.css" />
+    <style>
+      #site-nav-shell {
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+        transition: width 0.45s ease, margin-top 0.45s ease, border-radius 0.45s ease,
+          box-shadow 0.45s ease, background-color 0.45s ease;
+      }
+
+      #site-nav.is-scrolled #site-nav-shell {
+        width: calc(100% - 2.5rem);
+        margin-top: 0.75rem;
+        border-radius: 14px;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+        background-color: rgba(255, 255, 255, 0.96);
+      }
+
+      @media (max-width: 640px) {
+        #site-nav.is-scrolled #site-nav-shell {
+          width: calc(100% - 1rem);
+          margin-top: 0.5rem;
+        }
+      }
+
+      .js-hero-title .js-hero-word {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-tertiary text-secondary antialiased">
+    <nav id="site-nav" class="fixed left-0 right-0 top-0 z-50">
+      <div id="site-nav-shell" class="mx-auto bg-white/95 backdrop-blur">
+      <div class="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-8 py-4">
+        <a href="/" class="js-nav-logo text-xl font-bold text-secondary">InternMatch</a>
+
+        <div class="js-nav-links flex items-center justify-center gap-6">
+          <a href="/" class="text-sm font-medium text-secondary">Home</a>
+          <a href="/companies/" class="text-sm font-medium text-secondary">Companies</a>
+          <a href="#how-it-works" class="text-sm font-medium text-secondary">How It Works</a>
+          <a href="#features" class="text-sm font-medium text-secondary">Features</a>
+        </div>
+
+        <div class="js-nav-auth flex items-center gap-4">
+          <a href="/accounts/login.html" class="text-sm font-medium text-secondary">Login</a>
+          <a
+            href="/accounts/signup.html"
+            class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-550 hover:shadow-sm"
+          >
+            Sign Up
+          </a>
+        </div>
+      </div>
+      </div>
+    </nav>
+
+    <section id="hero" class="relative min-h-screen overflow-hidden">
+      <video
+        class="absolute inset-0 z-0 h-full w-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80"
+      >
+        <source
+          src="https://cdn.coverr.co/videos/coverr-students-chatting-in-the-library-1579/1080p.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://samplelib.com/lib/preview/mp4/sample-10s.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="absolute inset-0 z-10 bg-secondary/65"></div>
+
+      <div class="relative z-20 mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-8 pb-10 pt-28 sm:pb-12 sm:pt-32">
+        <div class="flex flex-1 items-center justify-center">
+          <h1 class="js-hero-title max-w-5xl text-center text-5xl font-bold leading-tight text-white drop-shadow-sm sm:text-6xl lg:text-8xl">
+            <span class="js-hero-word">Find</span>
+            <span class="js-hero-word">Internships</span>
+            <span class="js-hero-word">That</span>
+            <span class="js-hero-word">Actually</span>
+            <span class="js-hero-word">Match</span>
+            <span class="js-hero-word">Your</span>
+            <span class="js-hero-word">Course</span>
+          </h1>
+        </div>
+
+        <div class="js-hero-cta grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <a
+            href="/accounts/signup/"
+            class="group flex items-center justify-between rounded-lg border border-white/80 bg-transparent px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+          >
+            <span>Get Started</span>
+            <svg class="h-4 w-4 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m13 5 7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="/companies/"
+            class="group flex items-center justify-between rounded-lg border border-white/80 bg-transparent px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+          >
+            <span>Browse Companies</span>
+            <svg class="h-4 w-4 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m13 5 7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="#how-it-works"
+            class="group flex items-center justify-between rounded-lg border border-white/80 bg-transparent px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+          >
+            <span>How It Works</span>
+            <svg class="h-4 w-4 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m13 5 7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="#features"
+            class="group flex items-center justify-between rounded-lg border border-white/80 bg-transparent px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+          >
+            <span>Explore Features</span>
+            <svg class="h-4 w-4 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m13 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="problems" class="relative overflow-hidden bg-secondary text-white">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_35%),linear-gradient(135deg,#0f172a,#1e3a5f_48%,#0f766e)]"></div>
+
+      <div class="relative mx-auto max-w-7xl">
+        <div class="js-problem-stage relative h-screen">
+        <div class="js-problem-screen js-problem-intro absolute inset-0 flex h-screen items-center px-8 py-16">
+          <h2 class="js-problem-title relative z-10 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            Finding internships shouldn’t feel this difficult
+          </h2>
+        </div>
+
+        <div class="js-problem-panels relative h-screen">
+          <section class="js-problem-screen js-problem-panel absolute inset-0 flex h-screen items-center px-8 py-16">
+            <div class="absolute inset-0 bg-gradient-to-br from-accent/45 via-accent/25 to-accent/10"></div>
+            <div class="relative z-10 max-w-3xl">
+              <p class="js-problem-copy mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-7xl">
+                You spend hours searching, but most openings have nothing to do with your course.
+              </p>
+            </div>
+          </section>
+
+          <section class="js-problem-screen js-problem-panel absolute inset-0 flex h-screen items-center px-8 py-16">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-700/70 via-primary-700/45 to-primary-700/25"></div>
+            <div class="relative z-10 ml-auto max-w-3xl text-right">
+              <p class="js-problem-copy mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-7xl">
+                Applications repeat the same details over and over, turning momentum into frustration.
+              </p>
+            </div>
+          </section>
+
+          <section class="js-problem-screen js-problem-panel absolute inset-0 flex h-screen items-center px-8 py-16">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/45 via-primary/25 to-primary/10"></div>
+            <div class="relative z-10 max-w-3xl">
+              <p class="js-problem-copy mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-7xl">
+                Even when you apply, it’s hard to tell which companies are real, relevant, or worth your time.
+              </p>
+            </div>
+          </section>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="relative overflow-hidden bg-tertiary px-8 py-20">
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
+          alt=""
+          class="h-full w-full object-cover opacity-15 blur-sm"
+        />
+        <div class="absolute inset-0 bg-white/80"></div>
+      </div>
+
+      <div class="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
+        <div class="js-how-left lg:sticky lg:top-28 lg:h-fit">
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">How It Works</p>
+          <h2 class="mt-4 max-w-md text-4xl font-bold leading-tight text-secondary sm:text-5xl">
+            One profile. Better matches. Faster applications.
+          </h2>
+          <p class="mt-5 max-w-md text-base text-gray-700 sm:text-lg">
+            Scroll through each stage to see how InternMatch adapts to you, surfaces relevant roles, and keeps your internship journey organized.
+          </p>
+
+          <div class="mt-8 space-y-3">
+            <div data-how-progress="0" class="js-how-progress-item rounded-lg border border-primary/30 bg-white/80 px-4 py-3 text-sm font-semibold text-secondary">
+              01 Create your profile
+            </div>
+            <div data-how-progress="1" class="js-how-progress-item rounded-lg border border-gray-200 bg-white/70 px-4 py-3 text-sm font-semibold text-gray-500">
+              02 Get course-based matches
+            </div>
+            <div data-how-progress="2" class="js-how-progress-item rounded-lg border border-gray-200 bg-white/70 px-4 py-3 text-sm font-semibold text-gray-500">
+              03 Apply and track progress
+            </div>
+          </div>
+
+          <div class="mt-5 h-1.5 w-full max-w-md overflow-hidden rounded-full bg-gray-200/80">
+            <div class="js-how-progress-bar h-full w-1/3 rounded-full bg-primary transition-all duration-500"></div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="js-how-visual-wrap lg:sticky lg:top-28">
+            <div class="relative h-[340px] overflow-hidden rounded-2xl border border-secondary/10 bg-white shadow-xl sm:h-[420px]">
+              <div data-how-visual="0" class="js-how-visual absolute inset-0">
+                <div class="h-full bg-gradient-to-br from-white via-primary/5 to-primary/15 p-6 sm:p-8">
+                  <div class="rounded-xl border border-primary/20 bg-white p-4 shadow-sm">
+                    <p class="text-xs font-semibold uppercase tracking-[0.12em] text-primary">Profile Setup</p>
+                    <div class="mt-4 space-y-3">
+                      <div class="h-3 w-3/4 rounded-full bg-gray-200"></div>
+                      <div class="h-3 w-1/2 rounded-full bg-gray-200"></div>
+                      <div class="h-2 w-full rounded-full bg-primary/20"></div>
+                      <div class="h-2 w-4/5 rounded-full bg-primary/20"></div>
+                    </div>
+                  </div>
+                  <div class="mt-5 grid grid-cols-2 gap-3">
+                    <div class="rounded-lg border border-gray-200 bg-white p-3 text-sm font-medium text-gray-600">Skills</div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-3 text-sm font-medium text-gray-600">Interests</div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-3 text-sm font-medium text-gray-600">Goals</div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-3 text-sm font-medium text-gray-600">Availability</div>
+                  </div>
+                </div>
+              </div>
+
+              <div data-how-visual="1" class="js-how-visual absolute inset-0">
+                <div class="h-full bg-gradient-to-br from-secondary/90 via-secondary to-primary-700 p-6 text-white sm:p-8">
+                  <p class="text-xs font-semibold uppercase tracking-[0.12em] text-accent">Match Feed</p>
+                  <div class="mt-4 space-y-3">
+                    <div class="rounded-xl bg-white/10 p-4 backdrop-blur-sm">
+                      <p class="text-sm font-semibold">Frontend Intern - Edutech Labs</p>
+                      <p class="mt-2 text-xs text-white/80">95% match | Course-aligned | Hybrid</p>
+                    </div>
+                    <div class="rounded-xl bg-white/10 p-4 backdrop-blur-sm">
+                      <p class="text-sm font-semibold">Data Analyst Intern - InsightWorks</p>
+                      <p class="mt-2 text-xs text-white/80">91% match | Verified employer</p>
+                    </div>
+                    <div class="rounded-xl bg-white/10 p-4 backdrop-blur-sm">
+                      <p class="text-sm font-semibold">UX Research Intern - Pixel Theory</p>
+                      <p class="mt-2 text-xs text-white/80">89% match | Portfolio preferred</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div data-how-visual="2" class="js-how-visual absolute inset-0">
+                <div class="h-full bg-gradient-to-br from-accent/30 via-white to-primary/10 p-6 sm:p-8">
+                  <div class="grid h-full grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div class="rounded-xl border border-secondary/10 bg-white p-4 shadow-sm sm:col-span-2">
+                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-primary">Application Tracker</p>
+                      <div class="mt-3 h-2 w-full rounded-full bg-gray-200">
+                        <div class="h-2 w-2/3 rounded-full bg-primary"></div>
+                      </div>
+                    </div>
+                    <div class="rounded-xl border border-secondary/10 bg-white p-4 shadow-sm">
+                      <p class="text-sm font-semibold text-secondary">Submitted</p>
+                      <p class="mt-2 text-2xl font-bold text-primary">12</p>
+                    </div>
+                    <div class="rounded-xl border border-secondary/10 bg-white p-4 shadow-sm">
+                      <p class="text-sm font-semibold text-secondary">Interviews</p>
+                      <p class="mt-2 text-2xl font-bold text-primary">4</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pb-4 lg:mt-10">
+            <article class="js-how-step-copy rounded-xl border border-white/60 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
+              <p class="js-how-step-kicker text-xs font-semibold uppercase tracking-[0.12em] text-primary">Step 01</p>
+              <h3 class="js-how-step-title mt-2 text-2xl font-semibold text-secondary">Build your profile once</h3>
+              <p class="js-how-step-desc mt-2 text-sm text-gray-600 sm:text-base">Add skills, course details, and your preferred internship path. InternMatch uses this to personalize everything else.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="px-8 py-16">
+      <div class="mx-auto max-w-7xl space-y-12">
+        <h2 class="js-features-title text-center text-3xl font-bold text-secondary">Features</h2>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="feature-card space-y-4 rounded-xl border border-primary/20 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md sm:col-span-2 lg:col-span-2">
+            <p class="text-xs font-semibold uppercase tracking-[0.12em] text-primary">Top Feature</p>
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M3 12h6l3-9 3 18 3-9h3" />
+              </svg>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-semibold text-secondary">Smart Matching</h3>
+                <p class="text-sm text-gray-600">Get opportunities ranked by your skills, interests, and profile strength.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-500">
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M22 2 11 13" />
+                <path d="m22 2-7 20-4-9-9-4Z" />
+              </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-secondary">One-Click Applications</h3>
+            </div>
+            <p class="text-sm text-gray-600">Apply to matched internships instantly using your saved profile.</p>
+          </div>
+
+          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
+                <path d="M7 8h4" />
+                <path d="M7 12h6" />
+                <path d="m15.5 14 2 2 3-3" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-secondary">Verified Companies</h3>
+            <p class="text-sm text-gray-600">View only vetted employers with trusted company information.</p>
+          </div>
+
+          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-500">
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M3 6h18" />
+                <path d="M6 12h12" />
+                <path d="M10 18h4" />
+              </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-secondary">Course-Based Filtering</h3>
+            </div>
+            <p class="text-sm text-gray-600">Filter internships by your course to surface the most relevant roles first.</p>
+          </div>
+
+          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md sm:col-span-2 lg:col-span-2">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary">
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-secondary">Personalized Dashboard</h3>
+            <p class="text-sm text-gray-600">Track applications, deadlines, and recommendations from one custom view.</p>
+          </div>
+
+          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-500">
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 3v18h18" />
+                  <path d="m7 14 4-4 3 3 4-6" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-secondary">Career Insights</h3>
+            </div>
+            <p class="text-sm text-gray-600">See trending roles, in-demand skills, and guidance to improve your internship outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="cta"
+      class="relative overflow-hidden px-8 py-16"
+      style="background-image: url('https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center;"
+    >
+      <div class="absolute inset-0 bg-secondary/85"></div>
+      <div class="js-cta-content relative z-10 mx-auto max-w-4xl space-y-6 text-center">
+        <h2 class="text-3xl font-bold text-white">Ready to land your internship?</h2>
+        <a
+          href="/accounts/signup/"
+          class="inline-block w-full rounded-lg bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary-550 hover:shadow-md sm:w-auto"
+        >
+          Create Account
+        </a>
+      </div>
+    </section>
+
+    <footer id="site-footer" class="bg-white px-8 py-16">
+      <div class="js-footer-content mx-auto max-w-7xl space-y-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-lg font-bold text-secondary">InternMatch</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/" class="text-sm font-medium text-secondary">Home</a>
+            <a href="/accounts/login/" class="text-sm font-medium text-secondary">Login</a>
+            <a href="/accounts/signup/" class="text-sm font-medium text-secondary">Sign Up</a>
+          </div>
+        </div>
+        <p class="text-sm text-gray-600">&copy; 2026 InternMatch. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.set(
+        [
+          '.js-nav-logo',
+          '.js-nav-links a',
+          '.js-nav-auth a',
+          '.js-hero-title',
+          '.js-hero-cta a',
+        ],
+        { opacity: 0, y: 28 }
+      );
+
+      const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      intro
+        .to('.js-nav-logo', { opacity: 1, y: 0, duration: 0.6 })
+        .to('.js-nav-links a', { opacity: 1, y: 0, duration: 0.45, stagger: 0.08 }, '-=0.35')
+        .to('.js-nav-auth a', { opacity: 1, y: 0, duration: 0.45, stagger: 0.08 }, '-=0.3')
+        .to('.js-hero-title', { opacity: 1, y: 0, duration: 0.8 }, '-=0.1')
+        .fromTo(
+          '.js-hero-word',
+          { opacity: 0, y: 16, filter: 'blur(6px)' },
+          {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            duration: 0.55,
+            stagger: 0.06,
+            ease: 'power2.out',
+          },
+          '-=0.5'
+        )
+        .to('.js-hero-cta a', { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, '-=0.35')
+        ;
+
+      gsap.to('.js-hero-title', {
+        letterSpacing: '0.015em',
+        duration: 2.6,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+
+      const siteNav = document.getElementById('site-nav');
+      const updateNavState = () => {
+        if (!siteNav) return;
+        siteNav.classList.toggle('is-scrolled', window.scrollY > 8);
+      };
+
+      updateNavState();
+      window.addEventListener('scroll', updateNavState, { passive: true });
+
+      const problemScreens = gsap.utils.toArray('.js-problem-screen');
+
+      gsap.set(problemScreens, {
+        autoAlpha: 0,
+        yPercent: 10,
+        scale: 0.98,
+        filter: 'blur(12px)',
+      });
+
+      gsap.set(problemScreens[0], {
+        autoAlpha: 1,
+        yPercent: 0,
+        scale: 1,
+        filter: 'blur(0px)',
+      });
+
+      const problemSwitch = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#problems',
+          start: 'top top',
+          end: () => `+=${window.innerHeight * (problemScreens.length - 1)}`,
+          pin: true,
+          scrub: 1.1,
+          anticipatePin: 1,
+          snap: {
+            snapTo: 1 / (problemScreens.length - 1),
+            duration: { min: 0.2, max: 0.45 },
+            ease: 'power1.inOut',
+          },
+        },
+      });
+
+      for (let i = 0; i < problemScreens.length - 1; i += 1) {
+        problemSwitch
+          .to(problemScreens[i], {
+            autoAlpha: 0,
+            yPercent: -10,
+            scale: 1.03,
+            filter: 'blur(14px)',
+            duration: 0.65,
+            ease: 'power2.inOut',
+          })
+          .to(
+            problemScreens[i + 1],
+            {
+              autoAlpha: 1,
+              yPercent: 0,
+              scale: 1,
+              filter: 'blur(0px)',
+              duration: 0.65,
+              ease: 'power2.out',
+            },
+            '<0.18'
+          );
+      }
+
+      const titleBounce = gsap.to('.js-problem-title', {
+        y: -14,
+        duration: 1.4,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        paused: true,
+      });
+
+      ScrollTrigger.create({
+        trigger: '#problems',
+        start: 'top top',
+        end: () => `+=${window.innerHeight * 0.9}`,
+        onEnter: () => titleBounce.play(),
+        onLeave: () => titleBounce.pause(),
+        onEnterBack: () => titleBounce.play(),
+        onLeaveBack: () => titleBounce.pause(),
+      });
+
+      const howVisuals = gsap.utils.toArray('.js-how-visual');
+      const howProgressItems = gsap.utils.toArray('.js-how-progress-item');
+      const howProgressBar = document.querySelector('.js-how-progress-bar');
+      const howStepKicker = document.querySelector('.js-how-step-kicker');
+      const howStepTitle = document.querySelector('.js-how-step-title');
+      const howStepDesc = document.querySelector('.js-how-step-desc');
+      const howStepCopy = document.querySelector('.js-how-step-copy');
+
+      const howStepContent = [
+        {
+          kicker: 'Step 01',
+          title: 'Build your profile once',
+          desc: 'Add skills, course details, and your preferred internship path. InternMatch uses this to personalize everything else.',
+        },
+        {
+          kicker: 'Step 02',
+          title: 'Review relevant opportunities',
+          desc: 'Roles are ranked by compatibility, so you focus on internships that actually align with your course and growth goals.',
+        },
+        {
+          kicker: 'Step 03',
+          title: 'Apply fast and track everything',
+          desc: 'Submit applications quickly and monitor deadlines, responses, and interview stages from one personalized dashboard.',
+        },
+      ];
+
+      let activeHowIndex = -1;
+
+      gsap.set('.js-how-left', { opacity: 0, y: 26 });
+      gsap.set('.js-how-visual-wrap', { opacity: 0, y: 26 });
+
+      gsap.fromTo(
+        '.js-how-left',
+        { opacity: 0, y: 26 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#how-it-works',
+            start: 'top 72%',
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        '.js-how-visual-wrap',
+        { opacity: 0, y: 26 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#how-it-works',
+            start: 'top 68%',
+            once: true,
+          },
+        }
+      );
+
+      gsap.set(howVisuals, { autoAlpha: 0, x: 24 });
+      gsap.set(howVisuals[0], { autoAlpha: 1, x: 0 });
+
+      const setHowStep = (index) => {
+        if (index === activeHowIndex) return;
+        activeHowIndex = index;
+
+        howVisuals.forEach((visual, visualIndex) => {
+          gsap.to(visual, {
+            autoAlpha: visualIndex === index ? 1 : 0,
+            x: visualIndex === index ? 0 : visualIndex < index ? -24 : 24,
+            duration: 0.45,
+            ease: 'power2.out',
+            overwrite: true,
+          });
+        });
+
+        howProgressItems.forEach((item, itemIndex) => {
+          const active = itemIndex === index;
+          item.classList.toggle('border-primary/30', active);
+          item.classList.toggle('bg-white/80', active);
+          item.classList.toggle('text-secondary', active);
+          item.classList.toggle('border-gray-200', !active);
+          item.classList.toggle('bg-white/70', !active);
+          item.classList.toggle('text-gray-500', !active);
+        });
+
+        if (howProgressBar) {
+          howProgressBar.style.width = `${((index + 1) / howVisuals.length) * 100}%`;
+        }
+
+        if (howStepKicker && howStepTitle && howStepDesc && howStepCopy) {
+          const content = howStepContent[index];
+          gsap.to(howStepCopy, {
+            autoAlpha: 0,
+            y: 12,
+            duration: 0.16,
+            ease: 'power1.out',
+            onComplete: () => {
+              howStepKicker.textContent = content.kicker;
+              howStepTitle.textContent = content.title;
+              howStepDesc.textContent = content.desc;
+
+              gsap.to(howStepCopy, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.25,
+                ease: 'power2.out',
+              });
+            },
+          });
+        }
+      };
+
+      setHowStep(0);
+
+      ScrollTrigger.create({
+        trigger: '#how-it-works',
+        start: 'top top',
+        end: '+=220%',
+        pin: true,
+        scrub: 0.7,
+        anticipatePin: 1,
+        onUpdate: (self) => {
+          const index = Math.min(
+            howVisuals.length - 1,
+            Math.floor(self.progress * howVisuals.length)
+          );
+          setHowStep(index);
+        },
+      });
+
+      gsap.from('.js-how-step-copy', {
+        opacity: 0,
+        y: 26,
+        duration: 0.62,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#how-it-works',
+          start: 'top 62%',
+          once: true,
+        },
+      });
+
+      gsap.from('.js-features-title', {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#features',
+          start: 'top 75%',
+          toggleActions: 'play none none none',
+        },
+      });
+
+      gsap.from('.feature-card', {
+        opacity: 0,
+        y: 30,
+        duration: 0.65,
+        stagger: 0.12,
+        ease: 'power3.out',
+        immediateRender: false,
+        clearProps: 'opacity,transform',
+        scrollTrigger: {
+          trigger: '#features',
+          start: 'top 62%',
+          once: true,
+          toggleActions: 'play none none none',
+        },
+      });
+
+      gsap.from('.js-cta-content', {
+        opacity: 0,
+        y: 36,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#cta',
+          start: 'top 75%',
+          toggleActions: 'play none none none',
+        },
+      });
+
+      gsap.from('.js-footer-content', {
+        opacity: 0,
+        y: 24,
+        duration: 0.65,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#site-footer',
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    </script>
+  </body>
+</html>
