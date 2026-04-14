@@ -194,7 +194,7 @@
       </div>
 
       <div class="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
-        <div class="js-how-left lg:sticky lg:top-28 lg:h-fit">
+        <div class="js-how-left mb-6 lg:sticky lg:top-28 lg:mb-8 lg:h-fit">
           <p class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">How It Works</p>
           <h2 class="mt-4 max-w-md text-4xl font-bold leading-tight text-secondary sm:text-5xl">
             One profile. Better matches. Faster applications.
@@ -203,7 +203,7 @@
             Scroll through each stage to see how InternMatch adapts to you, surfaces relevant roles, and keeps your internship journey organized.
           </p>
 
-          <div class="mt-8 space-y-3">
+          <div class="mt-8 hidden space-y-3 md:block">
             <div data-how-progress="0" class="js-how-progress-item rounded-lg border border-primary/30 bg-white/80 px-4 py-3 text-sm font-semibold text-secondary">
               01 Create your profile
             </div>
@@ -215,15 +215,15 @@
             </div>
           </div>
 
-          <div class="mt-5 h-1.5 w-full max-w-md overflow-hidden rounded-full bg-gray-200/80">
+          <div class="mt-5 hidden h-1.5 w-full max-w-md overflow-hidden rounded-full bg-gray-200/80 md:block">
             <div class="js-how-progress-bar h-full w-1/3 rounded-full bg-primary transition-all duration-500"></div>
           </div>
         </div>
 
         <div class="relative">
-          <div class="js-how-visual-wrap lg:sticky lg:top-28">
-            <div class="relative h-[340px] overflow-hidden rounded-2xl border border-secondary/10 bg-white shadow-xl sm:h-[420px]">
-              <div data-how-visual="0" class="js-how-visual absolute inset-0">
+          <div class="js-how-visual-wrap mb-6 lg:sticky lg:top-28 lg:mb-8">
+            <div class="relative h-auto overflow-visible rounded-2xl border border-secondary/10 bg-white shadow-xl md:h-[420px] md:overflow-hidden">
+              <div data-how-visual="0" class="js-how-visual relative mb-4 md:absolute md:inset-0 md:mb-0">
                 <div class="h-full bg-gradient-to-br from-white via-primary/5 to-primary/15 p-6 sm:p-8">
                   <div class="rounded-xl border border-primary/20 bg-white p-4 shadow-sm">
                     <p class="text-xs font-semibold uppercase tracking-[0.12em] text-primary">Profile Setup</p>
@@ -243,7 +243,7 @@
                 </div>
               </div>
 
-              <div data-how-visual="1" class="js-how-visual absolute inset-0">
+              <div data-how-visual="1" class="js-how-visual relative mb-4 md:absolute md:inset-0 md:mb-0">
                 <div class="h-full bg-gradient-to-br from-secondary/90 via-secondary to-primary-700 p-6 text-white sm:p-8">
                   <p class="text-xs font-semibold uppercase tracking-[0.12em] text-accent">Match Feed</p>
                   <div class="mt-4 space-y-3">
@@ -263,7 +263,7 @@
                 </div>
               </div>
 
-              <div data-how-visual="2" class="js-how-visual absolute inset-0">
+              <div data-how-visual="2" class="js-how-visual relative md:absolute md:inset-0">
                 <div class="h-full bg-gradient-to-br from-accent/30 via-white to-primary/10 p-6 sm:p-8">
                   <div class="grid h-full grid-cols-1 gap-4 sm:grid-cols-2">
                     <div class="rounded-xl border border-secondary/10 bg-white p-4 shadow-sm sm:col-span-2">
@@ -286,7 +286,7 @@
             </div>
           </div>
 
-          <div class="mt-8 pb-4 lg:mt-10">
+          <div class="mt-8 hidden pb-4 md:block lg:mt-10">
             <article class="js-how-step-copy rounded-xl border border-white/60 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
               <p class="js-how-step-kicker text-xs font-semibold uppercase tracking-[0.12em] text-primary">Step 01</p>
               <h3 class="js-how-step-title mt-2 text-2xl font-semibold text-secondary">Build your profile once</h3>
@@ -297,143 +297,166 @@
       </div>
     </section>
 
-    <section id="features" class="px-8 py-16">
-      <div class="mx-auto max-w-7xl space-y-12">
-        <h2 class="js-features-title text-center text-3xl font-bold text-secondary">Features</h2>
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="feature-card space-y-4 rounded-xl border border-primary/20 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md sm:col-span-2 lg:col-span-2">
-            <p class="text-xs font-semibold uppercase tracking-[0.12em] text-primary">Top Feature</p>
-            <div class="flex items-start gap-4">
-              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M3 12h6l3-9 3 18 3-9h3" />
-              </svg>
+    <section id="features" class="relative min-h-screen overflow-hidden px-6 sm:px-8">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(15,118,110,0.16),transparent_42%),radial-gradient(circle_at_84%_78%,rgba(29,78,216,0.12),transparent_36%),linear-gradient(180deg,#f8fafc,#eef2ff_50%,#f8fafc)]"></div>
+
+      <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl items-center justify-center py-16">
+        <div class="grid w-full max-w-5xl grid-rows-[auto_auto_auto] gap-6 text-center">
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <p class="js-feature-chip js-feature-chip-top rounded-full border border-secondary/10 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary/80 sm:text-sm">Smart Matching</p>
+            <p class="js-feature-chip js-feature-chip-top rounded-full border border-secondary/10 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary/80 sm:text-sm">One-Click Apply</p>
+            <p class="js-feature-chip js-feature-chip-top rounded-full border border-secondary/10 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary/80 sm:text-sm">Verified Companies</p>
+          </div>
+
+          <h2 class="js-features-headline mx-auto max-w-4xl bg-gradient-to-r from-secondary via-primary-700 to-secondary bg-clip-text text-5xl font-extrabold leading-tight text-transparent opacity-90 sm:text-6xl lg:text-7xl">
+            Everything you need to land internships
+          </h2>
+
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <p class="js-feature-chip js-feature-chip-bottom rounded-full border border-secondary/10 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary/80 sm:text-sm">Course Filtering</p>
+            <p class="js-feature-chip js-feature-chip-bottom rounded-full border border-secondary/10 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary/80 sm:text-sm">Dashboard Tracking</p>
+            <p class="js-feature-chip js-feature-chip-bottom rounded-full border border-secondary/10 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary/80 sm:text-sm">Career Insights</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="benefits"
+      class="relative overflow-hidden px-8 py-20"
+    >
+      <div class="mx-auto max-w-7xl space-y-20">
+        <!-- Benefit 1: Save Time -->
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="js-benefit-text order-2 lg:order-1">
+            <h3 class="text-3xl font-bold text-secondary sm:text-4xl">Save Time</h3>
+            <p class="mt-4 text-lg text-gray-600">Stop wasting hours searching</p>
+            <p class="mt-2 text-base text-gray-500">Get matched with internships instead of applying endlessly.</p>
+          </div>
+          <div class="js-benefit-image order-1 lg:order-2 overflow-hidden rounded-2xl bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-8 shadow-lg">
+            <div class="space-y-4 rounded-lg border border-primary/20 bg-white p-6">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold text-secondary">Matches Found</p>
+                <span class="inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-semibold text-primary">12</span>
+              </div>
+              <div class="space-y-3">
+                <div class="rounded-lg border border-primary/10 bg-primary/5 p-3">
+                  <p class="text-sm font-medium text-secondary">Frontend Dev - TechCorp</p>
+                  <p class="mt-1 text-xs text-gray-500">95% match</p>
+                </div>
+                <div class="rounded-lg border border-primary/10 bg-primary/5 p-3">
+                  <p class="text-sm font-medium text-secondary">UX Designer - DesignCo</p>
+                  <p class="mt-1 text-xs text-gray-500">92% match</p>
+                </div>
+                <div class="rounded-lg border border-primary/10 bg-primary/5 p-3">
+                  <p class="text-sm font-medium text-secondary">Data Analyst - InsightWorks</p>
+                  <p class="mt-1 text-xs text-gray-500">88% match</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefit 2: Better Opportunities -->
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="js-benefit-image overflow-hidden rounded-2xl bg-gradient-to-br from-accent/15 via-accent/5 to-transparent p-8 shadow-lg">
+            <div class="space-y-3 rounded-lg border border-accent/20 bg-white p-6">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-accent">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
+                  </svg>
+                </div>
+                <span class="text-sm font-semibold text-secondary">Relevant Roles Only</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </div>
+                <span class="text-sm font-semibold text-secondary">Trending Growth</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16z"/><path d="M12 6v6l4 2"/>
+                  </svg>
+                </div>
+                <span class="text-sm font-semibold text-secondary">Instant Matches</span>
+              </div>
+            </div>
+          </div>
+          <div class="js-benefit-text">
+            <h3 class="text-3xl font-bold text-secondary sm:text-4xl">Better Opportunities</h3>
+            <p class="mt-4 text-lg text-gray-600">Find internships that actually fit you</p>
+            <p class="mt-2 text-base text-gray-500">No more guessing—only relevant opportunities.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 3: Less Stress -->
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="js-benefit-text order-2 lg:order-1">
+            <h3 class="text-3xl font-bold text-secondary sm:text-4xl">Less Stress</h3>
+            <p class="mt-4 text-lg text-gray-600">Simplify your entire process</p>
+            <p class="mt-2 text-base text-gray-500">Everything you need in one place.</p>
+          </div>
+          <div class="js-benefit-image order-1 lg:order-2 overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent p-8 shadow-lg">
+            <div class="space-y-3 rounded-lg border border-secondary/10 bg-white p-6">
+              <div class="flex items-center justify-between">
+                <p class="text-sm font-semibold text-secondary">Dashboard</p>
+                <div class="h-2 w-2 rounded-full bg-green-500"></div>
               </div>
               <div class="space-y-2">
-                <h3 class="text-lg font-semibold text-secondary">Smart Matching</h3>
-                <p class="text-sm text-gray-600">Get opportunities ranked by your skills, interests, and profile strength.</p>
+                <div class="flex items-center gap-2 rounded bg-gray-50 p-2">
+                  <div class="h-3 w-3 rounded-full bg-primary/40"></div>
+                  <div class="text-xs text-gray-600">Applications: 5</div>
+                </div>
+                <div class="flex items-center gap-2 rounded bg-gray-50 p-2">
+                  <div class="h-3 w-3 rounded-full bg-accent/40"></div>
+                  <div class="text-xs text-gray-600">Interviews: 2</div>
+                </div>
+                <div class="flex items-center gap-2 rounded bg-gray-50 p-2">
+                  <div class="h-3 w-3 rounded-full bg-secondary/40"></div>
+                  <div class="text-xs text-gray-600">Offers: 1</div>
+                </div>
+              </div>
+              <div class="mt-3 border-t pt-3">
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-[0.08em]">Next Deadline</p>
+                <p class="mt-1 text-sm font-semibold text-secondary">Apr 20, 2026</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
-            <div class="flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-500">
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M22 2 11 13" />
-                <path d="m22 2-7 20-4-9-9-4Z" />
-              </svg>
+        <!-- Benefit 4: Higher Chances -->
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="js-benefit-image overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-8 shadow-lg">
+            <div class="space-y-4 rounded-lg border border-primary/15 bg-white p-6">
+              <div class="text-center">
+                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-primary">Success Rate</p>
+                <p class="mt-3 text-4xl font-bold text-secondary">78%</p>
+                <p class="mt-1 text-sm text-gray-600">Higher callback rate vs traditional methods</p>
               </div>
-              <h3 class="text-lg font-semibold text-secondary">One-Click Applications</h3>
-            </div>
-            <p class="text-sm text-gray-600">Apply to matched internships instantly using your saved profile.</p>
-          </div>
-
-          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/10 text-secondary">
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
-                <path d="M7 8h4" />
-                <path d="M7 12h6" />
-                <path d="m15.5 14 2 2 3-3" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-secondary">Verified Companies</h3>
-            <p class="text-sm text-gray-600">View only vetted employers with trusted company information.</p>
-          </div>
-
-          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
-            <div class="flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-500">
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M3 6h18" />
-                <path d="M6 12h12" />
-                <path d="M10 18h4" />
-              </svg>
+              <div class="h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                <div class="h-full w-3/4 rounded-full bg-gradient-to-r from-primary to-primary-550"></div>
               </div>
-              <h3 class="text-lg font-semibold text-secondary">Course-Based Filtering</h3>
-            </div>
-            <p class="text-sm text-gray-600">Filter internships by your course to surface the most relevant roles first.</p>
-          </div>
-
-          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md sm:col-span-2 lg:col-span-2">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary">
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-secondary">Personalized Dashboard</h3>
-            <p class="text-sm text-gray-600">Track applications, deadlines, and recommendations from one custom view.</p>
-          </div>
-
-          <div class="feature-card space-y-4 rounded-xl bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-md">
-            <div class="flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-500">
-                <svg
-                  class="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M3 3v18h18" />
-                  <path d="m7 14 4-4 3 3 4-6" />
-                </svg>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="rounded bg-primary/5 p-2 text-center">
+                  <p class="text-xs text-gray-600">Avg Time to Offer</p>
+                  <p class="mt-1 font-semibold text-secondary">14 days</p>
+                </div>
+                <div class="rounded bg-secondary/5 p-2 text-center">
+                  <p class="text-xs text-gray-600">Match Accuracy</p>
+                  <p class="mt-1 font-semibold text-secondary">96%</p>
+                </div>
               </div>
-              <h3 class="text-lg font-semibold text-secondary">Career Insights</h3>
             </div>
-            <p class="text-sm text-gray-600">See trending roles, in-demand skills, and guidance to improve your internship outcomes.</p>
+          </div>
+          <div class="js-benefit-text">
+            <h3 class="text-3xl font-bold text-secondary sm:text-4xl">Higher Chances</h3>
+            <p class="mt-4 text-lg text-gray-600">Increase your chances of getting hired</p>
+            <p class="mt-2 text-base text-gray-500">Apply smarter, not harder.</p>
           </div>
         </div>
       </div>
@@ -446,27 +469,100 @@
     >
       <div class="absolute inset-0 bg-secondary/85"></div>
       <div class="js-cta-content relative z-10 mx-auto max-w-4xl space-y-6 text-center">
-        <h2 class="text-3xl font-bold text-white">Ready to land your internship?</h2>
+        <h2 class="text-3xl font-bold text-white">
+          Find opportunities tailored to your skills and apply in minutes.
+
+        </h2>
         <a
           href="/accounts/signup/"
           class="inline-block w-full rounded-lg bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary-550 hover:shadow-md sm:w-auto"
         >
-          Create Account
+          Get Started
         </a>
       </div>
     </section>
 
-    <footer id="site-footer" class="bg-white px-8 py-16">
-      <div class="js-footer-content mx-auto max-w-7xl space-y-6">
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p class="text-lg font-bold text-secondary">InternMatch</p>
-          <div class="flex flex-wrap gap-4">
-            <a href="/" class="text-sm font-medium text-secondary">Home</a>
-            <a href="/accounts/login/" class="text-sm font-medium text-secondary">Login</a>
-            <a href="/accounts/signup/" class="text-sm font-medium text-secondary">Sign Up</a>
+    <footer id="site-footer" class="border-t border-gray-200/60 bg-white px-8 py-16 sm:py-20">
+      <div class="js-footer-content mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <!-- Brand Column -->
+          <div class="lg:col-span-1">
+            <h2 class="text-lg font-bold text-secondary">InternMatch</h2>
+            <p class="mt-2 text-sm text-gray-600">Find internships that match your journey.</p>
+            <div class="mt-6 flex gap-4">
+              <a href="#" class="text-gray-500 transition hover:text-primary" aria-label="Twitter">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.29 20c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-7.006 3.74 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-500 transition hover:text-primary" aria-label="LinkedIn">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-500 transition hover:text-primary" aria-label="GitHub">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.603-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.547 2.914 1.186.092-.923.35-1.546.636-1.903-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Links -->
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.1em] text-secondary">Product</h3>
+            <ul class="mt-4 space-y-3">
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Features</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Pricing</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Security</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">API</a></li>
+            </ul>
+          </div>
+
+          <!-- Company Links -->
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.1em] text-secondary">Company</h3>
+            <ul class="mt-4 space-y-3">
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">About</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Blog</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Careers</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Press</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Links -->
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.1em] text-secondary">Resources</h3>
+            <ul class="mt-4 space-y-3">
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Documentation</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Guides</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Help Center</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Community</a></li>
+            </ul>
+          </div>
+
+          <!-- Legal Links -->
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.1em] text-secondary">Legal</h3>
+            <ul class="mt-4 space-y-3">
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Privacy</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Terms</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Cookies</a></li>
+              <li><a href="#" class="text-sm text-gray-600 transition hover:text-primary">Contact</a></li>
+            </ul>
           </div>
         </div>
-        <p class="text-sm text-gray-600">&copy; 2026 InternMatch. All rights reserved.</p>
+
+        <!-- Footer Bottom -->
+        <div class="mt-12 border-t border-gray-200/60 pt-8">
+          <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p class="text-xs text-gray-500">&copy; 2026 InternMatch. All rights reserved.</p>
+            <div class="flex gap-6">
+              <a href="#" class="text-xs text-gray-500 transition hover:text-primary">Status</a>
+              <a href="#" class="text-xs text-gray-500 transition hover:text-primary">Sitemap</a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
 
@@ -627,45 +723,54 @@
         },
       ];
 
+      const isHowSectionMobile = window.matchMedia('(max-width: 767px)').matches;
+
       let activeHowIndex = -1;
 
-      gsap.set('.js-how-left', { opacity: 0, y: 26 });
-      gsap.set('.js-how-visual-wrap', { opacity: 0, y: 26 });
+      if (!isHowSectionMobile) {
+        gsap.set('.js-how-left', { opacity: 0, y: 26 });
+        gsap.set('.js-how-visual-wrap', { opacity: 0, y: 26 });
 
-      gsap.fromTo(
-        '.js-how-left',
-        { opacity: 0, y: 26 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '#how-it-works',
-            start: 'top 72%',
-            once: true,
-          },
-        }
-      );
+        gsap.fromTo(
+          '.js-how-left',
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '#how-it-works',
+              start: 'top 72%',
+              once: true,
+            },
+          }
+        );
 
-      gsap.fromTo(
-        '.js-how-visual-wrap',
-        { opacity: 0, y: 26 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '#how-it-works',
-            start: 'top 68%',
-            once: true,
-          },
-        }
-      );
+        gsap.fromTo(
+          '.js-how-visual-wrap',
+          { opacity: 0, y: 26 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '#how-it-works',
+              start: 'top 68%',
+              once: true,
+            },
+          }
+        );
 
-      gsap.set(howVisuals, { autoAlpha: 0, x: 24 });
-      gsap.set(howVisuals[0], { autoAlpha: 1, x: 0 });
+        gsap.set(howVisuals, { autoAlpha: 0, x: 24 });
+        gsap.set(howVisuals[0], { autoAlpha: 1, x: 0 });
+      } else {
+        gsap.set('.js-how-left', { opacity: 1, y: 0 });
+        gsap.set('.js-how-visual-wrap', { opacity: 1, y: 0 });
+        gsap.set('.js-how-step-copy', { opacity: 1, y: 0 });
+        gsap.set(howVisuals, { autoAlpha: 1, x: 0 });
+      }
 
       const setHowStep = (index) => {
         if (index === activeHowIndex) return;
@@ -718,62 +823,135 @@
         }
       };
 
-      setHowStep(0);
+      if (!isHowSectionMobile) {
+        setHowStep(0);
 
-      ScrollTrigger.create({
-        trigger: '#how-it-works',
-        start: 'top top',
-        end: '+=220%',
-        pin: true,
-        scrub: 0.7,
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          const index = Math.min(
-            howVisuals.length - 1,
-            Math.floor(self.progress * howVisuals.length)
-          );
-          setHowStep(index);
-        },
-      });
-
-      gsap.from('.js-how-step-copy', {
-        opacity: 0,
-        y: 26,
-        duration: 0.62,
-        ease: 'power3.out',
-        scrollTrigger: {
+        ScrollTrigger.create({
           trigger: '#how-it-works',
-          start: 'top 62%',
-          once: true,
+          start: 'top top',
+          end: '+=220%',
+          pin: true,
+          scrub: 0.7,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const index = Math.min(
+              howVisuals.length - 1,
+              Math.floor(self.progress * howVisuals.length)
+            );
+            setHowStep(index);
+          },
+        });
+
+        gsap.from('.js-how-step-copy', {
+          opacity: 0,
+          y: 26,
+          duration: 0.62,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#how-it-works',
+            start: 'top 62%',
+            once: true,
+          },
+        });
+      }
+
+      const featureChipsTop = gsap.utils.toArray('.js-feature-chip-top');
+      const featureChipsBottom = gsap.utils.toArray('.js-feature-chip-bottom');
+      const featureChips = [...featureChipsTop, ...featureChipsBottom];
+      const featureHeadline = document.querySelector('.js-features-headline');
+
+      const setFeatureExplosionOrigin = () => {
+        if (!featureHeadline || featureChips.length === 0) return;
+
+        const headlineRect = featureHeadline.getBoundingClientRect();
+        const headlineCenterX = headlineRect.left + headlineRect.width / 2;
+        const headlineCenterY = headlineRect.top + headlineRect.height / 2;
+
+        featureChips.forEach((chip) => {
+          const chipRect = chip.getBoundingClientRect();
+          const chipCenterX = chipRect.left + chipRect.width / 2;
+          const chipCenterY = chipRect.top + chipRect.height / 2;
+
+          gsap.set(chip, {
+            autoAlpha: 0,
+            x: headlineCenterX - chipCenterX,
+            y: headlineCenterY - chipCenterY,
+            scale: 0.35,
+            filter: 'blur(8px)',
+          });
+        });
+      };
+
+      setFeatureExplosionOrigin();
+      ScrollTrigger.addEventListener('refreshInit', setFeatureExplosionOrigin);
+
+      const featureReveal = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#features',
+          start: 'top top',
+          end: '+=230%',
+          pin: true,
+          scrub: 0.9,
+          anticipatePin: 1,
         },
       });
 
-      gsap.from('.js-features-title', {
-        opacity: 0,
-        y: 30,
-        duration: 0.7,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '#features',
-          start: 'top 75%',
-          toggleActions: 'play none none none',
-        },
+      featureReveal
+        .to('.js-features-headline', {
+          opacity: 1,
+          duration: 0.35,
+          ease: 'power1.out',
+        })
+        .to(
+          featureChips,
+          {
+            autoAlpha: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            duration: 0.72,
+            stagger: {
+              each: 0.08,
+              from: 'center',
+            },
+            ease: 'power3.out',
+          },
+          0.12
+        )
+        .to({}, { duration: 1.1 });
+
+      const benefitTexts = gsap.utils.toArray('.js-benefit-text');
+      const benefitImages = gsap.utils.toArray('.js-benefit-image');
+
+      benefitTexts.forEach((text, index) => {
+        const isLeftSide = index % 2 === 0;
+        gsap.from(text, {
+          opacity: 0,
+          x: isLeftSide ? -40 : 40,
+          duration: 0.65,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: text,
+            start: 'top 70%',
+            once: true,
+          },
+        });
       });
 
-      gsap.from('.feature-card', {
-        opacity: 0,
-        y: 30,
-        duration: 0.65,
-        stagger: 0.12,
-        ease: 'power3.out',
-        immediateRender: false,
-        clearProps: 'opacity,transform',
-        scrollTrigger: {
-          trigger: '#features',
-          start: 'top 62%',
-          once: true,
-          toggleActions: 'play none none none',
-        },
+      benefitImages.forEach((image, index) => {
+        const isLeftSide = index % 2 === 0;
+        gsap.from(image, {
+          opacity: 0,
+          x: isLeftSide ? 40 : -40,
+          duration: 0.65,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: image,
+            start: 'top 70%',
+            once: true,
+          },
+        });
       });
 
       gsap.from('.js-cta-content', {
@@ -791,6 +969,17 @@
       gsap.from('.js-footer-content', {
         opacity: 0,
         y: 24,
+        duration: 0.65,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#site-footer',
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+
+      gsap.from('#site-footer > div > div', {
+        opacity: 0,
         duration: 0.65,
         ease: 'power3.out',
         scrollTrigger: {
