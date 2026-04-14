@@ -33,31 +33,85 @@
       .js-hero-title .js-hero-word {
         display: inline-block;
       }
+
+      .js-mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .js-mobile-menu.is-open {
+        max-height: 500px;
+      }
+
+      .js-hamburger.is-open span:nth-child(1) {
+        transform: rotate(45deg) translateY(12px);
+      }
+
+      .js-hamburger.is-open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .js-hamburger.is-open span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-12px);
+      }
+
+      .js-hamburger span {
+        transition: all 0.3s ease;
+      }
     </style>
   </head>
   <body class="min-h-screen bg-tertiary text-secondary antialiased">
     <nav id="site-nav" class="fixed left-0 right-0 top-0 z-50">
       <div id="site-nav-shell" class="mx-auto bg-white/95 backdrop-blur">
-      <div class="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-8 py-4">
-        <a href="/" class="js-nav-logo text-xl font-bold text-secondary">InternMatch</a>
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-8 py-4">
+          <a href="/" class="js-nav-logo text-xl font-bold text-secondary">InternMatch</a>
 
-        <div class="js-nav-links flex items-center justify-center gap-6">
-          <a href="/" class="text-sm font-medium text-secondary">Home</a>
-          <a href="/companies/" class="text-sm font-medium text-secondary">Companies</a>
-          <a href="#how-it-works" class="text-sm font-medium text-secondary">How It Works</a>
-          <a href="#features" class="text-sm font-medium text-secondary">Features</a>
+          <!-- Desktop Navigation -->
+          <div class="js-nav-links hidden items-center justify-center gap-6 sm:flex">
+            <a href="/" class="text-sm font-medium text-secondary">Home</a>
+            <a href="/companies/" class="text-sm font-medium text-secondary">Companies</a>
+            <a href="#how-it-works" class="text-sm font-medium text-secondary">How It Works</a>
+            <a href="#features" class="text-sm font-medium text-secondary">Features</a>
+          </div>
+
+          <!-- Desktop Auth -->
+          <div class="js-nav-auth hidden items-center gap-4 sm:flex">
+            <a href="/accounts/login.html" class="text-sm font-medium text-secondary">Login</a>
+            <a
+              href="/accounts/signup.html"
+              class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-550 hover:shadow-sm"
+            >
+              Sign Up
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <button class="js-hamburger sm:hidden flex flex-col gap-1.5" aria-label="Toggle menu">
+            <span class="block h-0.5 w-6 bg-secondary"></span>
+            <span class="block h-0.5 w-6 bg-secondary"></span>
+            <span class="block h-0.5 w-6 bg-secondary"></span>
+          </button>
         </div>
 
-        <div class="js-nav-auth flex items-center gap-4">
-          <a href="/accounts/login.html" class="text-sm font-medium text-secondary">Login</a>
-          <a
-            href="/accounts/signup.html"
-            class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-550 hover:shadow-sm"
-          >
-            Sign Up
-          </a>
+        <!-- Mobile Menu -->
+        <div class="js-mobile-menu border-t border-gray-200/60 bg-white sm:hidden">
+          <div class="mx-auto max-w-7xl space-y-3 px-8 py-4">
+            <a href="/" class="block text-sm font-medium text-secondary hover:text-primary">Home</a>
+            <a href="/companies/" class="block text-sm font-medium text-secondary hover:text-primary">Companies</a>
+            <a href="#how-it-works" class="block text-sm font-medium text-secondary hover:text-primary">How It Works</a>
+            <a href="#features" class="block text-sm font-medium text-secondary hover:text-primary">Features</a>
+            <div class="space-y-2 border-t border-gray-200/60 pt-3">
+              <a href="/accounts/login.html" class="block text-sm font-medium text-secondary hover:text-primary">Login</a>
+              <a
+                href="/accounts/signup.html"
+                class="block w-full rounded-lg bg-primary px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-primary-550"
+              >
+                Sign Up
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     </nav>
 
@@ -621,6 +675,26 @@
 
       updateNavState();
       window.addEventListener('scroll', updateNavState, { passive: true });
+
+      // Mobile Menu Toggle
+      const hamburger = document.querySelector('.js-hamburger');
+      const mobileMenu = document.querySelector('.js-mobile-menu');
+      const mobileLinks = document.querySelectorAll('.js-mobile-menu a');
+
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('is-open');
+          mobileMenu.classList.toggle('is-open');
+        });
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('is-open');
+            mobileMenu.classList.remove('is-open');
+          });
+        });
+      }
 
       const problemScreens = gsap.utils.toArray('.js-problem-screen');
 
