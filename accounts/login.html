@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Itmatch - Login</title>
-    <link rel="stylesheet" href="../assets/tailwind.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
     <style>
       input[type='password']::-ms-reveal,
       input[type='password']::-ms-clear {
@@ -18,14 +18,14 @@
       }
     </style>
   </head>
-  <body class="m-0 min-h-screen font-sans antialiased">
-    <div class="min-h-screen bg-tertiary lg:flex">
+  <body class="m-0 min-h-screen bg-tertiary-50 font-sans text-base leading-relaxed tracking-normal text-secondary-700 antialiased">
+    <div class="min-h-screen bg-tertiary-50 lg:flex">
       <section
         class="relative hidden overflow-hidden lg:flex lg:w-2/5 lg:flex-col lg:justify-center lg:px-12 lg:py-10"
         style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center;"
       >
         <div class="absolute inset-0 bg-secondary/80"></div>
-        <div class="relative z-10 mb-10 text-lg font-semibold tracking-[0.2em] text-white">ITMATCH</div>
+        <div class="relative z-10 mb-10 text-lg font-semibold tracking-[0.2em] text-white"><a href="../templates/home.html" class="text-accent-200 transition-colors duration-200 hover:text-white">ITMATCH</a></div>
         <div class="relative z-10 max-w-md space-y-6 text-white">
           <h1 class="text-4xl font-bold leading-tight">Welcome Back to ITMATCH</h1>
           <p class="text-base leading-7">
@@ -35,10 +35,10 @@
       </section>
 
       <section class="flex min-h-screen w-full items-center justify-center px-4 py-10 sm:px-6 lg:w-3/5 lg:px-8">
-        <div class="w-full max-w-[420px] rounded-2xl bg-white p-8 shadow-md">
+        <div class="w-full max-w-[420px] rounded-2xl border border-accent-300 bg-tertiary-100 p-8 shadow-md">
           <form id="login-form" class="space-y-6" novalidate>
             <div class="space-y-6">
-              <h2 class="text-3xl font-bold text-secondary">Log in to your account</h2>
+              <h2 class="text-2xl font-bold leading-tight text-secondary-800 md:text-3xl">Log in to your account</h2>
             </div>
 
             <div class="space-y-4">
@@ -47,7 +47,7 @@
                   name="email"
                   type="email"
                   placeholder="Email"
-                  class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-secondary outline-none transition focus:border-primary focus:ring-[3px] focus:ring-accent"
+                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 placeholder-tertiary-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
                 />
 
                 <div class="relative">
@@ -56,11 +56,11 @@
                     name="password"
                     type="password"
                     placeholder="Password"
-                    class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 pr-12 text-secondary outline-none transition focus:border-primary focus:ring-[3px] focus:ring-accent"
+                    class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 pr-12 text-secondary-800 placeholder-tertiary-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
                   />
                   <button
                     type="button"
-                    class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-secondary transition hover:opacity-75"
+                    class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-secondary-600 transition hover:text-primary"
                     data-target="password"
                     aria-label="Show password"
                     aria-pressed="false"
@@ -84,17 +84,17 @@
                 id="submit-button"
                 type="submit"
                 disabled
-                class="w-full rounded-lg bg-primary py-3 font-semibold text-white transition hover:bg-primary-550 disabled:cursor-not-allowed disabled:opacity-50"
+                class="w-full rounded-lg bg-primary py-3 text-sm font-medium text-white transition hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-tertiary-600"
               >
                 Log In
               </button>
 
               <div class="space-y-3">
-                <p class="text-center text-sm text-gray-500">Or sign in with</p>
+                <p class="text-center text-sm leading-relaxed text-tertiary-600">Or sign in with</p>
                 <div class="grid grid-cols-3 gap-3">
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-secondary transition hover:border-primary"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 text-sm font-medium text-secondary-700 transition hover:bg-accent-150 focus:outline-none focus:ring-2 focus:ring-primary-300"
                     aria-label="Sign in with Google"
                   >
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -106,7 +106,7 @@
 
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-secondary transition hover:border-primary"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 text-sm font-medium text-secondary-700 transition hover:bg-accent-150 focus:outline-none focus:ring-2 focus:ring-primary-300"
                     aria-label="Sign in with Facebook"
                   >
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -117,7 +117,7 @@
 
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-secondary transition hover:border-primary"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 text-sm font-medium text-secondary-700 transition hover:bg-accent-150 focus:outline-none focus:ring-2 focus:ring-primary-300"
                     aria-label="Sign in with X"
                   >
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -128,9 +128,9 @@
                 </div>
               </div>
 
-              <p class="text-center text-sm text-gray-500">
+              <p class="text-center text-sm leading-relaxed text-tertiary-600">
                 Don&#39;t have an account?
-                <a href="./signup.html" class="font-medium text-primary">Sign up</a>
+                <a href="./signup.html" class="font-medium text-primary no-underline transition-colors duration-200 hover:text-primary-700 hover:underline active:text-primary-800 visited:text-secondary-600">Sign up</a>
               </p>
             </div>
           </form>

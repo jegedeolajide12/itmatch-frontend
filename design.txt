@@ -1,0 +1,204 @@
+Buttons & Actions
+Primary button = bg-primary text-white hover:bg-primary-700 focus:ring-primary-300
+
+Primary button hover = hover:bg-primary-700 (added to above)
+
+Primary button text = text-white
+
+Secondary button = bg-secondary text-white hover:bg-secondary-700 focus:ring-secondary-300
+
+Secondary button hover = hover:bg-secondary-700
+
+Secondary button text = text-white
+
+Accent button = bg-accent text-secondary-900 hover:bg-accent-700 focus:ring-accent-300
+
+Accent button hover = hover:bg-accent-700
+
+Accent button text = text-secondary-900
+
+Disabled button = bg-primary-300 text-tertiary-600 cursor-not-allowed
+
+Links
+Link = text-primary hover:text-primary-700 active:text-primary-800 visited:text-secondary-600
+
+Link hover = hover:text-primary-700
+
+Link active = active:text-primary-800
+
+Link visited = visited:text-secondary-600
+
+Backgrounds
+Body background = bg-tertiary-50
+
+Card background = bg-tertiary-100
+
+Navbar background = bg-secondary
+
+Footer background = bg-primary-800
+
+Sidebar background = bg-tertiary-200
+
+Text
+Headings (h1–h6) = text-secondary-800
+
+Body text = text-secondary-700
+
+Muted / secondary text = text-tertiary-600
+
+Light text on dark backgrounds = text-white
+
+Link text within dark backgrounds = text-accent-200
+
+Borders & Dividers
+Card border = border border-accent-300
+
+Input border = border border-secondary-200
+
+Divider line = border-t border-tertiary-400
+
+Table border = border border-secondary-150
+
+Forms & Inputs
+Input background = bg-white or bg-tertiary-50
+
+Input focus border = focus:border-primary
+
+Input focus ring = focus:ring-2 focus:ring-primary-300
+
+Input placeholder text = placeholder-tertiary-500
+
+Label text = text-secondary-600
+
+Checkbox/radio accent = accent-primary
+
+Badges & Tags
+Badge (info) = bg-accent-100 text-secondary-800
+
+Badge (success-like) = bg-primary-200 text-secondary-900
+
+Badge (neutral) = bg-tertiary-300 text-secondary-700
+
+Alerts & Messages
+Info alert = bg-accent-50 border border-accent-500 text-secondary-800
+
+Warning alert = bg-secondary-100 text-white
+
+Cards & Containers
+Card shadow = shadow-md (customize to shadow-[0_4px_6px_-1px_rgba(2,43,58,0.1)] if needed)
+
+Card hover border = hover:border-primary-250
+
+Card header background = bg-tertiary-150
+
+Navigation & Tabs
+Active nav link = bg-primary-50 text-white
+
+Inactive nav link on dark = text-tertiary-400
+
+Inactive nav link on light = text-secondary-500
+
+Active tab border bottom = border-b-2 border-primary
+
+Hover & Focus States
+Card hover background = hover:bg-tertiary-50
+
+List item hover background = hover:bg-accent-150
+
+Focus outline = focus:outline-none focus:ring-2 focus:ring-primary-300
+
+Miscellaneous
+Code block background = bg-secondary-800
+
+Code block text = text-accent-100
+
+Tooltip background = bg-secondary-700
+
+Tooltip text = text-white
+
+Typography (Tailwind Classes)
+Font Family
+Body & headings = font-sans (configure Inter as default sans)
+
+Monospace = font-mono (configure Fira Code etc.)
+
+Font Weights
+Light = font-light
+
+Regular = font-normal
+
+Medium = font-medium
+
+Semibold = font-semibold
+
+Bold = font-bold
+
+Base Body Text
+Body = text-base leading-relaxed tracking-normal text-secondary-700
+
+Heading Styles
+h1 = text-4xl font-bold leading-tight text-secondary-800 (mobile: text-3xl md:text-4xl)
+
+h2 = text-3xl font-bold leading-tight text-secondary-800 (mobile: text-2xl md:text-3xl)
+
+h3 = text-2xl font-semibold leading-snug text-secondary-800
+
+h4 = text-xl font-semibold leading-snug text-secondary-700
+
+h5 = text-lg font-medium leading-normal text-secondary-700
+
+h6 = text-base font-semibold leading-normal text-secondary-600
+
+Small & Fine Print
+Small text = text-sm leading-relaxed text-secondary-600
+
+Extra small = text-xs leading-tight tracking-wide text-secondary-500
+
+Links (Typography)
+Link style = font-medium no-underline hover:underline transition-colors duration-200
+
+Buttons & Form Labels (Typography)
+Button font = font-medium text-sm md:text-base (add uppercase only if needed)
+
+Label font = font-medium text-sm text-secondary-600
+
+Input text = font-normal text-base leading-relaxed text-secondary-800
+
+Blockquotes
+Blockquote = italic text-xl leading-relaxed border-l-4 border-primary pl-6 text-secondary-600
+
+Lists
+Unordered list = list-disc pl-6 mb-4 space-y-1
+
+Ordered list = list-decimal pl-6 mb-4 space-y-1
+
+List item spacing = space-y-1 on parent
+
+Code & Preformatted
+Inline code = bg-tertiary-200 px-1.5 py-0.5 rounded text-sm font-mono
+
+Code block = bg-secondary-800 text-accent-100 p-4 rounded-lg text-sm font-mono leading-relaxed overflow-auto
+
+Responsive Typography
+Mobile h1 = text-3xl md:text-4xl
+
+Mobile h2 = text-2xl md:text-3xl
+
+Mobile body = text-base (already default)
+
+Desktop h1 = md:text-4xl or lg:text-5xl if desired (override above)
+
+Main content container = container mx-auto px-4 sm:px-6 lg:px-8
+
+container applies responsive max-widths (default: 640px, 768px, 1024px, 1280px, 1536px)
+
+mx-auto centers it horizontally
+
+px-4 gives horizontal padding on mobile, increases on tablet/desktop
+
+Alternative: Custom Max-Width (more control)
+Wide container = max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 (common for marketing sites)
+
+Narrow container (reading content) = max-w-3xl mx-auto px-4 (for blog posts, docs)
+
+Full-bleed sections = w-full with inner container for constrained content
