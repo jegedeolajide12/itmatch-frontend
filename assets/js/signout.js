@@ -1,3 +1,5 @@
+import { showToast } from './toast.js';
+
 const modal = document.getElementById('signout-modal');
 const openButton = document.getElementById('open-signout-modal');
 const cancelButton = document.getElementById('cancel-signout');
@@ -13,8 +15,15 @@ function closeModal() {
   modal.classList.add('hidden');
 }
 
-openButton.addEventListener('click', openModal);
-cancelButton.addEventListener('click', closeModal);
+openButton.addEventListener('click', () => {
+  openModal();
+  showToast('Please confirm if you want to sign out.');
+});
+
+cancelButton.addEventListener('click', () => {
+  closeModal();
+  showToast('Sign out cancelled.', { type: 'info' });
+});
 
 modal.addEventListener('click', (event) => {
   if (event.target === modal) {
@@ -29,5 +38,9 @@ window.addEventListener('keydown', (event) => {
 });
 
 confirmButton.addEventListener('click', () => {
-  window.location.href = './login.html';
+  closeModal();
+  showToast('Signed out successfully.', { type: 'success' });
+  window.setTimeout(() => {
+    window.location.href = './login.html';
+  }, 850);
 });

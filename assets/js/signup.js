@@ -1,3 +1,5 @@
+import { showToast } from './toast.js';
+
 const form = document.getElementById('signup-form');
 const submitButton = document.getElementById('submit-button');
 const roleButtons = Array.from(document.querySelectorAll('.role-button'));
@@ -15,11 +17,11 @@ function setRole(role) {
     button.setAttribute('aria-pressed', String(isSelected));
 
         if (isSelected) {
-          button.classList.remove('border-gray-300', 'bg-transparent', 'text-secondary');
+          button.classList.remove('border-secondary-200', 'bg-tertiary-50', 'text-secondary-500');
           button.classList.add('border-primary', 'bg-primary', 'text-white');
     } else {
           button.classList.remove('border-primary', 'bg-primary', 'text-white');
-          button.classList.add('border-gray-300', 'bg-transparent', 'text-secondary');
+          button.classList.add('border-secondary-200', 'bg-tertiary-50', 'text-secondary-500');
     }
   });
 
@@ -114,7 +116,15 @@ form.addEventListener('submit', (event) => {
   if (!isFormValid()) {
     event.preventDefault();
     updateSubmitState();
+    showToast('Please complete all fields and confirm matching passwords.', { type: 'error' });
+    return;
   }
+
+  event.preventDefault();
+  showToast('Account created. Redirecting to login...', { type: 'success' });
+  window.setTimeout(() => {
+    window.location.href = './login.html';
+  }, 1000);
 });
 
 setRole('student');

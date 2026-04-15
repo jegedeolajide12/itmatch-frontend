@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Match Detail - InternMatch</title>
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body class="match-detail-page min-h-screen bg-tertiary-50 font-sans text-secondary-700">
+    <!-- Dashboard Navbar -->
+    <nav class="dashboard-nav">
+      <div class="navbar-container mx-auto">
+        <!-- Logo & Title -->
+        <div class="navbar-logo">
+          <div class="logo-icon">IM</div>
+          <h1 class="logo-text">InternMatch</h1>
+        </div>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search internships..."
+              class="search-input"
+            />
+          </div>
+        </div>
+
+        <div class="navbar-actions">
+          <!-- Notifications -->
+          <button class="icon-btn notification-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+
+          <!-- Messages -->
+          <button class="icon-btn" aria-label="Messages">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+
+          <!-- Settings -->
+          <button class="icon-btn" aria-label="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
+            </svg>
+          </button>
+
+          <!-- User Profile Dropdown -->
+          <div class="profile-dropdown">
+            <button class="profile-btn js-profile-btn" aria-label="User menu" aria-expanded="false">
+              <div class="profile-info">
+                <div class="profile-text">
+                  <p class="profile-name">Jegede Olajide</p>
+                  <p class="profile-role">Student</p>
+                </div>
+              </div>
+              <div class="profile-avatar">
+                <img
+                  class="avatar-image"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                  alt="Alex Dev profile photo"
+                />
+              </div>
+              <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <!-- Profile Dropdown Menu -->
+            <div class="dropdown-menu js-dropdown-menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-link">My Profile</a>
+                <a href="#" class="dropdown-link">Settings</a>
+                <a href="#" class="dropdown-link">Help &amp; Support</a>
+                <div class="dropdown-divider"></div>
+                <a href="/" class="dropdown-link logout">Sign Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Top Bar (Below Navbar) -->
+    <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
+      <button class="js-sidebar-toggle-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M3 12h18" />
+          <path d="M3 6h18" />
+          <path d="M3 18h18" />
+        </svg>
+      </button>
+
+      <h3 class="flex-1 text-center font-semibold text-secondary-800 text-sm">Matches</h3>
+
+      <button class="js-filter-button-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Open filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M4 6h16" />
+          <path d="M7 12h10" />
+          <path d="M10 18h4" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="w-full px-0 sm:px-6 lg:px-8">
+      <div class="dashboard-layout match-detail-layout">
+        <!-- Sidebar Backdrop (Mobile) -->
+        <div class="js-sidebar-backdrop fixed inset-0 z-40 hidden bg-black/40 lg:hidden" aria-hidden="true"></div>
+
+        <aside class="dashboard-sidebar js-sidebar fixed left-0 top-0 z-50 h-screen lg:static lg:z-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out w-64 lg:w-auto lg:transform-none" aria-label="Dashboard sidebar">
+          <section class="sidebar-section sidebar-profile-card">
+            <div class="sidebar-avatar-lg">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                alt="John Doe profile photo"
+              />
+            </div>
+            <p class="sidebar-user-line">Jegede Olajide</p>
+            <p class="sidebar-strength">Profile Strength: 80%</p>
+            <button class="sidebar-cta-btn" type="button">Complete Profile</button>
+          </section>
+
+          <section class="sidebar-section sidebar-links" aria-label="Primary links">
+            <a href="#" class="sidebar-link">🎯 Matches</a>
+            <a href="#" class="sidebar-link">🔖 Saved</a>
+            <a href="#" class="sidebar-link">📄 Applications</a>
+          </section>
+
+          <section class="sidebar-section">
+            <a href="#" class="sidebar-action-link">🚀 Post / Apply</a>
+          </section>
+
+          <section class="sidebar-section sidebar-mini-profile">
+            <span class="sidebar-avatar-sm">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+                alt="John Doe mini profile photo"
+              />
+            </span>
+            <span>Profile</span>
+          </section>
+        </aside>
+
+        <section class="dashboard-content" aria-label="Match detail content">
+          <div class="dashboard-content-card md-shell">
+            <a href="./homepage.html" class="md-breadcrumb" aria-label="Back to matches">
+              <span aria-hidden="true">&larr;</span>
+              <span>Back to matches</span>
+            </a>
+
+            <div class="md-layout">
+              <section class="md-main" aria-label="Match detail">
+          <article class="md-card md-company" id="company">
+            <div class="md-company-top">
+              <a href="https://stripe.com" target="_blank" rel="noopener noreferrer" class="md-company-logo" aria-label="Visit Stripe website">
+                <img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=128" alt="Stripe logo" />
+              </a>
+              <div class="md-company-title">
+                <h1>Stripe</h1>
+                <p>Building economic infrastructure for the internet.</p>
+              </div>
+            </div>
+
+            <div class="md-chip-row" aria-label="Industry tags">
+              <span class="md-chip tag-industry">Fintech</span>
+              <span class="md-chip tag-industry">Payments</span>
+              <span class="md-chip tag-industry">SaaS</span>
+            </div>
+
+            <div class="md-company-meta">
+              <span>Location: Lagos, Nigeria (Hybrid)</span>
+              <a class="md-company-link" href="https://stripe.com" target="_blank" rel="noopener noreferrer">Visit company website</a>
+            </div>
+          </article>
+
+          <article class="md-card" id="match-score">
+            <div class="md-score-grid">
+              <div class="md-score-ring" style="--score: 92" role="img" aria-label="92 percent match score">
+                <span class="md-score-value">92%</span>
+              </div>
+              <div class="md-score-copy">
+                <h2>Why this is a strong match</h2>
+                <p>
+                  Matches your course (Computer Engineering) and 3 of your skills
+                  (Python, Django, PostgreSQL). Your API project work and backend internship
+                  experience align with the role expectations.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="md-card" id="details">
+            <h2 class="text-lg font-bold">Internship Details</h2>
+            <div class="md-details-grid mt-3">
+              <div class="md-detail">
+                <span class="label">Role</span>
+                <span class="value">Backend Intern</span>
+              </div>
+              <div class="md-detail">
+                <span class="label">Duration</span>
+                <span class="value">3-6 months</span>
+              </div>
+              <div class="md-detail">
+                <span class="label">Deadline</span>
+                <span class="value">May 31, 2026</span>
+              </div>
+              <div class="md-detail">
+                <span class="label">Stipend</span>
+                <span class="value">Paid (NGN 180,000/month)</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="md-card" id="skills">
+            <h2 class="text-lg font-bold">Required Skills & Preferences</h2>
+            <div class="md-skill-groups mt-3">
+              <div>
+                <h3 class="md-group-title">Matched skills (you have)</h3>
+                <div class="md-chip-row">
+                  <span class="md-skill-chip matched">✓ Python</span>
+                  <span class="md-skill-chip matched">✓ Django</span>
+                  <span class="md-skill-chip matched">✓ PostgreSQL</span>
+                  <span class="md-skill-chip matched">✓ REST APIs</span>
+                </div>
+              </div>
+              <div>
+                <h3 class="md-group-title">Nice to have (missing)</h3>
+                <div class="md-chip-row">
+                  <span class="md-skill-chip missing">✕ Docker</span>
+                  <span class="md-skill-chip missing">✕ Redis</span>
+                  <span class="md-skill-chip missing">✕ Kubernetes basics</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="md-card" id="about">
+            <h2 class="text-lg font-bold">Company Description</h2>
+            <p class="mt-3 text-sm leading-relaxed text-secondary-700">
+              Stripe helps businesses of all sizes accept online payments and run internet-native
+              commerce operations. Interns work on real product surfaces, improve API tooling,
+              and collaborate closely with engineers, product managers, and designers.
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-secondary-700">
+              This team is a strong internship environment due to its mentorship loops, weekly
+              architecture reviews, and a track record of converting high-performing interns into
+              full-time hires.
+            </p>
+          </article>
+
+          <article class="md-card" id="context">
+            <h2 class="text-lg font-bold">Additional Context</h2>
+            <div class="md-kpis mt-3">
+              <div class="md-kpi">
+                <strong>41</strong>
+                <span>Students applied</span>
+              </div>
+              <div class="md-kpi">
+                <strong>3</strong>
+                <span>Students hired last year</span>
+              </div>
+            </div>
+          </article>
+              </section>
+
+              <aside class="md-panel" aria-label="Action panel">
+                <article class="md-card">
+                  <h2 class="text-lg font-bold">Take Action</h2>
+                  <p class="md-note mt-2">Generate and review your application before sending.</p>
+                  <div class="mt-3 grid gap-2">
+                    <button id="generate-letter" class="md-action primary" type="button">Generate Application Letter</button>
+                    <button id="send-application" class="md-action secondary" type="button" disabled>Send Application</button>
+                    <button id="save-match" class="md-action ghost" type="button">Save for Later</button>
+                    <button id="download-info" class="md-action ghost" type="button">Download Company Info (PDF)</button>
+                  </div>
+                </article>
+
+                <article class="md-card">
+                  <h3 class="text-base font-semibold">Quick Jump</h3>
+                  <div class="mt-3 grid gap-2 text-sm">
+                    <a class="md-company-link" href="#match-score">Match score</a>
+                    <a class="md-company-link" href="#details">Internship details</a>
+                    <a class="md-company-link" href="#skills">Skills fit</a>
+                    <a class="md-company-link" href="#about">About company</a>
+                  </div>
+                </article>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module">
+      import { showToast } from "../assets/js/toast.js";
+
+      // Sidebar toggle on mobile
+      const sidebarToggles = document.querySelectorAll('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+      const sidebar = document.querySelector('.js-sidebar');
+      const sidebarBackdrop = document.querySelector('.js-sidebar-backdrop');
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      const openSidebar = () => {
+        sidebar.classList.remove('-translate-x-full');
+        sidebarBackdrop.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
+      };
+
+      const closeSidebar = () => {
+        sidebar.classList.add('-translate-x-full');
+        sidebarBackdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+      };
+
+      sidebarToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          if (sidebar.classList.contains('-translate-x-full')) {
+            openSidebar();
+          } else {
+            closeSidebar();
+          }
+        });
+      });
+
+      sidebarBackdrop.addEventListener('click', closeSidebar);
+
+      sidebar.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+
+      sidebar.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX - touchStartX > 100) {
+          closeSidebar();
+        }
+      }, false);
+
+      document.querySelectorAll('.dashboard-sidebar a').forEach((link) => {
+        link.addEventListener('click', closeSidebar);
+      });
+
+      // Profile dropdown toggle
+      const profileBtn = document.querySelector('.js-profile-btn');
+      const dropdownMenu = document.querySelector('.js-dropdown-menu');
+
+      if (profileBtn && dropdownMenu) {
+        profileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          profileBtn.classList.toggle('is-open');
+          dropdownMenu.classList.toggle('is-open');
+          profileBtn.setAttribute('aria-expanded', profileBtn.classList.contains('is-open'));
+        });
+
+        document.addEventListener('click', () => {
+          profileBtn.classList.remove('is-open');
+          dropdownMenu.classList.remove('is-open');
+          profileBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        dropdownMenu.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
+
+      const generateButton = document.getElementById("generate-letter");
+      const sendButton = document.getElementById("send-application");
+      const saveButton = document.getElementById("save-match");
+      const downloadButton = document.getElementById("download-info");
+
+      let saved = false;
+
+      generateButton.addEventListener("click", () => {
+        if (generateButton.classList.contains("is-loading")) {
+          return;
+        }
+
+        generateButton.classList.add("is-loading");
+        generateButton.textContent = "Generating...";
+
+        window.setTimeout(() => {
+          generateButton.classList.remove("is-loading");
+          generateButton.textContent = "Letter Generated";
+          sendButton.disabled = false;
+          showToast("Application letter generated successfully.", { type: "success" });
+        }, 1500);
+      });
+
+      sendButton.addEventListener("click", () => {
+        showToast("Application submitted to Stripe.", { type: "success" });
+      });
+
+      saveButton.addEventListener("click", () => {
+        saved = !saved;
+        saveButton.textContent = saved ? "Saved" : "Save for Later";
+        showToast(saved ? "Match saved to your shortlist." : "Removed from shortlist.", { type: "info" });
+      });
+
+      downloadButton.addEventListener("click", () => {
+        showToast("Preparing PDF export...", { type: "info" });
+        window.setTimeout(() => {
+          window.print();
+        }, 350);
+      });
+
+      document.querySelectorAll('.navbar-actions .icon-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+          const label = button.getAttribute('aria-label') || 'Action';
+          showToast(`${label} clicked.`, { type: 'info' });
+        });
+      });
+    </script>
+  </body>
+</html>

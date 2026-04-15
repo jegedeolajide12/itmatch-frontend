@@ -32,7 +32,6 @@
           </div>
         </div>
 
-        <!-- Right Actions -->
         <div class="navbar-actions">
           <!-- Notifications -->
           <button class="icon-btn notification-btn" aria-label="Notifications">
@@ -95,9 +94,33 @@
       </div>
     </nav>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Mobile Top Bar (Below Navbar) -->
+    <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
+      <button class="js-sidebar-toggle-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M3 12h18" />
+          <path d="M3 6h18" />
+          <path d="M3 18h18" />
+        </svg>
+      </button>
+
+      <h3 class="flex-1 text-center font-semibold text-secondary-800 text-sm">Matches</h3>
+
+      <button class="js-filter-button-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Open filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M4 6h16" />
+          <path d="M7 12h10" />
+          <path d="M10 18h4" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="w-full px-0 sm:px-6 lg:px-8">
       <div class="dashboard-layout">
-        <aside class="dashboard-sidebar" aria-label="Dashboard sidebar">
+        <!-- Sidebar Backdrop (Mobile) -->
+        <div class="js-sidebar-backdrop fixed inset-0 z-40 hidden bg-black/40 lg:hidden" aria-hidden="true"></div>
+
+        <aside class="dashboard-sidebar js-sidebar fixed left-0 top-0 z-50 h-screen lg:static lg:z-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out w-64 lg:w-auto lg:transform-none" aria-label="Dashboard sidebar">
           <section class="sidebar-section sidebar-profile-card">
             <div class="sidebar-avatar-lg">
               <img
@@ -129,14 +152,382 @@
                 alt="John Doe mini profile photo"
               />
             </span>
-            <span>👤 Profile</span>
+            <span>Profile</span>
           </section>
         </aside>
 
         <section class="dashboard-content" aria-label="Dashboard content area">
           <div class="dashboard-content-card">
-            <h2>Welcome back, John</h2>
-            <p>Your dashboard content can go here.</p>
+            <div class="top-match-header">
+              <div>
+                <h2>Top Match for You</h2>
+                <p class="mt-2 text-sm leading-relaxed text-tertiary-600">All | Remote | Nearby | Recommended</p>
+              </div>
+
+              <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div class="flex flex-1 items-center gap-3 rounded-xl border-2 border-secondary-700 bg-tertiary-100 px-3 py-2.5 shadow-sm">
+                  <svg class="h-4 w-4 shrink-0 text-tertiary-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Search matches"
+                    class="min-w-0 flex-1 rounded-lg border border-secondary-150 bg-white/80 px-3 py-2 text-sm font-normal leading-relaxed text-secondary-800 placeholder-tertiary-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
+                  />
+                </div>
+
+                <button type="button" class="js-filter-button hidden items-center justify-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-medium text-white transition hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 sm:inline-flex">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M4 6h16" />
+                    <path d="M7 12h10" />
+                    <path d="M10 18h4" />
+                  </svg>
+                  Filter
+                </button>
+              </div>
+            </div>
+
+            <div class="top-match-tabs" aria-label="Top match filters">
+              <button type="button" class="top-match-tab is-active">All</button>
+              <button type="button" class="top-match-tab">Remote</button>
+              <button type="button" class="top-match-tab">Nearby</button>
+              <button type="button" class="top-match-tab">Recommended</button>
+            </div>
+
+            <div class="top-match-list" role="list" aria-label="Top matches">
+              <article class="top-match-card" role="listitem">
+                <div class="top-match-card-header">
+                  <div class="top-match-title-shell" tabindex="0">
+                    <a href="./match-detail.html" class="top-match-title top-match-title-link">UI/UX Intern</a>
+                    <p class="top-match-company">
+                      <span class="top-match-company-logo" aria-hidden="true">
+                        <img src="https://www.google.com/s2/favicons?domain=figma.com&sz=128" alt="Figma logo" />
+                      </span>
+                      <span>Figma • Lagos</span>
+                    </p>
+                  </div>
+                  <span class="top-match-badge">98% match</span>
+                </div>
+
+                <p class="top-match-desc">✔ Matches your design &amp; Figma skills</p>
+
+                <div class="top-match-meta">⏱ Full-time   🌍 On-site</div>
+
+                <div class="top-match-tags" aria-label="Match tags">
+                  <a href="./match-detail.html" class="top-match-tag">Figma</a>
+                  <a href="./match-detail.html" class="top-match-tag">Design System</a>
+                  <a href="./match-detail.html" class="top-match-tag">On-site</a>
+                </div>
+
+                <hr class="top-match-divider" />
+
+                <div class="top-match-actions">
+                  <a href="#" class="top-match-action-item top-match-action-apply" aria-label="Apply">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                    <span>Apply</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-save" aria-label="Save">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M6 4h12a1 1 0 0 1 1 1v16l-7-4-7 4V5a1 1 0 0 1 1-1z" />
+                    </svg>
+                    <span>Save</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-share" aria-label="Share">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="18" cy="5" r="2" />
+                      <circle cx="6" cy="12" r="2" />
+                      <circle cx="18" cy="19" r="2" />
+                      <path d="M8 11l8-5" />
+                      <path d="M8 13l8 5" />
+                    </svg>
+                    <span>Share</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-hide" aria-label="Hide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.58 10.58A3 3 0 0 0 12 15a3 3 0 0 0 2.42-4.42" />
+                      <path d="M9.88 5.08A9.77 9.77 0 0 1 12 5c6.5 0 10 7 10 7a17.7 17.7 0 0 1-3.4 4.37" />
+                      <path d="M6.61 6.61C3.76 8.68 2 12 2 12s3.5 7 10 7a9.77 9.77 0 0 0 4.44-1.06" />
+                    </svg>
+                    <span>Hide</span>
+                  </a>
+                </div>
+
+                <div class="top-match-preview" aria-hidden="true">
+                  <div class="top-match-preview-grid">
+                    <div>
+                      <p class="top-match-preview-label">About</p>
+                      <p class="top-match-preview-text">Design internship focused on product flows, responsive layouts, and rapid prototyping.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Team</p>
+                      <p class="top-match-preview-text">Small cross-functional design team with weekly feedback sessions.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Skills</p>
+                      <p class="top-match-preview-text">Figma, design systems, wireframing, mobile UI.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Why it matches</p>
+                      <p class="top-match-preview-text">Strong overlap with your portfolio and visual design strengths.</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="top-match-card" role="listitem">
+                <div class="top-match-card-header">
+                  <div class="top-match-title-shell" tabindex="0">
+                    <a href="./match-detail.html" class="top-match-title top-match-title-link">Backend Intern</a>
+                    <p class="top-match-company">
+                      <span class="top-match-company-logo" aria-hidden="true">
+                        <img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=128" alt="Stripe logo" />
+                      </span>
+                      <span>Stripe • Remote</span>
+                    </p>
+                  </div>
+                  <span class="top-match-badge">94% match</span>
+                </div>
+
+                <p class="top-match-desc">✔ Matches your Python, Django, and API skills</p>
+
+                <div class="top-match-meta">⏱ Internship   🌍 Remote</div>
+
+                <div class="top-match-tags" aria-label="Match tags">
+                  <a href="./match-detail.html" class="top-match-tag">Python</a>
+                  <a href="./match-detail.html" class="top-match-tag">Django</a>
+                  <a href="./match-detail.html" class="top-match-tag">Remote</a>
+                </div>
+
+                <hr class="top-match-divider" />
+
+                <div class="top-match-actions">
+                  <a href="#" class="top-match-action-item top-match-action-apply" aria-label="Apply">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                    <span>Apply</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-save" aria-label="Save">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M6 4h12a1 1 0 0 1 1 1v16l-7-4-7 4V5a1 1 0 0 1 1-1z" />
+                    </svg>
+                    <span>Save</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-share" aria-label="Share">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="18" cy="5" r="2" />
+                      <circle cx="6" cy="12" r="2" />
+                      <circle cx="18" cy="19" r="2" />
+                      <path d="M8 11l8-5" />
+                      <path d="M8 13l8 5" />
+                    </svg>
+                    <span>Share</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-hide" aria-label="Hide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.58 10.58A3 3 0 0 0 12 15a3 3 0 0 0 2.42-4.42" />
+                      <path d="M9.88 5.08A9.77 9.77 0 0 1 12 5c6.5 0 10 7 10 7a17.7 17.7 0 0 1-3.4 4.37" />
+                      <path d="M6.61 6.61C3.76 8.68 2 12 2 12s3.5 7 10 7a9.77 9.77 0 0 0 4.44-1.06" />
+                    </svg>
+                    <span>Hide</span>
+                  </a>
+                </div>
+
+                <div class="top-match-preview" aria-hidden="true">
+                  <div class="top-match-preview-grid">
+                    <div>
+                      <p class="top-match-preview-label">About</p>
+                      <p class="top-match-preview-text">Backend role building APIs, auth flows, and scalable services.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Team</p>
+                      <p class="top-match-preview-text">Remote engineering pod with pair programming and code reviews.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Skills</p>
+                      <p class="top-match-preview-text">Python, Django, REST APIs, PostgreSQL.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Why it matches</p>
+                      <p class="top-match-preview-text">Matches your backend stack and API-focused experience.</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="top-match-card" role="listitem">
+                <div class="top-match-card-header">
+                  <div class="top-match-title-shell" tabindex="0">
+                    <a href="./match-detail.html" class="top-match-title top-match-title-link">Product Design Intern</a>
+                    <p class="top-match-company">
+                      <span class="top-match-company-logo" aria-hidden="true">
+                        <img src="https://www.google.com/s2/favicons?domain=notion.so&sz=128" alt="Notion logo" />
+                      </span>
+                      <span>Notion • Nearby</span>
+                    </p>
+                  </div>
+                  <span class="top-match-badge">91% match</span>
+                </div>
+
+                <p class="top-match-desc">✔ Great fit for your portfolio and visual design work</p>
+
+                <div class="top-match-meta">⏱ Full-time   🌍 On-site</div>
+
+                <div class="top-match-tags" aria-label="Match tags">
+                  <a href="./match-detail.html" class="top-match-tag">UI Design</a>
+                  <a href="./match-detail.html" class="top-match-tag">Prototyping</a>
+                  <a href="./match-detail.html" class="top-match-tag">Nearby</a>
+                </div>
+
+                <hr class="top-match-divider" />
+
+                <div class="top-match-actions">
+                  <a href="#" class="top-match-action-item top-match-action-apply" aria-label="Apply">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                    <span>Apply</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-save" aria-label="Save">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M6 4h12a1 1 0 0 1 1 1v16l-7-4-7 4V5a1 1 0 0 1 1-1z" />
+                    </svg>
+                    <span>Save</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-share" aria-label="Share">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="18" cy="5" r="2" />
+                      <circle cx="6" cy="12" r="2" />
+                      <circle cx="18" cy="19" r="2" />
+                      <path d="M8 11l8-5" />
+                      <path d="M8 13l8 5" />
+                    </svg>
+                    <span>Share</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-hide" aria-label="Hide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.58 10.58A3 3 0 0 0 12 15a3 3 0 0 0 2.42-4.42" />
+                      <path d="M9.88 5.08A9.77 9.77 0 0 1 12 5c6.5 0 10 7 10 7a17.7 17.7 0 0 1-3.4 4.37" />
+                      <path d="M6.61 6.61C3.76 8.68 2 12 2 12s3.5 7 10 7a9.77 9.77 0 0 0 4.44-1.06" />
+                    </svg>
+                    <span>Hide</span>
+                  </a>
+                </div>
+
+                <div class="top-match-preview" aria-hidden="true">
+                  <div class="top-match-preview-grid">
+                    <div>
+                      <p class="top-match-preview-label">About</p>
+                      <p class="top-match-preview-text">Product design internship for prototypes, flows, and customer journeys.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Team</p>
+                      <p class="top-match-preview-text">Collaborative product team with product, research, and brand support.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Skills</p>
+                      <p class="top-match-preview-text">Portfolio review, UI systems, visual design, user testing.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Why it matches</p>
+                      <p class="top-match-preview-text">A strong fit for your design portfolio and visual craft.</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="top-match-card" role="listitem">
+                <div class="top-match-card-header">
+                  <div class="top-match-title-shell" tabindex="0">
+                    <a href="./match-detail.html" class="top-match-title top-match-title-link">Frontend Intern</a>
+                    <p class="top-match-company">
+                      <span class="top-match-company-logo" aria-hidden="true">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com&sz=128" alt="GitHub logo" />
+                      </span>
+                      <span>GitHub • Remote</span>
+                    </p>
+                  </div>
+                  <span class="top-match-badge">89% match</span>
+                </div>
+
+                <p class="top-match-desc">✔ Strong match for React and responsive UI experience</p>
+
+                <div class="top-match-meta">⏱ Internship   🌍 Remote</div>
+
+                <div class="top-match-tags" aria-label="Match tags">
+                  <a href="./match-detail.html" class="top-match-tag">React</a>
+                  <a href="./match-detail.html" class="top-match-tag">Accessibility</a>
+                  <a href="./match-detail.html" class="top-match-tag">Remote</a>
+                </div>
+
+                <hr class="top-match-divider" />
+
+                <div class="top-match-actions">
+                  <a href="#" class="top-match-action-item top-match-action-apply" aria-label="Apply">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                    <span>Apply</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-save" aria-label="Save">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M6 4h12a1 1 0 0 1 1 1v16l-7-4-7 4V5a1 1 0 0 1 1-1z" />
+                    </svg>
+                    <span>Save</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-share" aria-label="Share">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="18" cy="5" r="2" />
+                      <circle cx="6" cy="12" r="2" />
+                      <circle cx="18" cy="19" r="2" />
+                      <path d="M8 11l8-5" />
+                      <path d="M8 13l8 5" />
+                    </svg>
+                    <span>Share</span>
+                  </a>
+                  <a href="#" class="top-match-action-item top-match-action-hide" aria-label="Hide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 3l18 18" />
+                      <path d="M10.58 10.58A3 3 0 0 0 12 15a3 3 0 0 0 2.42-4.42" />
+                      <path d="M9.88 5.08A9.77 9.77 0 0 1 12 5c6.5 0 10 7 10 7a17.7 17.7 0 0 1-3.4 4.37" />
+                      <path d="M6.61 6.61C3.76 8.68 2 12 2 12s3.5 7 10 7a9.77 9.77 0 0 0 4.44-1.06" />
+                    </svg>
+                    <span>Hide</span>
+                  </a>
+                </div>
+
+                <div class="top-match-preview" aria-hidden="true">
+                  <div class="top-match-preview-grid">
+                    <div>
+                      <p class="top-match-preview-label">About</p>
+                      <p class="top-match-preview-text">Frontend role focusing on responsive UI, reusable components, and polish.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Team</p>
+                      <p class="top-match-preview-text">Distributed product team with design handoff and sprint planning.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Skills</p>
+                      <p class="top-match-preview-text">React, accessibility, CSS systems, responsive layouts.</p>
+                    </div>
+                    <div>
+                      <p class="top-match-preview-label">Why it matches</p>
+                      <p class="top-match-preview-text">Excellent fit for your frontend and responsive UI experience.</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -177,10 +568,151 @@
       </div>
     </main>
 
-    <script>
+    <div class="filter-backdrop js-filter-backdrop" hidden></div>
+
+    <aside class="filter-drawer js-filter-drawer" aria-hidden="true" aria-label="Filters panel">
+      <div class="filter-drawer-shell">
+        <div class="filter-drawer-header">
+          <h3>Filters</h3>
+          <button type="button" class="filter-close js-filter-close" aria-label="Close filters">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6l12 12" />
+              <path d="M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="filter-drawer-body">
+          <section class="filter-group">
+            <h4>Location</h4>
+            <div class="filter-chip-row">
+              <button type="button" class="filter-chip is-active">Lagos</button>
+              <button type="button" class="filter-chip">Remote</button>
+            </div>
+          </section>
+
+          <section class="filter-group">
+            <h4>Role</h4>
+            <div class="filter-chip-row">
+              <button type="button" class="filter-chip">Backend</button>
+              <button type="button" class="filter-chip">UI/UX</button>
+            </div>
+          </section>
+
+          <section class="filter-group">
+            <h4>Type</h4>
+            <div class="filter-chip-row">
+              <button type="button" class="filter-chip">Full-time</button>
+              <button type="button" class="filter-chip is-active">Internship</button>
+            </div>
+          </section>
+
+          <section class="filter-group">
+            <h4>Course</h4>
+            <div class="filter-chip-row filter-chip-row-wrap">
+              <button type="button" class="filter-chip">Agricultural Engineering</button>
+              <button type="button" class="filter-chip">Civil Engineering</button>
+            </div>
+          </section>
+
+          <section class="filter-group">
+            <h4>Skills</h4>
+            <div class="filter-chip-row">
+              <button type="button" class="filter-chip">Python</button>
+              <button type="button" class="filter-chip">Django</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="filter-drawer-footer">
+          <button type="button" class="filter-reset js-filter-reset">Reset</button>
+          <button type="button" class="filter-apply js-filter-apply">Apply Filters</button>
+        </div>
+      </div>
+    </aside>
+
+    <script type="module">
+      import { showToast } from '../assets/js/toast.js';
+
+      // Sidebar toggle on mobile
+      const sidebarToggles = document.querySelectorAll('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+      const sidebar = document.querySelector('.js-sidebar');
+      const sidebarBackdrop = document.querySelector('.js-sidebar-backdrop');
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      const openSidebar = () => {
+        sidebar.classList.remove('-translate-x-full');
+        sidebarBackdrop.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
+      };
+
+      const closeSidebar = () => {
+        sidebar.classList.add('-translate-x-full');
+        sidebarBackdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+      };
+
+      sidebarToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          if (sidebar.classList.contains('-translate-x-full')) {
+            openSidebar();
+          } else {
+            closeSidebar();
+          }
+        });
+      });
+
+      sidebarBackdrop.addEventListener('click', closeSidebar);
+
+      document.addEventListener('click', (event) => {
+        if (window.innerWidth < 1024 || window.innerWidth >= 1280) {
+          return;
+        }
+
+        const clickedInsideSidebar = event.target.closest('.js-sidebar');
+        const clickedSidebarToggle = event.target.closest('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+
+        if (!sidebar.classList.contains('-translate-x-full') && !clickedInsideSidebar && !clickedSidebarToggle) {
+          closeSidebar();
+        }
+      });
+
+      // Swipe detection for sidebar
+      sidebar.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+
+      sidebar.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX - touchStartX > 100) {
+          // Swiped right
+          closeSidebar();
+        }
+      }, false);
+
+      // Close sidebar when a sidebar link is clicked
+      document.querySelectorAll('.dashboard-sidebar a').forEach((link) => {
+        link.addEventListener('click', closeSidebar);
+      });
+
+      // Filter button in mobile top bar
+      const filterButtonBar = document.querySelector('.js-filter-button-bar');
+      if (filterButtonBar) {
+        filterButtonBar.addEventListener('click', () => {
+          const filterButton = document.querySelector('.js-filter-button');
+          filterButton?.click();
+        });
+      }
+
       // Profile dropdown toggle
       const profileBtn = document.querySelector('.js-profile-btn');
       const dropdownMenu = document.querySelector('.js-dropdown-menu');
+      const actionItems = document.querySelectorAll('.top-match-action-item');
+      const iconButtons = document.querySelectorAll('.navbar-actions .icon-btn');
+      const logoutLink = document.querySelector('.dropdown-link.logout');
 
       if (profileBtn && dropdownMenu) {
         profileBtn.addEventListener('click', (e) => {
@@ -200,6 +732,155 @@
           e.stopPropagation();
         });
       }
+
+      const filterButton = document.querySelector('.js-filter-button');
+      const filterDrawer = document.querySelector('.js-filter-drawer');
+      const filterBackdrop = document.querySelector('.js-filter-backdrop');
+      const filterClose = document.querySelector('.js-filter-close');
+      const filterReset = document.querySelector('.js-filter-reset');
+      const filterApply = document.querySelector('.js-filter-apply');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const previewTriggers = document.querySelectorAll('.top-match-title-shell');
+
+      filterChips.forEach((chip) => {
+        chip.setAttribute('aria-pressed', chip.classList.contains('is-active') ? 'true' : 'false');
+
+        chip.addEventListener('click', () => {
+          chip.classList.toggle('is-active');
+          chip.setAttribute('aria-pressed', chip.classList.contains('is-active') ? 'true' : 'false');
+        });
+      });
+
+      previewTriggers.forEach((trigger) => {
+        const card = trigger.closest('.top-match-card');
+        const preview = card?.querySelector('.top-match-preview');
+        const logo = trigger.querySelector('.top-match-company-logo img');
+        const companyName = trigger.querySelector('.top-match-company span:last-child');
+        const roleName = trigger.querySelector('.top-match-title');
+
+        if (!card || !preview) return;
+
+        // Anchor preview beside the title block itself.
+        if (!trigger.contains(preview)) {
+          trigger.appendChild(preview);
+        }
+
+        // Add a richer preview header once using the card's logo and company name.
+        if (!preview.querySelector('.top-match-preview-header') && logo && companyName) {
+          const header = document.createElement('div');
+          header.className = 'top-match-preview-header';
+          header.innerHTML = `
+            <span class="top-match-preview-logo">
+              <img src="${logo.src}" alt="${logo.alt}" />
+            </span>
+            <div>
+              <p class="top-match-preview-company">${companyName.textContent?.trim() ?? ''}</p>
+              <p class="top-match-preview-role">${roleName?.textContent?.trim() ?? ''}</p>
+            </div>
+          `;
+          preview.insertBefore(header, preview.firstChild);
+        }
+
+        trigger.addEventListener('mouseenter', () => {
+          trigger.classList.add('is-preview-open');
+        });
+
+        trigger.addEventListener('mouseleave', () => {
+          trigger.classList.remove('is-preview-open');
+        });
+
+        trigger.addEventListener('focusin', () => {
+          trigger.classList.add('is-preview-open');
+        });
+
+        trigger.addEventListener('focusout', () => {
+          trigger.classList.remove('is-preview-open');
+        });
+      });
+
+      actionItems.forEach((item) => {
+        item.addEventListener('click', (event) => {
+          event.preventDefault();
+
+          if (item.classList.contains('top-match-action-apply')) {
+            showToast('Application started.', { type: 'success' });
+            return;
+          }
+
+          if (item.classList.contains('top-match-action-save')) {
+            showToast('Internship saved to your shortlist.', { type: 'success' });
+            return;
+          }
+
+          if (item.classList.contains('top-match-action-share')) {
+            showToast('Share link copied.', { type: 'info' });
+            return;
+          }
+
+          if (item.classList.contains('top-match-action-hide')) {
+            showToast('Match hidden from your feed.', { type: 'info' });
+          }
+        });
+      });
+
+      iconButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const label = button.getAttribute('aria-label') || 'Action';
+          showToast(`${label} clicked.`, { type: 'info' });
+        });
+      });
+
+      if (logoutLink) {
+        logoutLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          showToast('Signing you out...', { type: 'info' });
+          window.setTimeout(() => {
+            window.location.href = '../accounts/signout.html';
+          }, 700);
+        });
+      }
+
+      const openFilterDrawer = () => {
+        if (!filterDrawer || !filterBackdrop) return;
+        filterDrawer.classList.add('is-open');
+        filterBackdrop.hidden = false;
+        requestAnimationFrame(() => {
+          filterBackdrop.classList.add('is-visible');
+        });
+        document.body.classList.add('is-filter-drawer-open');
+      };
+
+      const closeFilterDrawer = () => {
+        if (!filterDrawer || !filterBackdrop) return;
+        filterDrawer.classList.remove('is-open');
+        filterBackdrop.classList.remove('is-visible');
+        document.body.classList.remove('is-filter-drawer-open');
+        window.setTimeout(() => {
+          filterBackdrop.hidden = true;
+        }, 250);
+      };
+
+      if (filterButton && filterDrawer && filterBackdrop) {
+        filterButton.addEventListener('click', openFilterDrawer);
+        filterBackdrop.addEventListener('click', closeFilterDrawer);
+        filterClose?.addEventListener('click', closeFilterDrawer);
+        filterReset?.addEventListener('click', () => {
+          closeFilterDrawer();
+          showToast('Filters reset.', { type: 'info' });
+        });
+        filterApply?.addEventListener('click', () => {
+          closeFilterDrawer();
+          const activeFilters = document.querySelectorAll('.filter-chip.is-active').length;
+          showToast(`Filters applied (${activeFilters} selected).`, { type: 'success' });
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            closeFilterDrawer();
+          }
+        });
+      }
     </script>
   </body>
 </html>
+

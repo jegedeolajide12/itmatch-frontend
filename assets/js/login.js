@@ -1,3 +1,5 @@
+import { showToast } from './toast.js';
+
 const form = document.getElementById('login-form');
 const submitButton = document.getElementById('submit-button');
 const passwordToggleButtons = Array.from(document.querySelectorAll('.password-toggle'));
@@ -60,7 +62,15 @@ form.addEventListener('submit', (event) => {
   if (!isFormValid()) {
     event.preventDefault();
     updateSubmitState();
+    showToast('Please fill in your email and password.', { type: 'error' });
+    return;
   }
+
+  event.preventDefault();
+  showToast('Login successful. Redirecting to dashboard...', { type: 'success' });
+  window.setTimeout(() => {
+    window.location.href = '../templates/homepage.html';
+  }, 900);
 });
 
 updateSubmitState();
