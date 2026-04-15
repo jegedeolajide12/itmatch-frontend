@@ -6,13 +6,13 @@ const cancelButton = document.getElementById('cancel-signout');
 const confirmButton = document.getElementById('confirm-signout');
 
 function openModal() {
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
 }
 
 function closeModal() {
-  modal.classList.remove('flex');
-  modal.classList.add('hidden');
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
 }
 
 openButton.addEventListener('click', () => {
@@ -32,7 +32,7 @@ modal.addEventListener('click', (event) => {
 });
 
 window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modal.classList.contains('flex')) {
+  if (event.key === 'Escape' && modal.classList.contains('is-open')) {
     closeModal();
   }
 });

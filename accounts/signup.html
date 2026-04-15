@@ -5,48 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Itmatch - Sign Up</title>
     <link rel="stylesheet" href="../assets/css/tailwind.css" />
-    <style>
-      input[type='password']::-ms-reveal,
-      input[type='password']::-ms-clear {
-        display: none;
-      }
-
-      input[type='password']::-webkit-credentials-auto-fill-button {
-        visibility: hidden;
-        display: none !important;
-        pointer-events: none;
-      }
-    </style>
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
-  <body class="m-0 min-h-screen bg-tertiary-50 font-sans text-base leading-relaxed tracking-normal text-secondary-700 antialiased">
-    <div class="min-h-screen bg-tertiary-50 lg:flex">
-      <section
-        class="relative hidden overflow-hidden lg:flex lg:w-2/5 lg:flex-col lg:justify-center lg:px-12 lg:py-10"
-        style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center;"
-      >
-        <div class="absolute inset-0 bg-secondary/80"></div>
-        <div class="relative z-10 mb-10 text-3xl font-bold tracking-[0.2em] text-white"><a href="../templates/home.html" class="text-accent-200 transition-colors duration-200 hover:text-white">ITMATCH</a></div>
-        <div class="relative z-10 max-w-md space-y-6 text-white">
-          <h1 class="text-4xl font-bold leading-tight">Find Your Perfect Internship Faster</h1>
-          <p class="text-base leading-7">
-            Connect with companies that match your skills and course. No more random applications.
-          </p>
+  <body class="auth-page m-0 font-sans text-base leading-relaxed tracking-normal text-secondary-700 antialiased">
+    <div class="auth-grid">
+      <section class="auth-hero" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80');">
+        <div class="auth-hero-content">
+          <a href="../templates/home.html" class="auth-brand">ITMATCH</a>
+          <div class="max-w-md space-y-6">
+            <h1 class="auth-hero-title">Find Your Perfect Internship Faster</h1>
+            <p class="auth-hero-copy">
+              Connect with companies that match your skills and course. No more random applications.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="flex min-h-screen w-full items-center justify-center px-4 py-10 sm:px-6 lg:w-3/5 lg:px-8">
-        <div class="w-full max-w-[420px] rounded-2xl border border-accent-300 bg-white p-8 shadow-md">
-          <form id="signup-form" class="space-y-6" novalidate>
-            <div class="space-y-6">
-              <h2 class="text-2xl font-bold leading-tight text-secondary-800 md:text-3xl">Create your account</h2>
+      <section class="auth-panel">
+        <div class="auth-card">
+          <form id="signup-form" class="auth-form" novalidate>
+            <div class="auth-form-group">
+              <h2 class="auth-title">Create your account</h2>
 
-              <div class="flex gap-3">
+              <div class="auth-role-switcher">
                 <button
                   id="student-role"
                   type="button"
                   data-role="student"
                   aria-pressed="true"
-                  class="role-button flex-1 rounded-full border border-primary bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-300"
+                  class="role-button ui-btn ui-btn-primary auth-role-btn"
                 >
                   Student
                 </button>
@@ -55,44 +43,20 @@
                   type="button"
                   data-role="company"
                   aria-pressed="false"
-                  class="role-button flex-1 rounded-full border border-secondary-200 bg-tertiary-50 px-4 py-2.5 text-sm font-semibold text-secondary-500 transition hover:bg-primary-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-300"
+                  class="role-button ui-btn ui-btn-secondary auth-role-btn"
                 >
                   Company
                 </button>
               </div>
             </div>
 
-            <div class="space-y-6">
-              <div class="space-y-4" id="student-fields">
-                <input
-                  id="fullName"
-                  name="fullName"
-                  type="text"
-                  placeholder="Full Name"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 placeholder-tertiary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                />
+            <div class="auth-form-group">
+              <div class="auth-form-group" id="student-fields">
+                <input id="fullName" name="fullName" type="text" placeholder="Full Name" class="ui-input" />
+                <input id="email" name="email" type="email" placeholder="Email" class="ui-input" />
+                <input id="matricNumber" name="matricNumber" type="text" placeholder="Matric Number" class="ui-input" />
 
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 placeholder-tertiary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                />
-
-                <input
-                  id="matricNumber"
-                  name="matricNumber"
-                  type="text"
-                  placeholder="Matric Number"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 placeholder-tertiary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                />
-
-                <select
-                  id="school"
-                  name="school"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                >
+                <select id="school" name="school" class="ui-select">
                   <option value="">School</option>
                   <option value="School of Engineering">School of Engineering</option>
                   <option value="School of Computing">School of Computing</option>
@@ -100,11 +64,7 @@
                   <option value="School of Arts">School of Arts</option>
                 </select>
 
-                <select
-                  id="course"
-                  name="course"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-accent"
-                >
+                <select id="course" name="course" class="ui-select">
                   <option value="">Course</option>
                   <option value="Computer Science">Computer Science</option>
                   <option value="Software Engineering">Software Engineering</option>
@@ -113,16 +73,10 @@
                 </select>
 
                 <div class="relative">
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 pr-12 text-secondary-800 placeholder-tertiary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                  />
+                  <input id="password" name="password" type="password" placeholder="Password" class="ui-input auth-password pr-12" />
                   <button
                     type="button"
-                    class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-secondary-600 transition hover:text-primary"
+                    class="password-toggle ui-icon-btn absolute right-3 top-1/2 -translate-y-1/2"
                     data-target="password"
                     aria-label="Show password"
                     aria-pressed="false"
@@ -141,16 +95,10 @@
                 </div>
 
                 <div class="relative">
-                  <input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type="password"
-                    placeholder="Confirm Password"
-                    class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 pr-12 text-secondary-800 placeholder-tertiary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                  />
+                  <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" class="ui-input auth-password pr-12" />
                   <button
                     type="button"
-                    class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-secondary-600 transition hover:text-primary"
+                    class="password-toggle ui-icon-btn absolute right-3 top-1/2 -translate-y-1/2"
                     data-target="confirmPassword"
                     aria-label="Show password"
                     aria-pressed="false"
@@ -169,20 +117,9 @@
                 </div>
               </div>
 
-              <div class="hidden space-y-4" id="company-fields">
-                <input
-                  id="companyName"
-                  name="companyName"
-                  type="text"
-                  placeholder="Company Name"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 placeholder-tertiary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                />
-
-                <select
-                  id="industry"
-                  name="industry"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                >
+              <div class="hidden auth-form-group" id="company-fields">
+                <input id="companyName" name="companyName" type="text" placeholder="Company Name" class="ui-input" />
+                <select id="industry" name="industry" class="ui-select">
                   <option value="">Industry</option>
                   <option value="Technology">Technology</option>
                   <option value="Finance">Finance</option>
@@ -190,26 +127,13 @@
                   <option value="Education">Education</option>
                   <option value="Manufacturing">Manufacturing</option>
                 </select>
-
-                <input
-                  id="companyEmail"
-                  name="companyEmail"
-                  type="email"
-                  placeholder="Email"
-                  class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 text-secondary-800 placeholder-tertiary-800 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                />
+                <input id="companyEmail" name="companyEmail" type="email" placeholder="Email" class="ui-input" />
 
                 <div class="relative">
-                  <input
-                    id="companyPassword"
-                    name="companyPassword"
-                    type="password"
-                    placeholder="Password"
-                    class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 pr-12 text-secondary-800 placeholder-tertiary-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                  />
+                  <input id="companyPassword" name="companyPassword" type="password" placeholder="Password" class="ui-input auth-password pr-12" />
                   <button
                     type="button"
-                    class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-secondary-600 transition hover:text-primary"
+                    class="password-toggle ui-icon-btn absolute right-3 top-1/2 -translate-y-1/2"
                     data-target="companyPassword"
                     aria-label="Show password"
                     aria-pressed="false"
@@ -228,16 +152,10 @@
                 </div>
 
                 <div class="relative">
-                  <input
-                    id="companyConfirmPassword"
-                    name="companyConfirmPassword"
-                    type="password"
-                    placeholder="Confirm Password"
-                    class="w-full rounded-lg border border-secondary-200 bg-tertiary-50 px-4 py-3 pr-12 text-secondary-800 placeholder-tertiary-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
-                  />
+                  <input id="companyConfirmPassword" name="companyConfirmPassword" type="password" placeholder="Confirm Password" class="ui-input auth-password pr-12" />
                   <button
                     type="button"
-                    class="password-toggle absolute right-3 top-1/2 -translate-y-1/2 text-secondary-600 transition hover:text-primary"
+                    class="password-toggle ui-icon-btn absolute right-3 top-1/2 -translate-y-1/2"
                     data-target="companyConfirmPassword"
                     aria-label="Show password"
                     aria-pressed="false"
@@ -257,24 +175,15 @@
               </div>
             </div>
 
-            <div class="space-y-6">
-              <button
-                id="submit-button"
-                type="submit"
-                disabled
-                class="w-full rounded-lg bg-primary py-3 text-sm font-medium text-white transition hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-tertiary-600"
-              >
+            <div class="auth-form-group">
+              <button id="submit-button" type="submit" disabled class="ui-btn ui-btn-primary ui-btn-block ui-btn-lg">
                 Create Account
               </button>
 
-              <div class="space-y-3">
-                <p class="text-center text-sm leading-relaxed text-tertiary-800">Or sign up with</p>
-                <div class="grid grid-cols-3 gap-3">
-                  <button
-                    type="button"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 text-sm font-medium text-secondary-700 transition hover:bg-accent-150 focus:outline-none focus:ring-2 focus:ring-primary-300"
-                    aria-label="Sign up with Google"
-                  >
+              <div class="auth-form-group">
+                <p class="auth-divider">Or sign up with</p>
+                <div class="auth-social-grid">
+                  <button type="button" class="ui-btn ui-btn-secondary auth-social-btn" aria-label="Sign up with Google">
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M21 12a9 9 0 1 1-2.64-6.36" />
                       <path d="M21 12h-9" />
@@ -282,22 +191,14 @@
                     <span>Google</span>
                   </button>
 
-                  <button
-                    type="button"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 text-sm font-medium text-secondary-700 transition hover:bg-accent-150 focus:outline-none focus:ring-2 focus:ring-primary-300"
-                    aria-label="Sign up with Facebook"
-                  >
+                  <button type="button" class="ui-btn ui-btn-secondary auth-social-btn" aria-label="Sign up with Facebook">
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z" />
                     </svg>
                     <span>Facebook</span>
                   </button>
 
-                  <button
-                    type="button"
-                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-secondary-200 bg-white px-3 py-2.5 text-sm font-medium text-secondary-700 transition hover:bg-accent-150 focus:outline-none focus:ring-2 focus:ring-primary-300"
-                    aria-label="Sign up with X"
-                  >
+                  <button type="button" class="ui-btn ui-btn-secondary auth-social-btn" aria-label="Sign up with X">
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M4 4h4.3l4 5.7L17.3 4H20l-6.4 7.4L20.4 20h-4.3l-4.3-6.1L6.5 20H4l6.8-7.8L4 4z" />
                     </svg>
@@ -306,9 +207,9 @@
                 </div>
               </div>
 
-              <p class="text-center text-sm leading-relaxed text-tertiary-600">
+              <p class="auth-footnote">
                 Already have an account?
-                <a href="./login.html" class="font-medium text-primary no-underline transition-colors duration-200 hover:text-primary-700 hover:underline active:text-primary-800 visited:text-secondary-600">Log in</a>
+                <a href="./login.html">Log in</a>
               </p>
             </div>
           </form>

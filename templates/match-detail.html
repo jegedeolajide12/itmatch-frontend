@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Match Detail - InternMatch</title>
     <link rel="stylesheet" href="../assets/css/tailwind.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
   <body class="match-detail-page min-h-screen bg-tertiary-50 font-sans text-secondary-700">
@@ -27,7 +28,7 @@
             <input
               type="text"
               placeholder="Search internships..."
-              class="search-input"
+              class="search-input ui-input"
             />
           </div>
         </div>
@@ -96,7 +97,7 @@
 
     <!-- Mobile Top Bar (Below Navbar) -->
     <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
-      <button class="js-sidebar-toggle-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Toggle sidebar" aria-expanded="false">
+      <button class="js-sidebar-toggle-bar mobile-top-icon-btn" aria-label="Toggle sidebar" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
           <path d="M3 12h18" />
           <path d="M3 6h18" />
@@ -104,9 +105,9 @@
         </svg>
       </button>
 
-      <h3 class="flex-1 text-center font-semibold text-secondary-800 text-sm">Matches</h3>
+      <h3 class="mobile-top-title">Matches</h3>
 
-      <button class="js-filter-button-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Open filters">
+      <button class="js-filter-button-bar mobile-top-icon-btn" aria-label="Open filters">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
           <path d="M4 6h16" />
           <path d="M7 12h10" />
@@ -158,11 +159,6 @@
 
         <section class="dashboard-content" aria-label="Match detail content">
           <div class="dashboard-content-card md-shell">
-            <a href="./homepage.html" class="md-breadcrumb" aria-label="Back to matches">
-              <span aria-hidden="true">&larr;</span>
-              <span>Back to matches</span>
-            </a>
-
             <div class="md-layout">
               <section class="md-main" aria-label="Match detail">
           <article class="md-card md-company" id="company">
@@ -205,8 +201,8 @@
           </article>
 
           <article class="md-card" id="details">
-            <h2 class="text-lg font-bold">Internship Details</h2>
-            <div class="md-details-grid mt-3">
+            <h2 class="md-section-title">Internship Details</h2>
+            <div class="md-details-grid md-stack-sm">
               <div class="md-detail">
                 <span class="label">Role</span>
                 <span class="value">Backend Intern</span>
@@ -227,8 +223,8 @@
           </article>
 
           <article class="md-card" id="skills">
-            <h2 class="text-lg font-bold">Required Skills & Preferences</h2>
-            <div class="md-skill-groups mt-3">
+            <h2 class="md-section-title">Required Skills & Preferences</h2>
+            <div class="md-skill-groups md-stack-sm">
               <div>
                 <h3 class="md-group-title">Matched skills (you have)</h3>
                 <div class="md-chip-row">
@@ -250,13 +246,13 @@
           </article>
 
           <article class="md-card" id="about">
-            <h2 class="text-lg font-bold">Company Description</h2>
-            <p class="mt-3 text-sm leading-relaxed text-secondary-700">
+            <h2 class="md-section-title">Company Description</h2>
+            <p class="md-body-copy">
               Stripe helps businesses of all sizes accept online payments and run internet-native
               commerce operations. Interns work on real product surfaces, improve API tooling,
               and collaborate closely with engineers, product managers, and designers.
             </p>
-            <p class="mt-3 text-sm leading-relaxed text-secondary-700">
+            <p class="md-body-copy">
               This team is a strong internship environment due to its mentorship loops, weekly
               architecture reviews, and a track record of converting high-performing interns into
               full-time hires.
@@ -264,8 +260,8 @@
           </article>
 
           <article class="md-card" id="context">
-            <h2 class="text-lg font-bold">Additional Context</h2>
-            <div class="md-kpis mt-3">
+            <h2 class="md-section-title">Additional Context</h2>
+            <div class="md-kpis md-stack-sm">
               <div class="md-kpi">
                 <strong>41</strong>
                 <span>Students applied</span>
@@ -280,19 +276,19 @@
 
               <aside class="md-panel" aria-label="Action panel">
                 <article class="md-card">
-                  <h2 class="text-lg font-bold">Take Action</h2>
-                  <p class="md-note mt-2">Generate and review your application before sending.</p>
-                  <div class="mt-3 grid gap-2">
-                    <button id="generate-letter" class="md-action primary" type="button">Generate Application Letter</button>
-                    <button id="send-application" class="md-action secondary" type="button" disabled>Send Application</button>
-                    <button id="save-match" class="md-action ghost" type="button">Save for Later</button>
-                    <button id="download-info" class="md-action ghost" type="button">Download Company Info (PDF)</button>
+                  <h2 class="md-section-title">Take Action</h2>
+                  <p class="md-note md-stack-sm">Generate and review your application before sending.</p>
+                  <div class="md-stack-sm grid gap-2">
+                    <button id="generate-letter" class="md-action primary ui-btn ui-btn-primary ui-btn-block" type="button">Generate Application Letter</button>
+                    <button id="send-application" class="md-action secondary ui-btn ui-btn-secondary ui-btn-block" type="button" disabled>Send Application</button>
+                    <button id="save-match" class="md-action ghost ui-btn ui-btn-ghost ui-btn-block" type="button">Save for Later</button>
+                    <button id="download-info" class="md-action ghost ui-btn ui-btn-ghost ui-btn-block" type="button">Download Company Info (PDF)</button>
                   </div>
                 </article>
 
                 <article class="md-card">
-                  <h3 class="text-base font-semibold">Quick Jump</h3>
-                  <div class="mt-3 grid gap-2 text-sm">
+                  <h3 class="md-section-title-sm">Quick Jump</h3>
+                  <div class="md-link-list">
                     <a class="md-company-link" href="#match-score">Match score</a>
                     <a class="md-company-link" href="#details">Internship details</a>
                     <a class="md-company-link" href="#skills">Skills fit</a>
@@ -429,3 +425,4 @@
     </script>
   </body>
 </html>
+

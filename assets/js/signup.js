@@ -16,13 +16,8 @@ function setRole(role) {
     const isSelected = button.dataset.role === role;
     button.setAttribute('aria-pressed', String(isSelected));
 
-        if (isSelected) {
-          button.classList.remove('border-secondary-200', 'bg-tertiary-50', 'text-secondary-500');
-          button.classList.add('border-primary', 'bg-primary', 'text-white');
-    } else {
-          button.classList.remove('border-primary', 'bg-primary', 'text-white');
-          button.classList.add('border-secondary-200', 'bg-tertiary-50', 'text-secondary-500');
-    }
+    button.classList.toggle('ui-btn-primary', isSelected);
+    button.classList.toggle('ui-btn-secondary', !isSelected);
   });
 
   if (role === 'student') {

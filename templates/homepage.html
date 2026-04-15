@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - InternMatch</title>
     <link rel="stylesheet" href="../assets/css/tailwind.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
   <body class="min-h-screen bg-tertiary-50 font-sans text-secondary-700">
@@ -27,7 +28,7 @@
             <input
               type="text"
               placeholder="Search internships..."
-              class="search-input"
+              class="search-input ui-input"
             />
           </div>
         </div>
@@ -96,7 +97,7 @@
 
     <!-- Mobile Top Bar (Below Navbar) -->
     <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
-      <button class="js-sidebar-toggle-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Toggle sidebar" aria-expanded="false">
+      <button class="js-sidebar-toggle-bar mobile-top-icon-btn" aria-label="Toggle sidebar" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
           <path d="M3 12h18" />
           <path d="M3 6h18" />
@@ -104,9 +105,9 @@
         </svg>
       </button>
 
-      <h3 class="flex-1 text-center font-semibold text-secondary-800 text-sm">Matches</h3>
+      <h3 class="mobile-top-title">Matches</h3>
 
-      <button class="js-filter-button-bar flex items-center justify-center h-9 w-9 rounded-lg text-secondary-700 hover:bg-tertiary-100 transition" aria-label="Open filters">
+      <button class="js-filter-button-bar mobile-top-icon-btn" aria-label="Open filters">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
           <path d="M4 6h16" />
           <path d="M7 12h10" />
@@ -165,7 +166,7 @@
               </div>
 
               <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <div class="flex flex-1 items-center gap-3 rounded-xl border-2 border-secondary-700 bg-tertiary-100 px-3 py-2.5 shadow-sm">
+                <div class="tm-search-shell">
                   <svg class="h-4 w-4 shrink-0 text-tertiary-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.35-4.35" />
@@ -173,11 +174,11 @@
                   <input
                     type="text"
                     placeholder="Search matches"
-                    class="min-w-0 flex-1 rounded-lg border border-secondary-150 bg-white/80 px-3 py-2 text-sm font-normal leading-relaxed text-secondary-800 placeholder-tertiary-500 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary-300"
+                    class="tm-search-input ui-input"
                   />
                 </div>
 
-                <button type="button" class="js-filter-button hidden items-center justify-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-medium text-white transition hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 sm:inline-flex">
+                <button type="button" class="js-filter-button tm-filter-btn ui-btn ui-btn-primary">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 6h16" />
                     <path d="M7 12h10" />
@@ -207,7 +208,7 @@
                       <span>Figma • Lagos</span>
                     </p>
                   </div>
-                  <span class="top-match-badge">98% match</span>
+                  <span class="top-match-badge ui-badge ui-badge-info">98% match</span>
                 </div>
 
                 <p class="top-match-desc">✔ Matches your design &amp; Figma skills</p>
@@ -215,9 +216,9 @@
                 <div class="top-match-meta">⏱ Full-time   🌍 On-site</div>
 
                 <div class="top-match-tags" aria-label="Match tags">
-                  <a href="./match-detail.html" class="top-match-tag">Figma</a>
-                  <a href="./match-detail.html" class="top-match-tag">Design System</a>
-                  <a href="./match-detail.html" class="top-match-tag">On-site</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Figma</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Design System</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">On-site</a>
                 </div>
 
                 <hr class="top-match-divider" />
@@ -290,7 +291,7 @@
                       <span>Stripe • Remote</span>
                     </p>
                   </div>
-                  <span class="top-match-badge">94% match</span>
+                  <span class="top-match-badge ui-badge ui-badge-info">94% match</span>
                 </div>
 
                 <p class="top-match-desc">✔ Matches your Python, Django, and API skills</p>
@@ -298,9 +299,9 @@
                 <div class="top-match-meta">⏱ Internship   🌍 Remote</div>
 
                 <div class="top-match-tags" aria-label="Match tags">
-                  <a href="./match-detail.html" class="top-match-tag">Python</a>
-                  <a href="./match-detail.html" class="top-match-tag">Django</a>
-                  <a href="./match-detail.html" class="top-match-tag">Remote</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Python</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Django</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Remote</a>
                 </div>
 
                 <hr class="top-match-divider" />
@@ -373,7 +374,7 @@
                       <span>Notion • Nearby</span>
                     </p>
                   </div>
-                  <span class="top-match-badge">91% match</span>
+                  <span class="top-match-badge ui-badge ui-badge-info">91% match</span>
                 </div>
 
                 <p class="top-match-desc">✔ Great fit for your portfolio and visual design work</p>
@@ -381,9 +382,9 @@
                 <div class="top-match-meta">⏱ Full-time   🌍 On-site</div>
 
                 <div class="top-match-tags" aria-label="Match tags">
-                  <a href="./match-detail.html" class="top-match-tag">UI Design</a>
-                  <a href="./match-detail.html" class="top-match-tag">Prototyping</a>
-                  <a href="./match-detail.html" class="top-match-tag">Nearby</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">UI Design</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Prototyping</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Nearby</a>
                 </div>
 
                 <hr class="top-match-divider" />
@@ -456,7 +457,7 @@
                       <span>GitHub • Remote</span>
                     </p>
                   </div>
-                  <span class="top-match-badge">89% match</span>
+                  <span class="top-match-badge ui-badge ui-badge-info">89% match</span>
                 </div>
 
                 <p class="top-match-desc">✔ Strong match for React and responsive UI experience</p>
@@ -464,9 +465,9 @@
                 <div class="top-match-meta">⏱ Internship   🌍 Remote</div>
 
                 <div class="top-match-tags" aria-label="Match tags">
-                  <a href="./match-detail.html" class="top-match-tag">React</a>
-                  <a href="./match-detail.html" class="top-match-tag">Accessibility</a>
-                  <a href="./match-detail.html" class="top-match-tag">Remote</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">React</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Accessibility</a>
+                  <a href="./match-detail.html" class="top-match-tag ui-tag">Remote</a>
                 </div>
 
                 <hr class="top-match-divider" />
@@ -535,8 +536,8 @@
           <section class="right-panel-section">
             <h3>Profile Strength</h3>
             <p class="right-panel-muted">Your profile is strong. Complete two more items to boost match quality.</p>
-            <div class="right-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="Profile strength">
-              <span class="right-progress-fill" style="width: 80%"></span>
+            <div class="right-progress ui-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-label="Profile strength">
+              <span class="right-progress-fill ui-progress-bar" style="width: 80%"></span>
             </div>
             <p class="right-progress-label">80% complete</p>
           </section>
@@ -625,8 +626,8 @@
         </div>
 
         <div class="filter-drawer-footer">
-          <button type="button" class="filter-reset js-filter-reset">Reset</button>
-          <button type="button" class="filter-apply js-filter-apply">Apply Filters</button>
+          <button type="button" class="filter-reset js-filter-reset ui-btn ui-btn-secondary">Reset</button>
+          <button type="button" class="filter-apply js-filter-apply ui-btn ui-btn-primary">Apply Filters</button>
         </div>
       </div>
     </aside>
@@ -883,4 +884,5 @@
     </script>
   </body>
 </html>
+
 
