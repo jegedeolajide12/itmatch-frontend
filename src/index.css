@@ -3417,6 +3417,275 @@ body.match-detail-page {
     grid-template-columns: minmax(250px, 280px) minmax(0, 1fr);
   }
 }
+
+body.company-detail-page {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(31, 122, 140, 0.12), transparent 38%),
+    radial-gradient(circle at 88% 82%, rgba(191, 219, 247, 0.55), transparent 33%),
+    #e4e8f3;
+}
+
+.company-detail-layout .dashboard-content-card.md-shell {
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem;
+}
+
+.cd-hero {
+  display: grid;
+  gap: 1rem;
+}
+
+.cd-hero-main {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cd-hero-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cd-hero-logo {
+  width: 4rem;
+  height: 4rem;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 4rem;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+}
+
+.cd-hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.35rem;
+}
+
+.cd-hero-logo:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(2, 43, 58, 0.12);
+}
+
+.cd-hero-copy {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.cd-hero-copy h1 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  font-weight: 800;
+  @apply text-secondary-700;
+}
+
+.cd-hero-copy p {
+  margin: 0;
+  @apply text-primary-700;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.cd-hero-meta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.cd-location {
+  margin: 0;
+  @apply text-tertiary-800;
+  font-size: 0.88rem;
+}
+
+.cd-score-block {
+  display: grid;
+  justify-items: start;
+  gap: 0.45rem;
+  @apply border border-primary-300;
+  border-radius: 0.85rem;
+  background: linear-gradient(180deg, #f9fafc 0%, #ffffff 100%);
+  padding: 0.85rem;
+}
+
+.cd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.cd-stat-item {
+  @apply border border-primary-300;
+  border-radius: 0.75rem;
+  @apply bg-tertiary-400;
+  padding: 0.75rem;
+}
+
+.cd-stat-item strong {
+  display: block;
+  font-size: 1.05rem;
+  @apply text-primary-700;
+}
+
+.cd-stat-item span {
+  display: block;
+  margin-top: 0.1rem;
+  @apply text-tertiary-800;
+  font-size: 0.78rem;
+}
+
+.cd-role-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.cd-role-card {
+  @apply border border-primary-300;
+  border-radius: 0.85rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafc 100%);
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.cd-role-card h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  @apply text-secondary-700;
+}
+
+.cd-role-card p {
+  margin: 0.25rem 0 0;
+  font-size: 0.84rem;
+  @apply text-tertiary-800;
+}
+
+.cd-role-card-general {
+  @apply bg-accent-150;
+}
+
+.cd-role-apply {
+  justify-self: start;
+}
+
+.cd-action-stack {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.cd-share-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.cd-preview {
+  @apply border border-primary-300;
+  border-radius: 0.75rem;
+  @apply bg-tertiary-400;
+  padding: 0.65rem 0.75rem;
+}
+
+.cd-preview summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.84rem;
+  font-weight: 700;
+  @apply text-primary-700;
+}
+
+.cd-preview summary::-webkit-details-marker {
+  display: none;
+}
+
+.cd-testimonials {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.cd-testimonial {
+  margin: 0;
+  @apply border border-primary-300;
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  @apply bg-tertiary-400;
+  @apply text-primary-700;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.cd-similar-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.cd-similar-card {
+  display: grid;
+  gap: 0.15rem;
+  text-decoration: none;
+  @apply border border-primary-300;
+  border-radius: 0.75rem;
+  @apply bg-tertiary-400;
+  padding: 0.7rem 0.75rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.cd-similar-card:hover,
+.cd-similar-card:focus-visible {
+  @apply bg-accent-150;
+  @apply border-primary-500;
+  transform: translateY(-1px);
+}
+
+.cd-similar-card strong {
+  @apply text-secondary-700;
+  font-size: 0.9rem;
+}
+
+.cd-similar-card span {
+  @apply text-tertiary-800;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 760px) {
+  .cd-hero {
+    grid-template-columns: minmax(0, 1fr) 160px;
+    align-items: center;
+  }
+
+  .cd-score-block {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .cd-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cd-role-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .cd-similar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .company-detail-layout {
+    grid-template-columns: minmax(250px, 280px) minmax(0, 1fr);
+  }
+}
 }
 
 
