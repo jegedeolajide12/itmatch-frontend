@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Builder - InternMatch</title>
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
+  </head>
+  <body class="cv-builder-page min-h-screen bg-tertiary-50 font-sans text-secondary-700">
+    <!-- Dashboard Navbar -->
+    <nav class="dashboard-nav">
+      <div class="navbar-container mx-auto">
+        <!-- Logo & Title -->
+        <div class="navbar-logo">
+          <div class="logo-icon">IM</div>
+          <h1 class="logo-text">InternMatch</h1>
+        </div>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search internships..."
+              class="search-input ui-input"
+            />
+          </div>
+        </div>
+
+        <div class="navbar-actions">
+          <!-- Notifications -->
+          <button class="icon-btn notification-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+
+          <!-- Messages -->
+          <button class="icon-btn" aria-label="Messages">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+
+          <!-- Settings -->
+          <button class="icon-btn" aria-label="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
+            </svg>
+          </button>
+
+          <!-- User Profile Dropdown -->
+          <div class="profile-dropdown">
+            <button class="profile-btn js-profile-btn" aria-label="User menu" aria-expanded="false">
+              <div class="profile-info">
+                <div class="profile-text">
+                  <p class="profile-name">Jegede Olajide</p>
+                  <p class="profile-role">Student</p>
+                </div>
+              </div>
+              <div class="profile-avatar">
+                <img
+                  class="avatar-image"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                  alt="Alex Dev profile photo"
+                />
+              </div>
+              <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <!-- Profile Dropdown Menu -->
+            <div class="dropdown-menu js-dropdown-menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-link">My Profile</a>
+                <a href="#" class="dropdown-link">Settings</a>
+                <a href="#" class="dropdown-link">Help & Support</a>
+                <div class="dropdown-divider"></div>
+                <a href="/" class="dropdown-link logout">Sign Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Top Bar (Below Navbar) -->
+    <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
+      <button class="js-sidebar-toggle-bar mobile-top-icon-btn" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M3 12h18" />
+          <path d="M3 6h18" />
+          <path d="M3 18h18" />
+        </svg>
+      </button>
+
+      <h3 class="mobile-top-title">Matches</h3>
+
+      <button class="js-filter-button-bar mobile-top-icon-btn" aria-label="Open filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M4 6h16" />
+          <path d="M7 12h10" />
+          <path d="M10 18h4" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="w-full px-0 sm:px-6 lg:px-8">
+      <div class="dashboard-layout cvb-layout">
+        <div class="js-sidebar-backdrop fixed inset-0 z-40 hidden bg-black/40 lg:hidden" aria-hidden="true"></div>
+
+        <aside class="dashboard-sidebar js-sidebar fixed left-0 top-0 z-50 h-screen lg:static lg:z-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out w-64 lg:w-auto lg:transform-none" aria-label="Dashboard sidebar">
+          <section class="sidebar-section sidebar-profile-card">
+            <div class="sidebar-avatar-lg">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                alt="John Doe profile photo"
+              />
+            </div>
+            <p class="sidebar-user-line">Jegede Olajide</p>
+            <p class="sidebar-strength">Profile Strength: 80%</p>
+            <button class="sidebar-cta-btn" type="button">Complete Profile</button>
+          </section>
+
+          <section class="sidebar-section sidebar-links" aria-label="Primary links">
+            <a href="#" class="sidebar-link">🎯 Matches</a>
+            <a href="#" class="sidebar-link">🔖 Saved</a>
+            <a href="#" class="sidebar-link">📄 Applications</a>
+          </section>
+
+          <section class="sidebar-section">
+            <a href="#" class="sidebar-action-link">🚀 Post / Apply</a>
+          </section>
+
+          <section class="sidebar-section sidebar-mini-profile">
+            <span class="sidebar-avatar-sm">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+                alt="John Doe mini profile photo"
+              />
+            </span>
+            <span>Profile</span>
+          </section>
+        </aside>
+
+        <section class="dashboard-content" aria-label="CV builder content">
+          <div class="dashboard-content-card cvb-shell">
+            <header class="cvb-header">
+              <div>
+                <h2>CV Builder</h2>
+                <p>Build, tailor, and export role-specific CVs with a live professional preview.</p>
+              </div>
+              <div class="cvb-header-actions">
+                <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm js-refresh-preview">Refresh Preview</button>
+                <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-export-pdf">Export PDF</button>
+              </div>
+            </header>
+
+            <section class="cvb-manager" aria-label="CV management">
+              <div class="cvb-manager-head">
+                <h3>My CVs</h3>
+                <span class="cvb-autosave js-autosave-state">All changes saved</span>
+              </div>
+              <div class="cvb-manager-list js-cv-list">
+                <button type="button" class="cvb-cv-chip is-primary">Software Engineering CV (Primary)</button>
+                <button type="button" class="cvb-cv-chip">Product Design CV</button>
+                <button type="button" class="cvb-cv-chip">Data Analyst CV</button>
+              </div>
+              <div class="cvb-manager-actions">
+                <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-set-primary">Set as primary</button>
+                <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm js-duplicate-cv">Duplicate</button>
+                <button type="button" class="ui-btn ui-btn-danger ui-btn-sm js-delete-cv">Delete</button>
+              </div>
+            </section>
+
+            <section class="cvb-progress-card" aria-label="CV completion">
+              <div class="cvb-progress-head">
+                <strong class="js-completion-label">70% complete</strong>
+                <span class="js-completion-tip">Add your projects to strengthen your CV.</span>
+              </div>
+              <div class="ui-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-label="CV completion">
+                <span class="ui-progress-bar js-completion-bar" style="width: 70%"></span>
+              </div>
+            </section>
+
+            <div class="cvb-main-grid">
+              <section class="cvb-editor" aria-label="CV editor">
+                <div class="cvb-sort-help">Drag sections or rows using the handle icon to reorder your CV.</div>
+
+                <div class="cvb-sections js-cvb-sections">
+                  <details class="cvb-card js-cvb-card" open>
+                    <summary>
+                      <span class="cvb-summary-title"><span class="cvb-drag-handle" aria-hidden="true">::</span> Personal Details</span>
+                    </summary>
+                    <div class="cvb-card-body">
+                      <div class="ui-form-grid">
+                        <div>
+                          <label class="ui-label" for="cvb-full-name">Full name</label>
+                          <input id="cvb-full-name" class="ui-input js-preview-field" data-target="preview-name" type="text" value="Jegede Olajide" />
+                        </div>
+                        <div>
+                          <label class="ui-label" for="cvb-headline">Headline <span class="cvb-tip" title="Headline appears below your name in the CV preview.">?</span></label>
+                          <input id="cvb-headline" class="ui-input js-preview-field" data-target="preview-headline" type="text" value="Computer Engineering Student seeking AI internship" />
+                        </div>
+                        <div>
+                          <label class="ui-label" for="cvb-phone">Phone</label>
+                          <input id="cvb-phone" class="ui-input js-preview-field" data-target="preview-phone" type="text" value="+234 801 234 5678" />
+                        </div>
+                        <div>
+                          <label class="ui-label" for="cvb-address">Address</label>
+                          <input id="cvb-address" class="ui-input js-preview-field" data-target="preview-address" type="text" value="Lagos, Nigeria" />
+                        </div>
+                        <div>
+                          <label class="ui-label" for="cvb-linkedin">LinkedIn</label>
+                          <input id="cvb-linkedin" class="ui-input js-preview-field" data-target="preview-linkedin" type="text" value="linkedin.com/in/jegede" />
+                        </div>
+                        <div>
+                          <label class="ui-label" for="cvb-github">GitHub</label>
+                          <input id="cvb-github" class="ui-input js-preview-field" data-target="preview-github" type="text" value="github.com/jegede" />
+                        </div>
+                        <div>
+                          <label class="ui-label" for="cvb-portfolio">Portfolio</label>
+                          <input id="cvb-portfolio" class="ui-input js-preview-field" data-target="preview-portfolio" type="text" value="jegede.dev" />
+                        </div>
+                        <div>
+                          <label class="ui-label" for="cvb-bio">Bio / Summary <span class="cvb-tip" title="Use 2-3 concise sentences for best results.">?</span></label>
+                          <textarea id="cvb-bio" class="ui-textarea js-preview-field js-counted" data-target="preview-summary" data-max="450">Final-year student focused on backend systems and practical AI projects, with internship experience shipping production-ready features.</textarea>
+                          <p class="cvb-counter js-counter" data-for="cvb-bio">0/450</p>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+
+                  <details class="cvb-card js-cvb-card" open data-section="education">
+                    <summary>
+                      <span class="cvb-summary-title"><span class="cvb-drag-handle" aria-hidden="true">::</span> Education</span>
+                    </summary>
+                    <div class="cvb-card-body">
+                      <ul class="cvb-entry-list js-entry-list" data-section="education" id="cvb-list-education">
+                        <li class="cvb-entry-row">
+                          <span class="cvb-drag-handle" aria-hidden="true">::</span>
+                          <div>
+                            <strong>University of Lagos - B.Sc. Computer Engineering</strong>
+                            <small>2022 - 2026</small>
+                          </div>
+                          <div class="cvb-row-actions">
+                            <button type="button" class="ui-icon-btn js-edit-entry" aria-label="Edit education entry">✏️</button>
+                            <button type="button" class="ui-icon-btn js-delete-entry" aria-label="Delete education entry">🗑️</button>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-add-entry" data-section="education">+ Add Education</button>
+                    </div>
+                  </details>
+
+                  <details class="cvb-card js-cvb-card" open data-section="experience">
+                    <summary>
+                      <span class="cvb-summary-title"><span class="cvb-drag-handle" aria-hidden="true">::</span> Work Experience</span>
+                    </summary>
+                    <div class="cvb-card-body">
+                      <ul class="cvb-entry-list js-entry-list" data-section="experience" id="cvb-list-experience">
+                        <li class="cvb-entry-row">
+                          <span class="cvb-drag-handle" aria-hidden="true">::</span>
+                          <div>
+                            <strong>Andela - Software Engineering Intern</strong>
+                            <small>Jun 2025 - Sep 2025</small>
+                          </div>
+                          <div class="cvb-row-actions">
+                            <button type="button" class="ui-icon-btn js-edit-entry" aria-label="Edit experience entry">✏️</button>
+                            <button type="button" class="ui-icon-btn js-delete-entry" aria-label="Delete experience entry">🗑️</button>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-add-entry" data-section="experience">+ Add Experience</button>
+                    </div>
+                  </details>
+
+                  <details class="cvb-card js-cvb-card" open data-section="skills">
+                    <summary>
+                      <span class="cvb-summary-title"><span class="cvb-drag-handle" aria-hidden="true">::</span> Skills</span>
+                    </summary>
+                    <div class="cvb-card-body">
+                      <ul class="cvb-entry-list js-entry-list" data-section="skills" id="cvb-list-skills">
+                        <li class="cvb-entry-row">
+                          <span class="cvb-drag-handle" aria-hidden="true">::</span>
+                          <div>
+                            <strong>Python - Advanced (Verified)</strong>
+                            <small>Core backend skill</small>
+                          </div>
+                          <div class="cvb-row-actions">
+                            <button type="button" class="ui-icon-btn js-edit-entry" aria-label="Edit skill entry">✏️</button>
+                            <button type="button" class="ui-icon-btn js-delete-entry" aria-label="Delete skill entry">🗑️</button>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-add-entry" data-section="skills">+ Add Skill</button>
+                    </div>
+                  </details>
+
+                  <details class="cvb-card js-cvb-card" open data-section="certifications">
+                    <summary>
+                      <span class="cvb-summary-title"><span class="cvb-drag-handle" aria-hidden="true">::</span> Certifications</span>
+                    </summary>
+                    <div class="cvb-card-body">
+                      <ul class="cvb-entry-list js-entry-list" data-section="certifications" id="cvb-list-certifications">
+                        <li class="cvb-entry-row">
+                          <span class="cvb-drag-handle" aria-hidden="true">::</span>
+                          <div>
+                            <strong>Google IT Support</strong>
+                            <small>Issued Jan 2026</small>
+                          </div>
+                          <div class="cvb-row-actions">
+                            <button type="button" class="ui-icon-btn js-edit-entry" aria-label="Edit certification entry">✏️</button>
+                            <button type="button" class="ui-icon-btn js-delete-entry" aria-label="Delete certification entry">🗑️</button>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-add-entry" data-section="certifications">+ Add Certification</button>
+                    </div>
+                  </details>
+
+                  <details class="cvb-card js-cvb-card" open data-section="languages">
+                    <summary>
+                      <span class="cvb-summary-title"><span class="cvb-drag-handle" aria-hidden="true">::</span> Languages</span>
+                    </summary>
+                    <div class="cvb-card-body">
+                      <ul class="cvb-entry-list js-entry-list" data-section="languages" id="cvb-list-languages">
+                        <li class="cvb-entry-row">
+                          <span class="cvb-drag-handle" aria-hidden="true">::</span>
+                          <div>
+                            <strong>English - Professional</strong>
+                            <small>Daily working language</small>
+                          </div>
+                          <div class="cvb-row-actions">
+                            <button type="button" class="ui-icon-btn js-edit-entry" aria-label="Edit language entry">✏️</button>
+                            <button type="button" class="ui-icon-btn js-delete-entry" aria-label="Delete language entry">🗑️</button>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-add-entry" data-section="languages">+ Add Language</button>
+                    </div>
+                  </details>
+
+                  <details class="cvb-card js-cvb-card" open data-section="projects">
+                    <summary>
+                      <span class="cvb-summary-title"><span class="cvb-drag-handle" aria-hidden="true">::</span> Projects</span>
+                    </summary>
+                    <div class="cvb-card-body">
+                      <ul class="cvb-entry-list js-entry-list" data-section="projects" id="cvb-list-projects">
+                        <li class="cvb-entry-row">
+                          <span class="cvb-drag-handle" aria-hidden="true">::</span>
+                          <div>
+                            <strong>Campus Internship Matcher</strong>
+                            <small>React, Node.js, PostgreSQL</small>
+                          </div>
+                          <div class="cvb-row-actions">
+                            <button type="button" class="ui-icon-btn js-edit-entry" aria-label="Edit project entry">✏️</button>
+                            <button type="button" class="ui-icon-btn js-delete-entry" aria-label="Delete project entry">🗑️</button>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-add-entry" data-section="projects">+ Add Project</button>
+                    </div>
+                  </details>
+                </div>
+              </section>
+
+              <aside class="cvb-preview" aria-label="Live CV preview">
+                <div class="cvb-preview-header">
+                  <h3>Live Preview</h3>
+                  <p>This mirrors the layout used for PDF export.</p>
+                </div>
+
+                <article class="cvb-preview-sheet" id="cvb-preview-sheet">
+                  <header class="cvb-preview-top">
+                    <h1 id="preview-name">Jegede Olajide</h1>
+                    <p id="preview-headline">Computer Engineering Student seeking AI internship</p>
+                    <p class="cvb-preview-contact">
+                      <span id="preview-phone">+234 801 234 5678</span>
+                      <span id="preview-address">Lagos, Nigeria</span>
+                      <span id="preview-linkedin">linkedin.com/in/jegede</span>
+                      <span id="preview-github">github.com/jegede</span>
+                      <span id="preview-portfolio">jegede.dev</span>
+                    </p>
+                  </header>
+
+                  <section class="cvb-preview-section">
+                    <h4>Summary</h4>
+                    <p id="preview-summary">Final-year student focused on backend systems and practical AI projects, with internship experience shipping production-ready features.</p>
+                  </section>
+
+                  <section class="cvb-preview-section">
+                    <h4>Education</h4>
+                    <ul class="cvb-preview-list" id="preview-education">
+                      <li>University of Lagos - B.Sc. Computer Engineering (2022 - 2026)</li>
+                    </ul>
+                  </section>
+
+                  <section class="cvb-preview-section">
+                    <h4>Experience</h4>
+                    <ul class="cvb-preview-list" id="preview-experience">
+                      <li>Andela - Software Engineering Intern (Jun 2025 - Sep 2025)</li>
+                    </ul>
+                  </section>
+
+                  <section class="cvb-preview-section">
+                    <h4>Skills</h4>
+                    <ul class="cvb-preview-list" id="preview-skills">
+                      <li>Python - Advanced (Verified)</li>
+                    </ul>
+                  </section>
+
+                  <section class="cvb-preview-section">
+                    <h4>Certifications</h4>
+                    <ul class="cvb-preview-list" id="preview-certifications">
+                      <li>Google IT Support - Jan 2026</li>
+                    </ul>
+                  </section>
+
+                  <section class="cvb-preview-section">
+                    <h4>Languages</h4>
+                    <ul class="cvb-preview-list" id="preview-languages">
+                      <li>English - Professional</li>
+                    </ul>
+                  </section>
+
+                  <section class="cvb-preview-section">
+                    <h4>Projects</h4>
+                    <ul class="cvb-preview-list" id="preview-projects">
+                      <li>Campus Internship Matcher - React, Node.js, PostgreSQL</li>
+                    </ul>
+                  </section>
+                </article>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="cvb-drawer js-cvb-drawer" aria-hidden="true">
+      <div class="cvb-drawer-backdrop js-close-cvb-drawer"></div>
+      <aside class="cvb-drawer-panel" role="dialog" aria-modal="true" aria-label="CV entry form">
+        <div class="cvb-drawer-head">
+          <h3 class="js-cvb-drawer-title">Add Entry</h3>
+          <button type="button" class="ui-icon-btn js-close-cvb-drawer" aria-label="Close entry form">X</button>
+        </div>
+
+        <form class="ui-form-grid js-cvb-form" id="cvb-form-education" data-form="education">
+          <div><label class="ui-label" for="edu-school">School name</label><input id="edu-school" class="ui-input" type="text" required /></div>
+          <div><label class="ui-label" for="edu-degree">Degree</label><input id="edu-degree" class="ui-input" type="text" required /></div>
+          <div><label class="ui-label" for="edu-field">Field of study</label><input id="edu-field" class="ui-input" type="text" /></div>
+          <div class="ui-form-row">
+            <div><label class="ui-label" for="edu-start">Start date</label><input id="edu-start" class="ui-input" type="month" /></div>
+            <div><label class="ui-label" for="edu-end">End date</label><input id="edu-end" class="ui-input" type="month" /></div>
+          </div>
+          <div><label class="ui-label" for="edu-gpa">GPA (optional)</label><input id="edu-gpa" class="ui-input" type="text" /></div>
+          <div><label class="ui-label" for="edu-ach">Achievements</label><textarea id="edu-ach" class="ui-textarea js-counted" data-max="280"></textarea><p class="cvb-counter js-counter" data-for="edu-ach">0/280</p></div>
+        </form>
+
+        <form class="ui-form-grid js-cvb-form" id="cvb-form-experience" data-form="experience" hidden>
+          <div><label class="ui-label" for="exp-company">Company name</label><input id="exp-company" class="ui-input" type="text" required /></div>
+          <div><label class="ui-label" for="exp-position">Position</label><input id="exp-position" class="ui-input" type="text" required /></div>
+          <div><label class="ui-label" for="exp-location">Location</label><input id="exp-location" class="ui-input" type="text" /></div>
+          <div class="ui-form-row">
+            <div><label class="ui-label" for="exp-start">Start date</label><input id="exp-start" class="ui-input" type="month" /></div>
+            <div><label class="ui-label" for="exp-end">End date</label><input id="exp-end" class="ui-input" type="month" /></div>
+          </div>
+          <div><label class="ui-label" for="exp-desc">Description</label><textarea id="exp-desc" class="ui-textarea js-counted" data-max="360"></textarea><p class="cvb-counter js-counter" data-for="exp-desc">0/360</p></div>
+        </form>
+
+        <form class="ui-form-grid js-cvb-form" id="cvb-form-skills" data-form="skills" hidden>
+          <div><label class="ui-label" for="skill-name">Skill name</label><input id="skill-name" class="ui-input" list="skill-options" type="text" required /></div>
+          <datalist id="skill-options"><option>Python</option><option>Django</option><option>React</option><option>SQL</option><option>Figma</option></datalist>
+          <div><label class="ui-label" for="skill-level">Level</label><select id="skill-level" class="ui-select"><option>Beginner</option><option selected>Intermediate</option><option>Advanced</option></select></div>
+          <div><label class="ui-label" for="skill-verified">Verified status</label><input id="skill-verified" type="checkbox" disabled /> <span class="ui-help">Read-only: based on quiz verification.</span></div>
+        </form>
+
+        <form class="ui-form-grid js-cvb-form" id="cvb-form-certifications" data-form="certifications" hidden>
+          <div><label class="ui-label" for="cert-name">Certification name</label><input id="cert-name" class="ui-input" type="text" required /></div>
+          <div><label class="ui-label" for="cert-org">Issuing organisation</label><input id="cert-org" class="ui-input" type="text" /></div>
+          <div><label class="ui-label" for="cert-date">Date issued</label><input id="cert-date" class="ui-input" type="month" /></div>
+          <div><label class="ui-label" for="cert-id">Credential ID</label><input id="cert-id" class="ui-input" type="text" /></div>
+          <div><label class="ui-label" for="cert-url">Credential URL</label><input id="cert-url" class="ui-input" type="url" /></div>
+        </form>
+
+        <form class="ui-form-grid js-cvb-form" id="cvb-form-languages" data-form="languages" hidden>
+          <div><label class="ui-label" for="lang-name">Language name</label><input id="lang-name" class="ui-input" type="text" required /></div>
+          <div><label class="ui-label" for="lang-prof">Proficiency</label><select id="lang-prof" class="ui-select"><option>Basic</option><option>Conversational</option><option selected>Professional</option><option>Native</option></select></div>
+        </form>
+
+        <form class="ui-form-grid js-cvb-form" id="cvb-form-projects" data-form="projects" hidden>
+          <div><label class="ui-label" for="proj-name">Project name</label><input id="proj-name" class="ui-input" type="text" required /></div>
+          <div><label class="ui-label" for="proj-role">Role</label><input id="proj-role" class="ui-input" type="text" /></div>
+          <div><label class="ui-label" for="proj-desc">Description</label><textarea id="proj-desc" class="ui-textarea js-counted" data-max="320"></textarea><p class="cvb-counter js-counter" data-for="proj-desc">0/320</p></div>
+          <div><label class="ui-label" for="proj-tech">Technologies (comma-separated)</label><input id="proj-tech" class="ui-input" type="text" /></div>
+          <div><label class="ui-label" for="proj-url">Project URL</label><input id="proj-url" class="ui-input" type="url" /></div>
+          <div class="ui-form-row">
+            <div><label class="ui-label" for="proj-start">Start</label><input id="proj-start" class="ui-input" type="month" /></div>
+            <div><label class="ui-label" for="proj-end">End</label><input id="proj-end" class="ui-input" type="month" /></div>
+          </div>
+        </form>
+
+        <div class="cvb-drawer-actions">
+          <button type="button" class="ui-btn ui-btn-secondary js-close-cvb-drawer">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-primary js-save-cvb-entry">Save entry</button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="cvb-confirm js-cvb-confirm" hidden>
+      <div class="cvb-confirm-card" role="dialog" aria-modal="true" aria-label="Confirm delete">
+        <h3>Delete entry?</h3>
+        <p>This action cannot be undone.</p>
+        <div class="cvb-confirm-actions">
+          <button type="button" class="ui-btn ui-btn-secondary js-cvb-cancel-delete">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-danger js-cvb-confirm-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+    <script type="module">
+      import { showToast } from '../assets/js/toast.js';
+
+      const sidebarToggles = document.querySelectorAll('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+      const sidebar = document.querySelector('.js-sidebar');
+      const sidebarBackdrop = document.querySelector('.js-sidebar-backdrop');
+
+      const openSidebar = () => {
+        sidebar.classList.remove('-translate-x-full');
+        sidebarBackdrop.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
+      };
+
+      const closeSidebar = () => {
+        sidebar.classList.add('-translate-x-full');
+        sidebarBackdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+      };
+
+      sidebarToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          if (sidebar.classList.contains('-translate-x-full')) {
+            openSidebar();
+          } else {
+            closeSidebar();
+          }
+        });
+      });
+
+      sidebarBackdrop.addEventListener('click', closeSidebar);
+      document.querySelectorAll('.dashboard-sidebar a').forEach((link) => link.addEventListener('click', closeSidebar));
+
+      const profileBtn = document.querySelector('.js-profile-btn');
+      const dropdownMenu = document.querySelector('.js-dropdown-menu');
+      if (profileBtn && dropdownMenu) {
+        profileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          profileBtn.classList.toggle('is-open');
+          dropdownMenu.classList.toggle('is-open');
+          profileBtn.setAttribute('aria-expanded', profileBtn.classList.contains('is-open'));
+        });
+
+        document.addEventListener('click', () => {
+          profileBtn.classList.remove('is-open');
+          dropdownMenu.classList.remove('is-open');
+          profileBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        dropdownMenu.addEventListener('click', (e) => e.stopPropagation());
+      }
+
+      const drawer = document.querySelector('.js-cvb-drawer');
+      const drawerTitle = document.querySelector('.js-cvb-drawer-title');
+      const forms = document.querySelectorAll('.js-cvb-form');
+      const addButtons = document.querySelectorAll('.js-add-entry');
+      const closeDrawerButtons = document.querySelectorAll('.js-close-cvb-drawer');
+      const saveEntryButton = document.querySelector('.js-save-cvb-entry');
+      const filterButtonBar = document.querySelector('.js-filter-button-bar');
+      let currentSection = 'education';
+      let selectedRow = null;
+
+      const openDrawer = (section, isEdit = false) => {
+        currentSection = section;
+        drawerTitle.textContent = `${isEdit ? 'Edit' : 'Add'} ${section}`;
+        forms.forEach((form) => {
+          form.hidden = form.dataset.form !== section;
+          if (!isEdit && form.dataset.form === section) {
+            form.reset();
+          }
+        });
+        drawer.classList.add('is-open');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('overflow-hidden');
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('is-open');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('overflow-hidden');
+        selectedRow = null;
+      };
+
+      addButtons.forEach((button) => {
+        button.addEventListener('click', () => openDrawer(button.dataset.section));
+      });
+
+      closeDrawerButtons.forEach((button) => button.addEventListener('click', closeDrawer));
+      filterButtonBar?.addEventListener('click', () => openDrawer('education'));
+
+      const formatMonth = (value) => {
+        if (!value) {
+          return 'Present';
+        }
+        const [year, month] = value.split('-');
+        if (!year || !month) {
+          return value;
+        }
+        const monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][Number(month) - 1] || month;
+        return `${monthName} ${year}`;
+      };
+
+      const escapeHTML = (value) => {
+        return String(value ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      };
+
+      const toBulletItems = (value) => {
+        return String(value || '')
+          .split(/\r?\n/)
+          .map((line) => line.trim().replace(/^[-*•]\s*/, ''))
+          .filter(Boolean);
+      };
+
+      const getEntryData = (section) => {
+        if (section === 'education') {
+          const school = document.querySelector('#edu-school').value.trim() || 'New School';
+          const degree = document.querySelector('#edu-degree').value.trim() || 'Degree';
+          const field = document.querySelector('#edu-field').value.trim();
+          const gpa = document.querySelector('#edu-gpa').value.trim();
+          const achievements = document.querySelector('#edu-ach').value.trim();
+          const start = formatMonth(document.querySelector('#edu-start').value);
+          const end = formatMonth(document.querySelector('#edu-end').value);
+          return {
+            section,
+            title: `${school} - ${degree}`,
+            date: `${start} - ${end}`,
+            previewTitle: `${school} - ${degree}`,
+            previewMeta: `${start} - ${end}`,
+            previewSubline: [field ? `Field: ${field}` : '', gpa ? `GPA: ${gpa}` : ''].filter(Boolean).join(' • '),
+            bullets: toBulletItems(achievements)
+          };
+        }
+
+        if (section === 'experience') {
+          const company = document.querySelector('#exp-company').value.trim() || 'Company';
+          const position = document.querySelector('#exp-position').value.trim() || 'Role';
+          const location = document.querySelector('#exp-location').value.trim();
+          const description = document.querySelector('#exp-desc').value.trim();
+          const start = formatMonth(document.querySelector('#exp-start').value);
+          const end = formatMonth(document.querySelector('#exp-end').value);
+          return {
+            section,
+            title: `${company} - ${position}`,
+            date: `${start} - ${end}`,
+            previewTitle: `${position} • ${company}`,
+            previewMeta: [location, `${start} - ${end}`].filter(Boolean).join(' • '),
+            bullets: toBulletItems(description)
+          };
+        }
+
+        if (section === 'skills') {
+          const skill = document.querySelector('#skill-name').value.trim() || 'Skill';
+          const level = document.querySelector('#skill-level').value;
+          return {
+            section,
+            title: `${skill} - ${level}`,
+            date: 'Self-reported',
+            previewTitle: `${skill}`,
+            previewMeta: `${level} (Self-reported)`
+          };
+        }
+
+        if (section === 'certifications') {
+          const cert = document.querySelector('#cert-name').value.trim() || 'Certification';
+          const org = document.querySelector('#cert-org').value.trim() || 'Organisation';
+          const issued = formatMonth(document.querySelector('#cert-date').value);
+          const credId = document.querySelector('#cert-id').value.trim();
+          const certUrl = document.querySelector('#cert-url').value.trim();
+          return {
+            section,
+            title: `${cert} - ${org}`,
+            date: issued,
+            previewTitle: cert,
+            previewMeta: [org, issued].filter(Boolean).join(' • '),
+            previewSubline: [credId ? `ID: ${credId}` : '', certUrl].filter(Boolean).join(' • ')
+          };
+        }
+
+        if (section === 'languages') {
+          const lang = document.querySelector('#lang-name').value.trim() || 'Language';
+          const prof = document.querySelector('#lang-prof').value;
+          return {
+            section,
+            title: `${lang} - ${prof}`,
+            date: 'Language proficiency',
+            previewTitle: `${lang}`,
+            previewMeta: prof
+          };
+        }
+
+        const proj = document.querySelector('#proj-name').value.trim() || 'Project';
+        const role = document.querySelector('#proj-role').value.trim();
+        const desc = document.querySelector('#proj-desc').value.trim();
+        const tech = document.querySelector('#proj-tech').value.trim() || 'Technologies';
+        const url = document.querySelector('#proj-url').value.trim();
+        const start = formatMonth(document.querySelector('#proj-start').value);
+        const end = formatMonth(document.querySelector('#proj-end').value);
+        return {
+          section,
+          title: `${proj} - ${tech}`,
+          date: [start, end].filter(Boolean).join(' - '),
+          previewTitle: `${proj}${role ? ` (${role})` : ''}`,
+          previewMeta: [tech, [start, end].filter(Boolean).join(' - ')].filter(Boolean).join(' • '),
+          previewSubline: url,
+          bullets: toBulletItems(desc)
+        };
+      };
+
+      const createEntryRow = (entryData) => {
+        const row = document.createElement('li');
+        row.className = 'cvb-entry-row';
+        row.dataset.entry = JSON.stringify(entryData);
+        row.innerHTML = `
+          <span class="cvb-drag-handle" aria-hidden="true">::</span>
+          <div>
+            <strong>${escapeHTML(entryData.title)}</strong>
+            <small>${escapeHTML(entryData.date)}</small>
+          </div>
+          <div class="cvb-row-actions">
+            <button type="button" class="ui-icon-btn js-edit-entry" aria-label="Edit entry">✏️</button>
+            <button type="button" class="ui-icon-btn js-delete-entry" aria-label="Delete entry">🗑️</button>
+          </div>
+        `;
+        return row;
+      };
+
+      const populateFormFromEntry = (section, entryData) => {
+        if (section === 'education') {
+          document.querySelector('#edu-school').value = (entryData.previewTitle || '').split(' - ')[0] || '';
+          document.querySelector('#edu-degree').value = (entryData.previewTitle || '').split(' - ')[1] || '';
+          document.querySelector('#edu-field').value = (entryData.previewSubline || '').replace(/^Field:\s*/, '').split(' • ')[0] || '';
+          document.querySelector('#edu-gpa').value = ((entryData.previewSubline || '').match(/GPA:\s*([^•]+)/)?.[1] || '').trim();
+          document.querySelector('#edu-ach').value = (entryData.bullets || []).join('\n');
+        } else if (section === 'experience') {
+          const [position = '', company = ''] = (entryData.previewTitle || '').split(' • ');
+          document.querySelector('#exp-position').value = position.trim();
+          document.querySelector('#exp-company').value = company.trim();
+          document.querySelector('#exp-location').value = (entryData.previewMeta || '').split(' • ')[0] || '';
+          document.querySelector('#exp-desc').value = (entryData.bullets || []).join('\n');
+        } else if (section === 'skills') {
+          document.querySelector('#skill-name').value = entryData.previewTitle || '';
+          const level = (entryData.previewMeta || '').split(' ')[0];
+          document.querySelector('#skill-level').value = level || 'Intermediate';
+        } else if (section === 'certifications') {
+          document.querySelector('#cert-name').value = entryData.previewTitle || '';
+          document.querySelector('#cert-org').value = (entryData.previewMeta || '').split(' • ')[0] || '';
+          const metaId = (entryData.previewSubline || '').match(/ID:\s*([^•]+)/)?.[1];
+          document.querySelector('#cert-id').value = metaId ? metaId.trim() : '';
+          document.querySelector('#cert-url').value = (entryData.previewSubline || '').replace(/.*•\s*/, '').includes('http') ? (entryData.previewSubline || '').replace(/.*•\s*/, '') : '';
+        } else if (section === 'languages') {
+          document.querySelector('#lang-name').value = entryData.previewTitle || '';
+          document.querySelector('#lang-prof').value = entryData.previewMeta || 'Professional';
+        } else if (section === 'projects') {
+          document.querySelector('#proj-name').value = (entryData.previewTitle || '').replace(/\s*\(.*\)$/, '');
+          const roleMatch = (entryData.previewTitle || '').match(/\((.*)\)$/);
+          document.querySelector('#proj-role').value = roleMatch ? roleMatch[1] : '';
+          document.querySelector('#proj-tech').value = (entryData.previewMeta || '').split(' • ')[0] || '';
+          document.querySelector('#proj-url').value = entryData.previewSubline || '';
+          document.querySelector('#proj-desc').value = (entryData.bullets || []).join('\n');
+        }
+
+        document.querySelectorAll('.js-counted').forEach((textarea) => {
+          const counter = document.querySelector(`.js-counter[data-for="${textarea.id}"]`);
+          if (counter) {
+            const max = Number(textarea.dataset.max || 0);
+            counter.textContent = `${textarea.value.length}/${max}`;
+          }
+        });
+      };
+
+      const syncPreviewList = (section) => {
+        const rows = document.querySelectorAll(`#cvb-list-${section} .cvb-entry-row`);
+        const previewList = document.querySelector(`#preview-${section}`);
+        if (!previewList) {
+          return;
+        }
+        previewList.innerHTML = '';
+        rows.forEach((row) => {
+          const li = document.createElement('li');
+          const entryData = JSON.parse(row.dataset.entry || '{}');
+          const title = entryData.previewTitle || entryData.title || '';
+          const meta = entryData.previewMeta || entryData.date || '';
+          const subline = entryData.previewSubline || '';
+          const bullets = Array.isArray(entryData.bullets) ? entryData.bullets : [];
+
+          li.innerHTML = `<strong>${escapeHTML(title)}</strong>${meta ? `<span class="cvb-preview-meta">${escapeHTML(meta)}</span>` : ''}${subline ? `<span class="cvb-preview-subline">${escapeHTML(subline)}</span>` : ''}`;
+          if (bullets.length) {
+            const nested = document.createElement('ul');
+            nested.className = 'cvb-preview-bullets';
+            bullets.forEach((bullet) => {
+              const nestedItem = document.createElement('li');
+              nestedItem.textContent = bullet;
+              nested.appendChild(nestedItem);
+            });
+            li.appendChild(nested);
+          }
+          previewList.appendChild(li);
+        });
+        if (!previewList.children.length) {
+          previewList.innerHTML = '<li>No entries yet</li>';
+        }
+      };
+
+      const seedInitialEntryData = () => {
+        document.querySelectorAll('.js-entry-list .cvb-entry-row').forEach((row) => {
+          if (row.dataset.entry) {
+            return;
+          }
+          const section = row.closest('.js-entry-list')?.dataset.section || 'entry';
+          const title = row.querySelector('strong')?.textContent?.trim() || 'Entry';
+          const date = row.querySelector('small')?.textContent?.trim() || '';
+          row.dataset.entry = JSON.stringify({
+            section,
+            title,
+            date,
+            previewTitle: title,
+            previewMeta: date
+          });
+        });
+      };
+
+      saveEntryButton?.addEventListener('click', () => {
+        const entryData = getEntryData(currentSection);
+        const targetList = document.querySelector(`#cvb-list-${currentSection}`);
+        if (!targetList) {
+          closeDrawer();
+          return;
+        }
+        if (selectedRow) {
+          selectedRow.dataset.entry = JSON.stringify(entryData);
+          selectedRow.querySelector('strong').textContent = entryData.title;
+          selectedRow.querySelector('small').textContent = entryData.date;
+          selectedRow = null;
+        } else {
+          targetList.appendChild(createEntryRow(entryData));
+        }
+        syncPreviewList(currentSection);
+        closeDrawer();
+        markDirty();
+        showToast(`${currentSection} entry saved`, { type: 'success', duration: 2200 });
+      });
+
+      document.addEventListener('click', (event) => {
+        const editButton = event.target.closest('.js-edit-entry');
+        if (editButton) {
+          const row = editButton.closest('.cvb-entry-row');
+          const section = row.closest('.js-entry-list')?.dataset.section;
+          selectedRow = row;
+          openDrawer(section, true);
+          const entryData = JSON.parse(row.dataset.entry || '{}');
+          populateFormFromEntry(section, entryData);
+        }
+      });
+
+      const confirmModal = document.querySelector('.js-cvb-confirm');
+      let pendingDeleteRow = null;
+      document.addEventListener('click', (event) => {
+        const deleteButton = event.target.closest('.js-delete-entry');
+        if (!deleteButton) {
+          return;
+        }
+        pendingDeleteRow = deleteButton.closest('.cvb-entry-row');
+        confirmModal.hidden = false;
+      });
+
+      const closeConfirm = () => {
+        confirmModal.hidden = true;
+        pendingDeleteRow = null;
+      };
+
+      document.querySelector('.js-cvb-cancel-delete')?.addEventListener('click', closeConfirm);
+      document.querySelector('.js-cvb-confirm-delete')?.addEventListener('click', () => {
+        if (pendingDeleteRow) {
+          const section = pendingDeleteRow.closest('.js-entry-list')?.dataset.section;
+          pendingDeleteRow.remove();
+          if (section) {
+            syncPreviewList(section);
+          }
+          markDirty();
+          showToast('Entry deleted', { type: 'info', duration: 2000 });
+        }
+        closeConfirm();
+      });
+      confirmModal?.addEventListener('click', (event) => {
+        if (event.target === confirmModal) {
+          closeConfirm();
+        }
+      });
+
+      const previewFields = document.querySelectorAll('.js-preview-field');
+      let previewTimer = null;
+      const updatePreview = () => {
+        previewFields.forEach((field) => {
+          const target = document.getElementById(field.dataset.target);
+          if (target) {
+            target.textContent = field.value.trim() || '---';
+          }
+        });
+        updateCompletion();
+      };
+
+      const debouncedPreview = () => {
+        clearTimeout(previewTimer);
+        previewTimer = setTimeout(updatePreview, 240);
+      };
+
+      previewFields.forEach((field) => {
+        field.addEventListener('input', () => {
+          markDirty();
+          debouncedPreview();
+        });
+      });
+
+      document.querySelector('.js-refresh-preview')?.addEventListener('click', () => {
+        updatePreview();
+        showToast('Preview refreshed', { type: 'info', duration: 1800 });
+      });
+
+      document.querySelector('.js-export-pdf')?.addEventListener('click', () => {
+        showToast('PDF export started', { type: 'success', duration: 2200 });
+      });
+
+      document.querySelector('.js-duplicate-cv')?.addEventListener('click', () => {
+        showToast('CV duplicated', { type: 'success', duration: 2200 });
+      });
+
+      document.querySelector('.js-set-primary')?.addEventListener('click', () => {
+        const first = document.querySelector('.cvb-cv-chip');
+        document.querySelectorAll('.cvb-cv-chip').forEach((chip) => chip.classList.remove('is-primary'));
+        first?.classList.add('is-primary');
+        first.textContent = first.textContent.replace(' (Primary)', '') + ' (Primary)';
+        showToast('Primary CV updated', { type: 'success', duration: 2200 });
+      });
+
+      document.querySelector('.js-delete-cv')?.addEventListener('click', () => {
+        showToast('Current CV archived', { type: 'info', duration: 2200 });
+      });
+
+      const counters = document.querySelectorAll('.js-counted');
+      const updateCounter = (element) => {
+        const counter = document.querySelector(`.js-counter[data-for="${element.id}"]`);
+        if (!counter) {
+          return;
+        }
+        const max = Number(element.dataset.max || 0);
+        const current = element.value.length;
+        counter.textContent = `${current}/${max}`;
+      };
+      counters.forEach((element) => {
+        updateCounter(element);
+        element.addEventListener('input', () => {
+          updateCounter(element);
+          markDirty();
+        });
+      });
+
+      const completionLabel = document.querySelector('.js-completion-label');
+      const completionTip = document.querySelector('.js-completion-tip');
+      const completionBar = document.querySelector('.js-completion-bar');
+      const updateCompletion = () => {
+        const checks = [
+          document.querySelector('#cvb-full-name').value.trim().length > 2,
+          document.querySelector('#cvb-headline').value.trim().length > 8,
+          document.querySelector('#cvb-bio').value.trim().length > 20,
+          document.querySelector('#cvb-list-education .cvb-entry-row'),
+          document.querySelector('#cvb-list-experience .cvb-entry-row'),
+          document.querySelector('#cvb-list-skills .cvb-entry-row'),
+          document.querySelector('#cvb-list-projects .cvb-entry-row')
+        ];
+        const score = Math.round((checks.filter(Boolean).length / checks.length) * 100);
+        completionLabel.textContent = `${score}% complete`;
+        completionBar.style.width = `${score}%`;
+        completionTip.textContent = score < 75 ? 'Add projects and certifications to strengthen your CV.' : 'Great progress. Fine-tune role-specific achievements.';
+      };
+
+      let isDirty = false;
+      const autosaveState = document.querySelector('.js-autosave-state');
+      const markDirty = () => {
+        isDirty = true;
+        autosaveState.textContent = 'Unsaved changes';
+      };
+
+      setInterval(() => {
+        if (!isDirty) {
+          return;
+        }
+        isDirty = false;
+        autosaveState.textContent = `Auto-saved at ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+      }, 5000);
+
+      window.addEventListener('beforeunload', (event) => {
+        if (!isDirty) {
+          return;
+        }
+        event.preventDefault();
+        event.returnValue = '';
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeDrawer();
+          closeConfirm();
+        }
+      });
+
+      if (window.Sortable) {
+        const sections = document.querySelector('.js-cvb-sections');
+        new window.Sortable(sections, { handle: '.cvb-drag-handle', animation: 150, draggable: '.js-cvb-card' });
+        document.querySelectorAll('.js-entry-list').forEach((list) => {
+          new window.Sortable(list, {
+            handle: '.cvb-drag-handle',
+            animation: 150,
+            onEnd: () => {
+              syncPreviewList(list.dataset.section);
+              markDirty();
+            }
+          });
+        });
+      }
+
+      seedInitialEntryData();
+      updatePreview();
+      updateCompletion();
+      document.querySelectorAll('.js-entry-list').forEach((list) => syncPreviewList(list.dataset.section));
+    </script>
+  </body>
+</html>
