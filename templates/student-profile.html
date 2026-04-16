@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Profile - InternMatch</title>
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
+  </head>
+  <body class="student-profile-page min-h-screen bg-tertiary-50 font-sans text-secondary-700">
+    <!-- Dashboard Navbar -->
+    <nav class="dashboard-nav">
+      <div class="navbar-container mx-auto">
+        <!-- Logo & Title -->
+        <div class="navbar-logo">
+          <div class="logo-icon">IM</div>
+          <h1 class="logo-text">InternMatch</h1>
+        </div>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search internships..."
+              class="search-input ui-input"
+            />
+          </div>
+        </div>
+
+        <div class="navbar-actions">
+          <!-- Notifications -->
+          <button class="icon-btn notification-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+
+          <!-- Messages -->
+          <button class="icon-btn" aria-label="Messages">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+
+          <!-- Settings -->
+          <button class="icon-btn" aria-label="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
+            </svg>
+          </button>
+
+          <!-- User Profile Dropdown -->
+          <div class="profile-dropdown">
+            <button class="profile-btn js-profile-btn" aria-label="User menu" aria-expanded="false">
+              <div class="profile-info">
+                <div class="profile-text">
+                  <p class="profile-name">Jegede Olajide</p>
+                  <p class="profile-role">Student</p>
+                </div>
+              </div>
+              <div class="profile-avatar">
+                <img
+                  class="avatar-image"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                  alt="Alex Dev profile photo"
+                />
+              </div>
+              <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <!-- Profile Dropdown Menu -->
+            <div class="dropdown-menu js-dropdown-menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-link">My Profile</a>
+                <a href="#" class="dropdown-link">Settings</a>
+                <a href="#" class="dropdown-link">Help & Support</a>
+                <div class="dropdown-divider"></div>
+                <a href="/" class="dropdown-link logout">Sign Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Top Bar (Below Navbar) -->
+    <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
+      <button class="js-sidebar-toggle-bar mobile-top-icon-btn" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M3 12h18" />
+          <path d="M3 6h18" />
+          <path d="M3 18h18" />
+        </svg>
+      </button>
+
+      <h3 class="mobile-top-title">Matches</h3>
+
+      <button class="js-filter-button-bar mobile-top-icon-btn" aria-label="Open filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M4 6h16" />
+          <path d="M7 12h10" />
+          <path d="M10 18h4" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="w-full px-0 sm:px-6 lg:px-8">
+      <div class="dashboard-layout student-profile-layout">
+        <div class="js-sidebar-backdrop fixed inset-0 z-40 hidden bg-black/40 lg:hidden" aria-hidden="true"></div>
+
+        <aside class="dashboard-sidebar js-sidebar fixed left-0 top-0 z-50 h-screen lg:static lg:z-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out w-64 lg:w-auto lg:transform-none" aria-label="Dashboard sidebar">
+          <section class="sidebar-section sidebar-profile-card">
+            <div class="sidebar-avatar-lg">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                alt="John Doe profile photo"
+              />
+            </div>
+            <p class="sidebar-user-line">Jegede Olajide</p>
+            <p class="sidebar-strength">Profile Strength: 80%</p>
+            <button class="sidebar-cta-btn" type="button">Complete Profile</button>
+          </section>
+
+          <section class="sidebar-section sidebar-links" aria-label="Primary links">
+            <a href="#" class="sidebar-link">🎯 Matches</a>
+            <a href="#" class="sidebar-link">🔖 Saved</a>
+            <a href="#" class="sidebar-link">📄 Applications</a>
+          </section>
+
+          <section class="sidebar-section">
+            <a href="#" class="sidebar-action-link">🚀 Post / Apply</a>
+          </section>
+
+          <section class="sidebar-section sidebar-mini-profile">
+            <span class="sidebar-avatar-sm">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+                alt="John Doe mini profile photo"
+              />
+            </span>
+            <span>Profile</span>
+          </section>
+        </aside>
+
+        <section class="dashboard-content" aria-label="Student profile content">
+          <div class="dashboard-content-card sp-shell">
+            <header class="sp-page-header">
+              <div>
+                <h2>Student Profile Control Center</h2>
+                <p>Manage your identity, education, skills, and credentials from one place.</p>
+              </div>
+              <div class="sp-page-actions">
+                <a href="#" class="ui-btn ui-btn-secondary ui-btn-sm">Saved companies</a>
+                <a href="#" class="ui-btn ui-btn-primary ui-btn-sm">Applications</a>
+              </div>
+            </header>
+
+            <div class="sp-grid">
+              <div class="sp-col-main">
+                <article class="sp-card sp-profile-card">
+                  <div class="sp-card-head">
+                    <h3>Profile Card</h3>
+                    <button type="button" class="ui-icon-btn js-open-profile-modal" aria-label="Edit profile">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="sp-profile-main">
+                    <label class="sp-avatar-upload" for="sp-avatar-input">
+                      <img id="sp-avatar-preview" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="Profile avatar" />
+                      <span>Change photo</span>
+                    </label>
+                    <input id="sp-avatar-input" class="sp-hidden-input" type="file" accept="image/*" />
+
+                    <div class="sp-profile-details">
+                      <div class="sp-inline-field">
+                        <strong>Jegede Olajide</strong>
+                        <button type="button" class="sp-inline-edit js-open-profile-modal">Edit</button>
+                      </div>
+                      <p class="sp-meta-row">Email: jegede@example.com <span class="sp-status-chip sp-done">Verified</span></p>
+                      <p class="sp-meta-row">Student ID: XXXXX-4921 <span class="sp-status-chip sp-pending">Pending</span></p>
+                      <p class="sp-meta-row">Location: Lagos, Nigeria</p>
+                      <p class="sp-meta-row">Member since: Feb 2025</p>
+                    </div>
+                  </div>
+
+                  <div class="sp-link-row">
+                    <a href="#" class="ui-tag">Manage CV</a>
+                    <a href="#" class="ui-tag">Application history</a>
+                    <a href="#" class="ui-tag">Saved companies</a>
+                  </div>
+                </article>
+
+                <article class="sp-card" id="sp-education">
+                  <div class="sp-card-head">
+                    <h3>Education</h3>
+                    <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-open-drawer" data-drawer="education">+ Add Education</button>
+                  </div>
+
+                  <div class="sp-list">
+                    <article class="sp-item-card">
+                      <div class="sp-item-main">
+                        <h4>University of Lagos</h4>
+                        <p>B.Sc. Computer Science</p>
+                        <p>Field: Software Engineering • GPA: 4.2/5.0</p>
+                      </div>
+                      <div class="sp-item-side">
+                        <span>2022 - 2026 (Expected)</span>
+                        <div class="sp-item-actions">
+                          <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-open-drawer" data-drawer="education">Edit</button>
+                          <button type="button" class="ui-btn ui-btn-danger ui-btn-sm js-open-delete" data-delete="education">Delete</button>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="sp-item-card">
+                      <div class="sp-item-main">
+                        <h4>Yaba College of Technology</h4>
+                        <p>ND Computer Engineering</p>
+                        <p>Field: Embedded Systems</p>
+                      </div>
+                      <div class="sp-item-side">
+                        <span>2019 - 2021</span>
+                        <div class="sp-item-actions">
+                          <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-open-drawer" data-drawer="education">Edit</button>
+                          <button type="button" class="ui-btn ui-btn-danger ui-btn-sm js-open-delete" data-delete="education">Delete</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </article>
+
+                <article class="sp-card" id="sp-work-experience">
+                  <div class="sp-card-head">
+                    <h3>Work Experience</h3>
+                    <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-open-drawer" data-drawer="experience">+ Add Experience</button>
+                  </div>
+
+                  <div class="sp-list">
+                    <article class="sp-item-card">
+                      <div class="sp-item-main">
+                        <h4>Andela</h4>
+                        <p>Software Engineering Intern</p>
+                        <p>Built onboarding forms and internal tools with React and REST APIs.</p>
+                      </div>
+                      <div class="sp-item-side">
+                        <span>Jun 2025 - Sep 2025</span>
+                        <div class="sp-item-actions">
+                          <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-open-drawer" data-drawer="experience">Edit</button>
+                          <button type="button" class="ui-btn ui-btn-danger ui-btn-sm js-open-delete" data-delete="experience">Delete</button>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="sp-empty-card">
+                      <h4>Add your first internship</h4>
+                      <p>No additional experience added yet.</p>
+                      <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm js-open-drawer" data-drawer="experience">Add internship</button>
+                    </article>
+                  </div>
+                </article>
+
+                <article class="sp-card" id="sp-certifications">
+                  <div class="sp-card-head">
+                    <h3>Certifications</h3>
+                    <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-open-drawer" data-drawer="certification">+ Add Certification</button>
+                  </div>
+
+                  <div class="sp-list">
+                    <article class="sp-item-card">
+                      <div class="sp-item-main">
+                        <h4>Google IT Support</h4>
+                        <p>Google Career Certificates</p>
+                      </div>
+                      <div class="sp-item-side">
+                        <span>Jan 2026</span>
+                        <div class="sp-item-actions">
+                          <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-open-drawer" data-drawer="certification">Edit</button>
+                          <button type="button" class="ui-btn ui-btn-danger ui-btn-sm js-open-delete" data-delete="certification">Delete</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </article>
+              </div>
+
+              <aside class="sp-col-side" aria-label="Verification and skills">
+                <article class="sp-card" id="sp-verification">
+                  <div class="sp-card-head">
+                    <h3>Verification & Badges</h3>
+                    <a href="#" class="sp-section-link">Verification Center</a>
+                  </div>
+
+                  <div class="sp-verification-progress">
+                    <div class="sp-ring" role="img" aria-label="65 percent verified student progress">
+                      <span>65%</span>
+                    </div>
+                    <div class="sp-progress-copy">
+                      <strong>Verified Student Progress</strong>
+                      <p>You are two actions away from full verification.</p>
+                    </div>
+                  </div>
+
+                  <div class="sp-badge-list">
+                    <button type="button" class="sp-badge-item js-badge-task" data-task="Email verification">
+                      <span class="sp-badge-dot sp-done"></span>
+                      <span>Email verified</span>
+                      <small>Completed</small>
+                    </button>
+                    <button type="button" class="sp-badge-item js-badge-task" data-task="Student ID">
+                      <span class="sp-badge-dot sp-pending"></span>
+                      <span>Student ID uploaded</span>
+                      <small>Pending review</small>
+                    </button>
+                    <button type="button" class="sp-badge-item js-badge-task" data-task="Python skill quiz">
+                      <span class="sp-badge-dot sp-neutral"></span>
+                      <span>Python skill quiz</span>
+                      <small>Not started</small>
+                    </button>
+                    <button type="button" class="sp-badge-item js-badge-task" data-task="Lecturer endorsement">
+                      <span class="sp-badge-dot sp-neutral"></span>
+                      <span>Lecturer endorsement</span>
+                      <small>Not requested</small>
+                    </button>
+                  </div>
+
+                  <p class="sp-next-step">Next step: Upload your student ID to unlock Verified Student status.</p>
+                </article>
+
+                <article class="sp-card" id="sp-skills">
+                  <div class="sp-card-head">
+                    <h3>Skills & Endorsements</h3>
+                    <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-open-drawer" data-drawer="skill">Add skill</button>
+                  </div>
+
+                  <div class="sp-skills-grid">
+                    <div class="sp-skill-chip">
+                      <span>Python</span>
+                      <span class="sp-status-chip sp-done">Verified</span>
+                      <button type="button" class="sp-mini-link js-verify-skill" data-skill="Python">Verify this skill</button>
+                    </div>
+                    <div class="sp-skill-chip">
+                      <span>Django</span>
+                      <span class="sp-status-chip sp-neutral">Self-reported</span>
+                      <button type="button" class="sp-mini-link js-verify-skill" data-skill="Django">Verify this skill</button>
+                    </div>
+                    <div class="sp-skill-chip">
+                      <span>SQL</span>
+                      <span class="sp-status-chip sp-neutral">Self-reported</span>
+                      <button type="button" class="sp-mini-link js-verify-skill" data-skill="SQL">Verify this skill</button>
+                    </div>
+                    <div class="sp-skill-chip">
+                      <span>UI Design</span>
+                      <span class="sp-status-chip sp-done">Verified</span>
+                      <button type="button" class="sp-mini-link js-verify-skill" data-skill="UI Design">Verify this skill</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="sp-card" id="sp-cv-preview">
+                  <div class="sp-card-head">
+                    <h3>CV Preview</h3>
+                  </div>
+
+                  <div class="sp-cv-preview">
+                    <p>Final-year Computer Science student with internship experience in backend engineering and product delivery.</p>
+                    <p>Strong in Python, Django, API design, and teamwork in agile environments.</p>
+                    <p>Interested in fintech and developer-platform internships.</p>
+                  </div>
+
+                  <div class="sp-cv-actions">
+                    <a href="#" class="ui-btn ui-btn-secondary ui-btn-sm">View Full CV</a>
+                    <a href="#" class="ui-btn ui-btn-primary ui-btn-sm">Edit CV</a>
+                  </div>
+                </article>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="sp-modal js-profile-modal" hidden>
+      <div class="sp-modal-card" role="dialog" aria-modal="true" aria-label="Edit profile details">
+        <div class="sp-modal-head">
+          <h3>Edit Profile</h3>
+          <button type="button" class="ui-icon-btn js-close-profile-modal" aria-label="Close edit profile modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6l12 12" />
+              <path d="m18 6-12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="ui-form-grid">
+          <div>
+            <label class="ui-label" for="sp-name">Full name</label>
+            <input id="sp-name" class="ui-input" type="text" value="Jegede Olajide" />
+          </div>
+          <div>
+            <label class="ui-label" for="sp-email">Email</label>
+            <input id="sp-email" class="ui-input" type="email" value="jegede@example.com" />
+          </div>
+          <div>
+            <label class="ui-label" for="sp-phone">Phone</label>
+            <input id="sp-phone" class="ui-input" type="text" value="+234 801 234 5678" />
+          </div>
+          <div>
+            <label class="ui-label" for="sp-location">Location</label>
+            <input id="sp-location" class="ui-input" type="text" value="Lagos, Nigeria" />
+          </div>
+        </div>
+        <div class="sp-modal-actions">
+          <button type="button" class="ui-btn ui-btn-secondary js-close-profile-modal">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-primary js-save-profile">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-drawer js-entry-drawer" aria-hidden="true">
+      <div class="sp-drawer-backdrop js-close-drawer"></div>
+      <aside class="sp-drawer-panel" role="dialog" aria-modal="true" aria-label="Add or edit profile entry">
+        <div class="sp-drawer-head">
+          <h3 class="js-drawer-title">Add Entry</h3>
+          <button type="button" class="ui-icon-btn js-close-drawer" aria-label="Close drawer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6l12 12" />
+              <path d="m18 6-12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="ui-form-grid">
+          <div>
+            <label class="ui-label" for="sp-entry-title">Title</label>
+            <input id="sp-entry-title" class="ui-input" type="text" placeholder="Entry title" />
+          </div>
+          <div>
+            <label class="ui-label" for="sp-entry-subtitle">Subtitle</label>
+            <input id="sp-entry-subtitle" class="ui-input" type="text" placeholder="Entry subtitle" />
+          </div>
+          <div class="ui-form-row">
+            <div>
+              <label class="ui-label" for="sp-entry-start">Start</label>
+              <input id="sp-entry-start" class="ui-input" type="text" placeholder="2025" />
+            </div>
+            <div>
+              <label class="ui-label" for="sp-entry-end">End</label>
+              <input id="sp-entry-end" class="ui-input" type="text" placeholder="2026" />
+            </div>
+          </div>
+          <div>
+            <label class="ui-label" for="sp-entry-description">Description</label>
+            <textarea id="sp-entry-description" class="ui-textarea" placeholder="Details"></textarea>
+          </div>
+        </div>
+
+        <div class="sp-drawer-actions">
+          <button type="button" class="ui-btn ui-btn-secondary js-close-drawer">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-primary js-save-entry">Save</button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="sp-confirm js-delete-confirm" hidden>
+      <div class="sp-confirm-card" role="dialog" aria-modal="true" aria-label="Confirm delete">
+        <h3>Delete this item?</h3>
+        <p>This action cannot be undone.</p>
+        <div class="sp-confirm-actions">
+          <button type="button" class="ui-btn ui-btn-secondary js-cancel-delete">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-danger js-confirm-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { showToast } from '../assets/js/toast.js';
+
+      const sidebarToggles = document.querySelectorAll('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+      const sidebar = document.querySelector('.js-sidebar');
+      const sidebarBackdrop = document.querySelector('.js-sidebar-backdrop');
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      const openSidebar = () => {
+        sidebar.classList.remove('-translate-x-full');
+        sidebarBackdrop.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
+      };
+
+      const closeSidebar = () => {
+        sidebar.classList.add('-translate-x-full');
+        sidebarBackdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+      };
+
+      sidebarToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          if (sidebar.classList.contains('-translate-x-full')) {
+            openSidebar();
+          } else {
+            closeSidebar();
+          }
+        });
+      });
+
+      sidebarBackdrop.addEventListener('click', closeSidebar);
+
+      document.addEventListener('click', (event) => {
+        if (window.innerWidth < 1024 || window.innerWidth >= 1280) {
+          return;
+        }
+
+        const clickedInsideSidebar = event.target.closest('.js-sidebar');
+        const clickedSidebarToggle = event.target.closest('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+
+        if (!sidebar.classList.contains('-translate-x-full') && !clickedInsideSidebar && !clickedSidebarToggle) {
+          closeSidebar();
+        }
+      });
+
+      sidebar.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+
+      sidebar.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX - touchStartX > 100) {
+          closeSidebar();
+        }
+      }, false);
+
+      document.querySelectorAll('.dashboard-sidebar a').forEach((link) => {
+        link.addEventListener('click', closeSidebar);
+      });
+
+      const profileBtn = document.querySelector('.js-profile-btn');
+      const dropdownMenu = document.querySelector('.js-dropdown-menu');
+      if (profileBtn && dropdownMenu) {
+        profileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          profileBtn.classList.toggle('is-open');
+          dropdownMenu.classList.toggle('is-open');
+          profileBtn.setAttribute('aria-expanded', profileBtn.classList.contains('is-open'));
+        });
+
+        document.addEventListener('click', () => {
+          profileBtn.classList.remove('is-open');
+          dropdownMenu.classList.remove('is-open');
+          profileBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        dropdownMenu.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
+
+      const profileModal = document.querySelector('.js-profile-modal');
+      const profileOpeners = document.querySelectorAll('.js-open-profile-modal');
+      const profileClosers = document.querySelectorAll('.js-close-profile-modal');
+      const saveProfileButton = document.querySelector('.js-save-profile');
+
+      const openProfileModal = () => {
+        profileModal.hidden = false;
+        document.body.classList.add('overflow-hidden');
+      };
+
+      const closeProfileModal = () => {
+        profileModal.hidden = true;
+        document.body.classList.remove('overflow-hidden');
+      };
+
+      profileOpeners.forEach((button) => {
+        button.addEventListener('click', openProfileModal);
+      });
+
+      profileClosers.forEach((button) => {
+        button.addEventListener('click', closeProfileModal);
+      });
+
+      profileModal?.addEventListener('click', (event) => {
+        if (event.target === profileModal) {
+          closeProfileModal();
+        }
+      });
+
+      saveProfileButton?.addEventListener('click', () => {
+        closeProfileModal();
+        showToast('Profile details updated', { type: 'success', duration: 2400 });
+      });
+
+      const drawer = document.querySelector('.js-entry-drawer');
+      const drawerTitle = document.querySelector('.js-drawer-title');
+      const drawerOpeners = document.querySelectorAll('.js-open-drawer');
+      const drawerClosers = document.querySelectorAll('.js-close-drawer');
+      const saveEntry = document.querySelector('.js-save-entry');
+
+      const closeDrawer = () => {
+        drawer.classList.remove('is-open');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('overflow-hidden');
+      };
+
+      drawerOpeners.forEach((button) => {
+        button.addEventListener('click', () => {
+          const drawerType = button.dataset.drawer || 'entry';
+          drawerTitle.textContent = `Add ${drawerType}`;
+          drawer.classList.add('is-open');
+          drawer.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('overflow-hidden');
+        });
+      });
+
+      drawerClosers.forEach((button) => {
+        button.addEventListener('click', () => {
+          closeDrawer();
+        });
+      });
+
+      saveEntry?.addEventListener('click', () => {
+        closeDrawer();
+        showToast('Entry saved', { type: 'success', duration: 2400 });
+      });
+
+      const deleteConfirm = document.querySelector('.js-delete-confirm');
+      const deleteOpeners = document.querySelectorAll('.js-open-delete');
+      const cancelDelete = document.querySelector('.js-cancel-delete');
+      const confirmDelete = document.querySelector('.js-confirm-delete');
+      let deleteType = 'item';
+
+      const closeDeleteConfirm = () => {
+        deleteConfirm.hidden = true;
+        document.body.classList.remove('overflow-hidden');
+      };
+
+      deleteOpeners.forEach((button) => {
+        button.addEventListener('click', () => {
+          deleteType = button.dataset.delete || 'item';
+          deleteConfirm.hidden = false;
+          document.body.classList.add('overflow-hidden');
+        });
+      });
+
+      cancelDelete?.addEventListener('click', () => {
+        closeDeleteConfirm();
+      });
+
+      confirmDelete?.addEventListener('click', () => {
+        closeDeleteConfirm();
+        showToast(`${deleteType} removed`, { type: 'info', duration: 2200 });
+      });
+
+      deleteConfirm?.addEventListener('click', (event) => {
+        if (event.target === deleteConfirm) {
+          closeDeleteConfirm();
+        }
+      });
+
+      document.querySelectorAll('.js-badge-task').forEach((badge) => {
+        badge.addEventListener('click', () => {
+          const task = badge.dataset.task || 'verification task';
+          showToast(`Open Verification Center: ${task}`, { type: 'info', duration: 2400 });
+        });
+      });
+
+      document.querySelectorAll('.js-verify-skill').forEach((button) => {
+        button.addEventListener('click', () => {
+          const skill = button.dataset.skill || 'skill';
+          showToast(`Verification started for ${skill}`, { type: 'success', duration: 2200 });
+        });
+      });
+
+      const avatarInput = document.querySelector('#sp-avatar-input');
+      const avatarPreview = document.querySelector('#sp-avatar-preview');
+      avatarInput?.addEventListener('change', (event) => {
+        const file = event.target.files?.[0];
+        if (!file) {
+          return;
+        }
+        const fileUrl = URL.createObjectURL(file);
+        avatarPreview.src = fileUrl;
+        showToast('Avatar updated. Crop step can be added next.', { type: 'success', duration: 2200 });
+      });
+
+      const filterButtonBar = document.querySelector('.js-filter-button-bar');
+      filterButtonBar?.addEventListener('click', () => {
+        drawerTitle.textContent = 'Add profile entry';
+        drawer.classList.add('is-open');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('overflow-hidden');
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') {
+          return;
+        }
+
+        if (!profileModal.hidden) {
+          closeProfileModal();
+          return;
+        }
+
+        if (!deleteConfirm.hidden) {
+          closeDeleteConfirm();
+          return;
+        }
+
+        if (drawer.classList.contains('is-open')) {
+          closeDrawer();
+        }
+      });
+    </script>
+  </body>
+</html>
