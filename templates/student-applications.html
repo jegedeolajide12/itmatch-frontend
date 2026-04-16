@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Applications - InternMatch</title>
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
+  </head>
+  <body class="min-h-screen bg-tertiary-50 font-sans text-secondary-700 student-applications-page">
+    <nav class="dashboard-nav">
+      <div class="navbar-container mx-auto">
+        <div class="navbar-logo">
+          <div class="logo-icon">IM</div>
+          <h1 class="logo-text">InternMatch</h1>
+        </div>
+
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input type="text" placeholder="Search internships..." class="search-input ui-input" />
+          </div>
+        </div>
+
+        <div class="navbar-actions">
+          <button class="icon-btn notification-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+
+          <button class="icon-btn" aria-label="Messages">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+
+          <button class="icon-btn" aria-label="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
+            </svg>
+          </button>
+
+          <div class="profile-dropdown">
+            <button class="profile-btn js-profile-btn" aria-label="User menu" aria-expanded="false">
+              <div class="profile-info">
+                <div class="profile-text">
+                  <p class="profile-name">Jegede Olajide</p>
+                  <p class="profile-role">Student</p>
+                </div>
+              </div>
+              <div class="profile-avatar">
+                <img
+                  class="avatar-image"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                  alt="Alex Dev profile photo"
+                />
+              </div>
+              <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div class="dropdown-menu js-dropdown-menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-link">My Profile</a>
+                <a href="#" class="dropdown-link">Settings</a>
+                <a href="#" class="dropdown-link">Help & Support</a>
+                <div class="dropdown-divider"></div>
+                <a href="/" class="dropdown-link logout">Sign Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
+      <button class="js-sidebar-toggle-bar mobile-top-icon-btn" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M3 12h18" />
+          <path d="M3 6h18" />
+          <path d="M3 18h18" />
+        </svg>
+      </button>
+
+      <h3 class="mobile-top-title">Matches</h3>
+
+      <button class="mobile-top-icon-btn" aria-label="Open filters" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M4 6h16" />
+          <path d="M7 12h10" />
+          <path d="M10 18h4" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="w-full px-0 sm:px-6 lg:px-8">
+      <div class="dashboard-layout sa-layout">
+        <div class="js-sidebar-backdrop fixed inset-0 z-40 hidden bg-black/40 lg:hidden" aria-hidden="true"></div>
+
+        <aside class="dashboard-sidebar js-sidebar fixed left-0 top-0 z-50 h-screen lg:static lg:z-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out w-64 lg:w-auto lg:transform-none" aria-label="Dashboard sidebar">
+          <section class="sidebar-section sidebar-profile-card">
+            <div class="sidebar-avatar-lg">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                alt="John Doe profile photo"
+              />
+            </div>
+            <p class="sidebar-user-line">Jegede Olajide</p>
+            <p class="sidebar-strength">Profile Strength: 80%</p>
+            <button class="sidebar-cta-btn" type="button">Complete Profile</button>
+          </section>
+
+          <section class="sidebar-section sidebar-links" aria-label="Primary links">
+            <a href="#" class="sidebar-link">🎯 Matches</a>
+            <a href="#" class="sidebar-link">🔖 Saved</a>
+            <a href="#" class="sidebar-link">📄 Applications</a>
+          </section>
+
+          <section class="sidebar-section">
+            <a href="#" class="sidebar-action-link">🚀 Post / Apply</a>
+          </section>
+
+          <section class="sidebar-section sidebar-mini-profile">
+            <span class="sidebar-avatar-sm">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+                alt="John Doe mini profile photo"
+              />
+            </span>
+            <span>Profile</span>
+          </section>
+        </aside>
+
+        <section class="sa-content" aria-label="Applications content">
+          <div class="sa-shell">
+            <header class="sa-header">
+              <div>
+                <p class="sa-kicker">Transparency and next steps</p>
+                <h2>My Applications</h2>
+                <p class="sa-subline"><span class="js-total-count">0</span> applications total · <span class="js-attention-count">0</span> need attention</p>
+              </div>
+              <div class="sa-header-actions">
+                <a href="./companies.html" class="ui-btn ui-btn-secondary">Browse Matches</a>
+                <button type="button" class="ui-btn ui-btn-primary js-export-csv">Export CSV</button>
+              </div>
+            </header>
+
+            <div class="sa-chip-row" role="tablist" aria-label="Application quick filters">
+              <button type="button" class="sa-chip is-active" data-chip="all">All</button>
+              <button type="button" class="sa-chip" data-chip="pending">Pending</button>
+              <button type="button" class="sa-chip" data-chip="replied">Replied</button>
+              <button type="button" class="sa-chip" data-chip="hired">Hired</button>
+              <button type="button" class="sa-chip" data-chip="rejected">Rejected</button>
+            </div>
+
+            <section class="sa-controls" aria-label="Filters and sorting">
+              <div class="sa-search">
+                <label class="ui-label" for="sa-search-input">Company name</label>
+                <input id="sa-search-input" class="ui-input" type="search" placeholder="Search company" />
+              </div>
+
+              <div>
+                <label class="ui-label" for="sa-status-filter">Status</label>
+                <select id="sa-status-filter" class="ui-select">
+                  <option value="all">All status</option>
+                  <option value="sent">Sent</option>
+                  <option value="opened">Opened</option>
+                  <option value="replied">Replied</option>
+                  <option value="interview">Interview</option>
+                  <option value="hired">Hired</option>
+                  <option value="rejected">Rejected</option>
+                  <option value="withdrawn">Withdrawn</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="ui-label" for="sa-date-range">Date range</label>
+                <select id="sa-date-range" class="ui-select">
+                  <option value="all">All dates</option>
+                  <option value="7">Last 7 days</option>
+                  <option value="30">Last 30 days</option>
+                  <option value="90">Last 90 days</option>
+                  <option value="custom">Custom range</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="ui-label" for="sa-sort">Sort by</label>
+                <select id="sa-sort" class="ui-select">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                  <option value="status">By status</option>
+                  <option value="match">By match %</option>
+                </select>
+              </div>
+            </section>
+
+            <div class="sa-custom-dates is-hidden">
+              <div>
+                <label class="ui-label" for="sa-start-date">From</label>
+                <input id="sa-start-date" type="date" class="ui-input" />
+              </div>
+              <div>
+                <label class="ui-label" for="sa-end-date">To</label>
+                <input id="sa-end-date" type="date" class="ui-input" />
+              </div>
+            </div>
+
+            <section class="sa-analytics" aria-label="Application analytics">
+              <article class="sa-analytics-card">
+                <strong class="js-sent-count">0</strong>
+                <span>Applications sent</span>
+              </article>
+              <article class="sa-analytics-card">
+                <strong class="js-opened-count">0</strong>
+                <span>Opened by companies</span>
+              </article>
+              <article class="sa-analytics-card">
+                <strong class="js-interview-count">0</strong>
+                <span>Interview stages</span>
+              </article>
+              <article class="sa-analytics-card">
+                <strong class="js-hired-count">0</strong>
+                <span>Offers / hired</span>
+              </article>
+            </section>
+
+            <section class="sa-bulk-bar" hidden>
+              <p><span class="js-selected-count">0</span> selected</p>
+              <div class="sa-bulk-actions">
+                <button type="button" class="ui-btn ui-btn-danger ui-btn-sm js-bulk-withdraw">Withdraw Selected</button>
+                <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-bulk-export">Export Selection</button>
+              </div>
+            </section>
+
+            <section class="sa-table-wrap" aria-label="Applications table">
+              <table class="sa-table">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" class="js-select-all" aria-label="Select all applications" /></th>
+                    <th>Company</th>
+                    <th>Date Sent</th>
+                    <th>Status</th>
+                    <th>Match %</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody class="js-table-body"></tbody>
+              </table>
+            </section>
+
+            <section class="sa-mobile-list js-mobile-list" aria-label="Applications cards"></section>
+
+            <section class="sa-empty" hidden>
+              <h3>No applications yet.</h3>
+              <p>Start by browsing your matches and sending your first letter.</p>
+              <a href="./companies.html" class="ui-btn ui-btn-primary">Browse Matches</a>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <section class="sa-modal" id="sa-note-modal" hidden>
+      <div class="sa-modal-backdrop js-note-cancel"></div>
+      <div class="sa-modal-card">
+        <h3>Private note</h3>
+        <p class="sa-modal-copy">Track your follow-up context for this company.</p>
+        <label class="ui-label" for="sa-note-input">Note</label>
+        <textarea id="sa-note-input" class="ui-textarea" placeholder="Example: Follow up with hiring manager on Monday"></textarea>
+        <div class="sa-modal-actions">
+          <button type="button" class="ui-btn ui-btn-ghost js-note-cancel">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-primary js-note-save">Save Note</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sa-modal" id="sa-reminder-modal" hidden>
+      <div class="sa-modal-backdrop js-reminder-cancel"></div>
+      <div class="sa-modal-card">
+        <h3>Set follow-up reminder</h3>
+        <p class="sa-modal-copy">Get nudged if no response arrives after your selected date.</p>
+        <label class="ui-label" for="sa-reminder-date">Reminder date</label>
+        <input id="sa-reminder-date" type="date" class="ui-input" />
+        <label class="ui-label" for="sa-reminder-copy">Reminder note</label>
+        <input id="sa-reminder-copy" type="text" class="ui-input" placeholder="Check in with recruiter" />
+        <div class="sa-modal-actions">
+          <button type="button" class="ui-btn ui-btn-ghost js-reminder-cancel">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-primary js-reminder-save">Set Reminder</button>
+        </div>
+      </div>
+    </section>
+
+    <script type="module">
+      import { showToast } from '../assets/js/toast.js';
+
+      const sidebarToggles = document.querySelectorAll('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+      const sidebar = document.querySelector('.js-sidebar');
+      const sidebarBackdrop = document.querySelector('.js-sidebar-backdrop');
+      const profileBtn = document.querySelector('.js-profile-btn');
+      const dropdownMenu = document.querySelector('.js-dropdown-menu');
+
+      const openSidebar = () => {
+        sidebar.classList.remove('-translate-x-full');
+        sidebarBackdrop.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
+      };
+
+      const closeSidebar = () => {
+        sidebar.classList.add('-translate-x-full');
+        sidebarBackdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+      };
+
+      sidebarToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          if (sidebar.classList.contains('-translate-x-full')) {
+            openSidebar();
+          } else {
+            closeSidebar();
+          }
+        });
+      });
+
+      sidebarBackdrop.addEventListener('click', closeSidebar);
+
+      if (profileBtn && dropdownMenu) {
+        profileBtn.addEventListener('click', (event) => {
+          event.stopPropagation();
+          profileBtn.classList.toggle('is-open');
+          dropdownMenu.classList.toggle('is-open');
+          profileBtn.setAttribute('aria-expanded', profileBtn.classList.contains('is-open'));
+        });
+
+        document.addEventListener('click', () => {
+          profileBtn.classList.remove('is-open');
+          dropdownMenu.classList.remove('is-open');
+          profileBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        dropdownMenu.addEventListener('click', (event) => event.stopPropagation());
+      }
+
+      const statusOrder = {
+        hired: 1,
+        interview: 2,
+        replied: 3,
+        opened: 4,
+        sent: 5,
+        rejected: 6,
+        withdrawn: 7
+      };
+
+      const statusMeta = {
+        sent: { icon: '⏳', label: 'Sent', className: 'sa-status-sent' },
+        opened: { icon: '👁️', label: 'Opened', className: 'sa-status-opened' },
+        replied: { icon: '📨', label: 'Replied', className: 'sa-status-replied' },
+        interview: { icon: '🎤', label: 'Interview', className: 'sa-status-interview' },
+        hired: { icon: '🎉', label: 'Hired', className: 'sa-status-hired' },
+        rejected: { icon: '❌', label: 'Rejected', className: 'sa-status-rejected' },
+        withdrawn: { icon: '🚫', label: 'Withdrawn', className: 'sa-status-withdrawn' }
+      };
+
+      let applications = [
+        {
+          id: 1,
+          company: 'Andela',
+          logo: 'https://www.google.com/s2/favicons?domain=andela.com&sz=128',
+          dateSent: '2025-05-12',
+          timestamp: '2025-05-12T09:12:00',
+          status: 'opened',
+          statusDetail: 'Opened May 14',
+          match: 94,
+          note: 'Follow up with product lead on Monday.',
+          responseTemplate: 'Hi, we reviewed your profile and would like to know your availability.',
+          timeline: ['Sent May 12', 'Opened May 14']
+        },
+        {
+          id: 2,
+          company: 'Flutterwave',
+          logo: 'https://www.google.com/s2/favicons?domain=flutterwave.com&sz=128',
+          dateSent: '2025-05-10',
+          timestamp: '2025-05-10T14:24:00',
+          status: 'replied',
+          statusDetail: 'Interview requested',
+          match: 87,
+          note: 'Send portfolio deck before Friday.',
+          responseTemplate: 'Thanks for applying. Please share your portfolio and preferred interview slots.',
+          timeline: ['Sent May 10', 'Opened May 11', 'Replied May 13: Interview requested']
+        },
+        {
+          id: 3,
+          company: 'Paystack',
+          logo: 'https://www.google.com/s2/favicons?domain=paystack.com&sz=128',
+          dateSent: '2025-05-08',
+          timestamp: '2025-05-08T08:08:00',
+          status: 'sent',
+          statusDetail: 'Awaiting first view',
+          match: 78,
+          note: '',
+          responseTemplate: '',
+          timeline: ['Sent May 8']
+        },
+        {
+          id: 4,
+          company: 'Microsoft',
+          logo: 'https://www.google.com/s2/favicons?domain=microsoft.com&sz=128',
+          dateSent: '2025-04-30',
+          timestamp: '2025-04-30T17:05:00',
+          status: 'rejected',
+          statusDetail: 'Closed Apr 30',
+          match: 62,
+          note: 'Look for PM intern alternatives.',
+          responseTemplate: 'We appreciate your time. We will not proceed with this role.',
+          timeline: ['Sent Apr 24', 'Opened Apr 26', 'Rejected Apr 30']
+        },
+        {
+          id: 5,
+          company: 'Moniepoint',
+          logo: 'https://www.google.com/s2/favicons?domain=moniepoint.com&sz=128',
+          dateSent: '2025-05-15',
+          timestamp: '2025-05-15T10:44:00',
+          status: 'interview',
+          statusDetail: 'Interview May 20',
+          match: 90,
+          note: 'Practice API design questions.',
+          responseTemplate: '',
+          timeline: ['Sent May 15', 'Opened May 16', 'Interview scheduled May 20']
+        },
+        {
+          id: 6,
+          company: 'Interswitch',
+          logo: 'https://www.google.com/s2/favicons?domain=interswitchgroup.com&sz=128',
+          dateSent: '2025-05-01',
+          timestamp: '2025-05-01T11:00:00',
+          status: 'sent',
+          statusDetail: 'Awaiting first view',
+          match: 74,
+          note: '',
+          responseTemplate: '',
+          timeline: ['Sent May 1']
+        },
+        {
+          id: 7,
+          company: 'Kuda',
+          logo: 'https://www.google.com/s2/favicons?domain=kuda.com&sz=128',
+          dateSent: '2025-04-28',
+          timestamp: '2025-04-28T13:19:00',
+          status: 'opened',
+          statusDetail: 'Opened Apr 29',
+          match: 81,
+          note: '',
+          responseTemplate: '',
+          timeline: ['Sent Apr 28', 'Opened Apr 29']
+        },
+        {
+          id: 8,
+          company: 'PiggyVest',
+          logo: 'https://www.google.com/s2/favicons?domain=piggyvest.com&sz=128',
+          dateSent: '2025-04-25',
+          timestamp: '2025-04-25T15:06:00',
+          status: 'withdrawn',
+          statusDetail: 'Withdrawn by you',
+          match: 68,
+          note: 'Role was not aligned with backend growth path.',
+          responseTemplate: '',
+          timeline: ['Sent Apr 25', 'Withdrawn Apr 27']
+        },
+        {
+          id: 9,
+          company: 'Google',
+          logo: 'https://www.google.com/s2/favicons?domain=google.com&sz=128',
+          dateSent: '2025-05-02',
+          timestamp: '2025-05-02T09:35:00',
+          status: 'replied',
+          statusDetail: 'Portfolio requested',
+          match: 96,
+          note: 'Share distributed systems article.',
+          responseTemplate: 'Could you send links to your repositories and capstone presentation?',
+          timeline: ['Sent May 2', 'Opened May 4', 'Replied May 5: Portfolio requested']
+        },
+        {
+          id: 10,
+          company: 'DataLead Africa',
+          logo: 'https://www.google.com/s2/favicons?domain=datalead.africa&sz=128',
+          dateSent: '2025-05-03',
+          timestamp: '2025-05-03T08:05:00',
+          status: 'hired',
+          statusDetail: 'Offer accepted',
+          match: 88,
+          note: 'Onboarding starts June 1.',
+          responseTemplate: 'Congratulations, we would love to have you on the team.',
+          timeline: ['Sent May 3', 'Opened May 4', 'Interview May 8', 'Hired May 12']
+        },
+        {
+          id: 11,
+          company: 'Oracle',
+          logo: 'https://www.google.com/s2/favicons?domain=oracle.com&sz=128',
+          dateSent: '2025-04-20',
+          timestamp: '2025-04-20T07:10:00',
+          status: 'rejected',
+          statusDetail: 'Closed Apr 27',
+          match: 54,
+          note: '',
+          responseTemplate: 'We will proceed with other candidates at this time.',
+          timeline: ['Sent Apr 20', 'Opened Apr 24', 'Rejected Apr 27']
+        },
+        {
+          id: 12,
+          company: 'Autochek',
+          logo: 'https://www.google.com/s2/favicons?domain=autochek.africa&sz=128',
+          dateSent: '2025-05-14',
+          timestamp: '2025-05-14T16:10:00',
+          status: 'sent',
+          statusDetail: 'Awaiting first view',
+          match: 72,
+          note: '',
+          responseTemplate: '',
+          timeline: ['Sent May 14']
+        }
+      ];
+
+      const chips = document.querySelectorAll('.sa-chip');
+      const searchInput = document.getElementById('sa-search-input');
+      const statusFilter = document.getElementById('sa-status-filter');
+      const dateRangeFilter = document.getElementById('sa-date-range');
+      const sortFilter = document.getElementById('sa-sort');
+      const customDateShell = document.querySelector('.sa-custom-dates');
+      const startDateInput = document.getElementById('sa-start-date');
+      const endDateInput = document.getElementById('sa-end-date');
+      const tableBody = document.querySelector('.js-table-body');
+      const mobileList = document.querySelector('.js-mobile-list');
+      const emptyState = document.querySelector('.sa-empty');
+      const selectAllCheckbox = document.querySelector('.js-select-all');
+      const bulkBar = document.querySelector('.sa-bulk-bar');
+      const selectedCount = document.querySelector('.js-selected-count');
+      const totalCount = document.querySelector('.js-total-count');
+      const attentionCount = document.querySelector('.js-attention-count');
+
+      const sentCount = document.querySelector('.js-sent-count');
+      const openedCount = document.querySelector('.js-opened-count');
+      const interviewCount = document.querySelector('.js-interview-count');
+      const hiredCount = document.querySelector('.js-hired-count');
+
+      const noteModal = document.getElementById('sa-note-modal');
+      const noteInput = document.getElementById('sa-note-input');
+      const noteCancelButtons = document.querySelectorAll('.js-note-cancel');
+      const noteSaveButton = document.querySelector('.js-note-save');
+
+      const reminderModal = document.getElementById('sa-reminder-modal');
+      const reminderDate = document.getElementById('sa-reminder-date');
+      const reminderCopy = document.getElementById('sa-reminder-copy');
+      const reminderCancelButtons = document.querySelectorAll('.js-reminder-cancel');
+      const reminderSaveButton = document.querySelector('.js-reminder-save');
+
+      const exportCsvButton = document.querySelector('.js-export-csv');
+      const bulkWithdrawButton = document.querySelector('.js-bulk-withdraw');
+      const bulkExportButton = document.querySelector('.js-bulk-export');
+
+      let activeChip = 'all';
+      let selectedIds = new Set();
+      let currentNoteTarget = null;
+      let currentReminderTarget = null;
+
+      const toDate = (value) => new Date(`${value}T00:00:00`);
+      const formatDate = (value) => new Date(`${value}T00:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const formatTimestamp = (value) => new Date(value).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+
+      const getMatchClass = (score) => {
+        if (score > 70) {
+          return 'sa-match-high';
+        }
+
+        if (score >= 40) {
+          return 'sa-match-mid';
+        }
+
+        return 'sa-match-low';
+      };
+
+      const attentionStatuses = new Set(['opened', 'replied']);
+
+      const getActionItems = (application) => {
+        if (application.status === 'sent' || application.status === 'opened') {
+          return [
+            { key: 'view', label: 'View Company' },
+            { key: 'resend', label: 'Resend Letter' },
+            { key: 'withdraw', label: 'Withdraw' }
+          ];
+        }
+
+        if (application.status === 'replied') {
+          return [
+            { key: 'view', label: 'View Company' },
+            { key: 'reply', label: 'Reply to HR' }
+          ];
+        }
+
+        if (application.status === 'interview') {
+          return [
+            { key: 'view', label: 'View Company' },
+            { key: 'prepare', label: 'Prepare' }
+          ];
+        }
+
+        if (application.status === 'hired') {
+          return [
+            { key: 'view', label: 'View Company' },
+            { key: 'onboard', label: 'Start Onboarding' }
+          ];
+        }
+
+        if (application.status === 'rejected') {
+          return [
+            { key: 'view', label: 'View Company' },
+            { key: 'similar', label: 'See Similar' }
+          ];
+        }
+
+        return [
+          { key: 'view', label: 'View Company' },
+          { key: 'resend', label: 'Resend Letter' }
+        ];
+      };
+
+      const chipToStatus = (chipValue) => {
+        if (chipValue === 'pending') {
+          return ['sent', 'opened', 'replied', 'interview'];
+        }
+
+        if (chipValue === 'all') {
+          return null;
+        }
+
+        return [chipValue];
+      };
+
+      const matchesDateRange = (application) => {
+        const range = dateRangeFilter.value;
+
+        if (range === 'all') {
+          return true;
+        }
+
+        const appDate = toDate(application.dateSent);
+
+        if (range === 'custom') {
+          if (!startDateInput.value || !endDateInput.value) {
+            return true;
+          }
+
+          const startDate = toDate(startDateInput.value);
+          const endDate = toDate(endDateInput.value);
+          return appDate >= startDate && appDate <= endDate;
+        }
+
+        const days = Number(range);
+        const now = new Date('2025-05-20T00:00:00');
+        const cutoff = new Date(now);
+        cutoff.setDate(now.getDate() - days);
+        return appDate >= cutoff;
+      };
+
+      const sortApplications = (list) => {
+        const mode = sortFilter.value;
+        const copy = [...list];
+
+        if (mode === 'oldest') {
+          copy.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+          return copy;
+        }
+
+        if (mode === 'status') {
+          copy.sort((a, b) => statusOrder[a.status] - statusOrder[b.status] || b.match - a.match);
+          return copy;
+        }
+
+        if (mode === 'match') {
+          copy.sort((a, b) => b.match - a.match || new Date(b.timestamp) - new Date(a.timestamp));
+          return copy;
+        }
+
+        copy.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        return copy;
+      };
+
+      const getFilteredApplications = () => {
+        const searchText = searchInput.value.trim().toLowerCase();
+        const statusValue = statusFilter.value;
+        const chipStatuses = chipToStatus(activeChip);
+
+        const filtered = applications.filter((application) => {
+          const matchesSearch = application.company.toLowerCase().includes(searchText);
+          const matchesStatus = statusValue === 'all' || application.status === statusValue;
+          const matchesChip = !chipStatuses || chipStatuses.includes(application.status);
+          const matchesDate = matchesDateRange(application);
+          return matchesSearch && matchesStatus && matchesChip && matchesDate;
+        });
+
+        return sortApplications(filtered);
+      };
+
+      const statusMarkup = (application) => {
+        const config = statusMeta[application.status];
+        return `
+          <span class="sa-status-badge ${config.className}">${config.icon} ${config.label}</span>
+          <small>${application.statusDetail}</small>
+        `;
+      };
+
+      const timelineMarkup = (application) => `
+        <div class="sa-timeline-wrap" data-timeline="${application.id}" hidden>
+          <ul class="sa-timeline">
+            ${application.timeline.map((step) => `<li>${step}</li>`).join('')}
+          </ul>
+          ${application.responseTemplate ? `<p class="sa-template"><strong>Response snippet:</strong> ${application.responseTemplate}</p>` : ''}
+          <p class="sa-note-line"><strong>Private note:</strong> ${application.note || 'No notes added yet.'}</p>
+        </div>
+      `;
+
+      const renderDesktopRows = (list) => {
+        tableBody.innerHTML = list.map((application) => {
+          const actions = getActionItems(application)
+            .map((action) => `<button type="button" class="sa-row-action" data-action="${action.key}" data-id="${application.id}">${action.label}</button>`)
+            .join('');
+
+          return `
+            <tr>
+              <td>
+                <input type="checkbox" class="sa-row-check" data-id="${application.id}" ${selectedIds.has(application.id) ? 'checked' : ''} aria-label="Select ${application.company}" />
+              </td>
+              <td>
+                <div class="sa-company-cell">
+                  <span class="sa-company-logo"><img src="${application.logo}" alt="${application.company} logo" /></span>
+                  <div>
+                    <strong>${application.company}</strong>
+                    <button type="button" class="sa-link-btn" data-toggle-timeline="${application.id}">View timeline</button>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span title="${formatTimestamp(application.timestamp)}">${formatDate(application.dateSent)}</span>
+              </td>
+              <td class="sa-status-cell">
+                ${statusMarkup(application)}
+              </td>
+              <td>
+                <span class="sa-match-badge ${getMatchClass(application.match)}">${application.match}%</span>
+              </td>
+              <td>
+                <div class="sa-actions-cell">
+                  ${actions}
+                  <button type="button" class="sa-row-action" data-action="note" data-id="${application.id}">Note</button>
+                  <button type="button" class="sa-row-action" data-action="reminder" data-id="${application.id}">Reminder</button>
+                </div>
+                ${timelineMarkup(application)}
+              </td>
+            </tr>
+          `;
+        }).join('');
+      };
+
+      const renderMobileCards = (list) => {
+        mobileList.innerHTML = list.map((application) => {
+          const actions = getActionItems(application)
+            .map((action) => `<button type="button" class="sa-row-action" data-action="${action.key}" data-id="${application.id}">${action.label}</button>`)
+            .join('');
+
+          return `
+            <article class="sa-card">
+              <header>
+                <div class="sa-company-cell">
+                  <span class="sa-company-logo"><img src="${application.logo}" alt="${application.company} logo" /></span>
+                  <strong>${application.company}</strong>
+                </div>
+                <input type="checkbox" class="sa-row-check" data-id="${application.id}" ${selectedIds.has(application.id) ? 'checked' : ''} aria-label="Select ${application.company}" />
+              </header>
+              <p>Sent: ${formatDate(application.dateSent)}</p>
+              <p>Status: <span class="sa-inline-status">${statusMarkup(application)}</span></p>
+              <p>Match: <span class="sa-match-badge ${getMatchClass(application.match)}">${application.match}%</span></p>
+              <div class="sa-card-actions">
+                ${actions}
+                <button type="button" class="sa-row-action" data-action="note" data-id="${application.id}">Note</button>
+                <button type="button" class="sa-row-action" data-action="reminder" data-id="${application.id}">Reminder</button>
+                <button type="button" class="sa-row-action" data-toggle-timeline="${application.id}">Timeline</button>
+              </div>
+              ${timelineMarkup(application)}
+            </article>
+          `;
+        }).join('');
+      };
+
+      const updateSummary = (visibleList) => {
+        totalCount.textContent = applications.length;
+        attentionCount.textContent = applications.filter((application) => attentionStatuses.has(application.status)).length;
+
+        sentCount.textContent = applications.length;
+        openedCount.textContent = applications.filter((application) => application.status === 'opened').length;
+        interviewCount.textContent = applications.filter((application) => application.status === 'interview').length;
+        hiredCount.textContent = applications.filter((application) => application.status === 'hired').length;
+
+        if (visibleList.length === 0) {
+          emptyState.hidden = false;
+          document.querySelector('.sa-table-wrap').hidden = true;
+          mobileList.hidden = true;
+        } else {
+          emptyState.hidden = true;
+          document.querySelector('.sa-table-wrap').hidden = false;
+          mobileList.hidden = false;
+        }
+      };
+
+      const updateBulkBar = () => {
+        selectedCount.textContent = selectedIds.size;
+        bulkBar.hidden = selectedIds.size === 0;
+      };
+
+      const render = () => {
+        const visibleList = getFilteredApplications();
+        renderDesktopRows(visibleList);
+        renderMobileCards(visibleList);
+        updateSummary(visibleList);
+
+        const allVisibleIds = visibleList.map((item) => item.id);
+        const areAllSelected = allVisibleIds.length > 0 && allVisibleIds.every((id) => selectedIds.has(id));
+        selectAllCheckbox.checked = areAllSelected;
+
+        updateBulkBar();
+      };
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          chips.forEach((value) => value.classList.remove('is-active'));
+          chip.classList.add('is-active');
+          activeChip = chip.dataset.chip;
+          render();
+        });
+      });
+
+      [searchInput, statusFilter, sortFilter, startDateInput, endDateInput].forEach((control) => {
+        control.addEventListener('input', render);
+      });
+
+      dateRangeFilter.addEventListener('change', () => {
+        customDateShell.classList.toggle('is-hidden', dateRangeFilter.value !== 'custom');
+        render();
+      });
+
+      selectAllCheckbox.addEventListener('change', () => {
+        const visibleIds = getFilteredApplications().map((application) => application.id);
+
+        if (selectAllCheckbox.checked) {
+          visibleIds.forEach((id) => selectedIds.add(id));
+        } else {
+          visibleIds.forEach((id) => selectedIds.delete(id));
+        }
+
+        render();
+      });
+
+      const toggleTimelineById = (id) => {
+        const timeline = document.querySelectorAll(`[data-timeline="${id}"]`);
+        timeline.forEach((node) => {
+          node.hidden = !node.hidden;
+        });
+      };
+
+      const updateApplication = (id, updater) => {
+        applications = applications.map((application) => {
+          if (application.id !== id) {
+            return application;
+          }
+
+          return updater(application);
+        });
+      };
+
+      const withdrawApplication = (id) => {
+        updateApplication(id, (application) => ({
+          ...application,
+          status: 'withdrawn',
+          statusDetail: `Withdrawn ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`,
+          timeline: [...application.timeline, `Withdrawn ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`]
+        }));
+      };
+
+      const openNoteModal = (applicationId) => {
+        const application = applications.find((value) => value.id === applicationId);
+        if (!application) {
+          return;
+        }
+
+        currentNoteTarget = applicationId;
+        noteInput.value = application.note || '';
+        noteModal.hidden = false;
+      };
+
+      const closeNoteModal = () => {
+        currentNoteTarget = null;
+        noteModal.hidden = true;
+      };
+
+      const openReminderModal = (applicationId) => {
+        currentReminderTarget = applicationId;
+        reminderDate.value = '';
+        reminderCopy.value = '';
+        reminderModal.hidden = false;
+      };
+
+      const closeReminderModal = () => {
+        currentReminderTarget = null;
+        reminderModal.hidden = true;
+      };
+
+      document.addEventListener('click', (event) => {
+        const check = event.target.closest('.sa-row-check');
+        if (check) {
+          const id = Number(check.dataset.id);
+
+          if (check.checked) {
+            selectedIds.add(id);
+          } else {
+            selectedIds.delete(id);
+          }
+
+          updateBulkBar();
+          return;
+        }
+
+        const timelineToggle = event.target.closest('[data-toggle-timeline]');
+        if (timelineToggle) {
+          toggleTimelineById(Number(timelineToggle.dataset.toggleTimeline));
+          return;
+        }
+
+        const actionButton = event.target.closest('[data-action]');
+        if (!actionButton) {
+          return;
+        }
+
+        const action = actionButton.dataset.action;
+        const id = Number(actionButton.dataset.id);
+        const target = applications.find((application) => application.id === id);
+
+        if (!target) {
+          return;
+        }
+
+        if (action === 'view') {
+          window.location.href = './company-detail.html';
+          return;
+        }
+
+        if (action === 'resend') {
+          showToast(`Letter resent to ${target.company}.`, 'success');
+          return;
+        }
+
+        if (action === 'withdraw') {
+          withdrawApplication(id);
+          selectedIds.delete(id);
+          showToast(`Application to ${target.company} withdrawn.`, 'success');
+          render();
+          return;
+        }
+
+        if (action === 'reply') {
+          showToast(`Reply draft opened for ${target.company}.`, 'info');
+          return;
+        }
+
+        if (action === 'prepare') {
+          showToast(`Interview prep checklist opened for ${target.company}.`, 'info');
+          return;
+        }
+
+        if (action === 'similar') {
+          window.location.href = './companies.html';
+          return;
+        }
+
+        if (action === 'onboard') {
+          showToast(`Onboarding guide opened for ${target.company}.`, 'success');
+          return;
+        }
+
+        if (action === 'note') {
+          openNoteModal(id);
+          return;
+        }
+
+        if (action === 'reminder') {
+          openReminderModal(id);
+        }
+      });
+
+      noteCancelButtons.forEach((button) => button.addEventListener('click', closeNoteModal));
+      reminderCancelButtons.forEach((button) => button.addEventListener('click', closeReminderModal));
+
+      noteSaveButton.addEventListener('click', () => {
+        if (!currentNoteTarget) {
+          return;
+        }
+
+        updateApplication(currentNoteTarget, (application) => ({
+          ...application,
+          note: noteInput.value.trim()
+        }));
+
+        closeNoteModal();
+        showToast('Note saved.', 'success');
+        render();
+      });
+
+      reminderSaveButton.addEventListener('click', () => {
+        if (!currentReminderTarget || !reminderDate.value) {
+          showToast('Select a reminder date first.', 'warning');
+          return;
+        }
+
+        const entry = `Reminder set for ${formatDate(reminderDate.value)}${reminderCopy.value ? `: ${reminderCopy.value}` : ''}`;
+
+        updateApplication(currentReminderTarget, (application) => ({
+          ...application,
+          timeline: [...application.timeline, entry]
+        }));
+
+        closeReminderModal();
+        showToast('Reminder set.', 'success');
+        render();
+      });
+
+      const exportCsv = (rows) => {
+        if (rows.length === 0) {
+          showToast('No rows to export.', 'warning');
+          return;
+        }
+
+        const csv = [
+          ['Company', 'Date Sent', 'Status', 'Status Detail', 'Match %', 'Note'],
+          ...rows.map((item) => [
+            item.company,
+            formatDate(item.dateSent),
+            statusMeta[item.status].label,
+            item.statusDetail,
+            `${item.match}%`,
+            item.note || ''
+          ])
+        ]
+          .map((row) => row.map((value) => `"${String(value).replaceAll('"', '""')}"`).join(','))
+          .join('\n');
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'student-applications.csv';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      };
+
+      exportCsvButton.addEventListener('click', () => {
+        exportCsv(getFilteredApplications());
+        showToast('CSV exported.', 'success');
+      });
+
+      bulkWithdrawButton.addEventListener('click', () => {
+        if (selectedIds.size === 0) {
+          return;
+        }
+
+        const nowLabel = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+        applications = applications.map((application) => {
+          if (!selectedIds.has(application.id)) {
+            return application;
+          }
+
+          if (application.status === 'hired' || application.status === 'rejected' || application.status === 'withdrawn') {
+            return application;
+          }
+
+          return {
+            ...application,
+            status: 'withdrawn',
+            statusDetail: `Withdrawn ${nowLabel}`,
+            timeline: [...application.timeline, `Withdrawn ${nowLabel}`]
+          };
+        });
+
+        selectedIds = new Set();
+        render();
+        showToast('Selected applications withdrawn.', 'success');
+      });
+
+      bulkExportButton.addEventListener('click', () => {
+        const rows = applications.filter((application) => selectedIds.has(application.id));
+        exportCsv(rows);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeNoteModal();
+          closeReminderModal();
+        }
+      });
+
+      render();
+    </script>
+  </body>
+</html>
