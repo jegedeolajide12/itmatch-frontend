@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Detail - InternMatch</title>
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
+  </head>
+  <body class="min-h-screen bg-tertiary-50 font-sans text-secondary-700 student-application-detail-page">
+    <!-- Dashboard Navbar -->
+    <nav class="dashboard-nav">
+      <div class="navbar-container mx-auto">
+        <!-- Logo & Title -->
+        <div class="navbar-logo">
+          <div class="logo-icon">IM</div>
+          <h1 class="logo-text">InternMatch</h1>
+        </div>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search internships..."
+              class="search-input ui-input"
+            />
+          </div>
+        </div>
+
+        <div class="navbar-actions">
+          <!-- Notifications -->
+          <button class="icon-btn notification-btn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+
+          <!-- Messages -->
+          <button class="icon-btn" aria-label="Messages">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+
+          <!-- Settings -->
+          <button class="icon-btn" aria-label="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
+            </svg>
+          </button>
+
+          <!-- User Profile Dropdown -->
+          <div class="profile-dropdown">
+            <button class="profile-btn js-profile-btn" aria-label="User menu" aria-expanded="false">
+              <div class="profile-info">
+                <div class="profile-text">
+                  <p class="profile-name">Jegede Olajide</p>
+                  <p class="profile-role">Student</p>
+                </div>
+              </div>
+              <div class="profile-avatar">
+                <img
+                  class="avatar-image"
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                  alt="Alex Dev profile photo"
+                />
+              </div>
+              <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <!-- Profile Dropdown Menu -->
+            <div class="dropdown-menu js-dropdown-menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-link">My Profile</a>
+                <a href="#" class="dropdown-link">Settings</a>
+                <a href="#" class="dropdown-link">Help & Support</a>
+                <div class="dropdown-divider"></div>
+                <a href="/" class="dropdown-link logout">Sign Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Top Bar (Below Navbar) -->
+    <div class="mobile-top-bar lg:hidden fixed top-14 left-0 right-0 z-45 bg-white border-b border-tertiary-200 px-4 py-3 flex items-center justify-between gap-2">
+      <button class="js-sidebar-toggle-bar mobile-top-icon-btn" aria-label="Toggle sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="M3 12h18" />
+          <path d="M3 6h18" />
+          <path d="M3 18h18" />
+        </svg>
+      </button>
+
+      <h3 class="mobile-top-title">Application Detail</h3>
+
+      <button class="mobile-top-icon-btn js-mobile-back" aria-label="Go back" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-5 w-5" aria-hidden="true">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="w-full px-0 sm:px-6 lg:px-8">
+      <div class="dashboard-layout ad-layout">
+        <!-- Sidebar Backdrop (Mobile) -->
+        <div class="js-sidebar-backdrop fixed inset-0 z-40 hidden bg-black/40 lg:hidden" aria-hidden="true"></div>
+
+        <aside class="dashboard-sidebar js-sidebar fixed left-0 top-0 z-50 h-screen lg:static lg:z-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out w-64 lg:w-auto lg:transform-none" aria-label="Dashboard sidebar">
+          <section class="sidebar-section sidebar-profile-card">
+            <div class="sidebar-avatar-lg">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                alt="John Doe profile photo"
+              />
+            </div>
+            <p class="sidebar-user-line">Jegede Olajide</p>
+            <p class="sidebar-strength">Profile Strength: 80%</p>
+            <button class="sidebar-cta-btn" type="button">Complete Profile</button>
+          </section>
+
+          <section class="sidebar-section sidebar-links" aria-label="Primary links">
+            <a href="#" class="sidebar-link">🎯 Matches</a>
+            <a href="#" class="sidebar-link">🔖 Saved</a>
+            <a href="./student-applications.html" class="sidebar-link is-active" aria-current="page">📄 Applications</a>
+          </section>
+
+          <section class="sidebar-section">
+            <a href="#" class="sidebar-action-link">🚀 Post / Apply</a>
+          </section>
+
+          <section class="sidebar-section sidebar-mini-profile">
+            <span class="sidebar-avatar-sm">
+              <img
+                class="avatar-image"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+                alt="John Doe mini profile photo"
+              />
+            </span>
+            <span>Profile</span>
+          </section>
+        </aside>
+
+        <section class="ad-content" aria-label="Application detail content">
+          <div class="ad-shell">
+            <header class="ad-page-header">
+              <div class="ad-header-row">
+                <a href="./student-applications.html" class="ad-back-link">← Back to Applications</a>
+                <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-share-link">Share</button>
+              </div>
+
+              <h2 class="js-page-title">Application to Andela</h2>
+              <p class="ad-subline">
+                Applied on <span class="js-applied-date">May 12, 2025</span> · Last updated: <span class="js-updated-date">May 14, 2025</span>
+              </p>
+            </header>
+
+            <div class="ad-celebrate js-celebrate" hidden>
+              <p>🎉 Congrats! You are hired. Time to complete onboarding.</p>
+            </div>
+
+            <section class="ad-main-grid" aria-label="Application detail layout">
+              <div class="ad-col-left">
+                <article class="ad-card ad-company-card">
+                  <div class="ad-card-head">
+                    <h3>Company Information</h3>
+                    <span class="sa-match-badge sa-match-high js-match-badge">94%</span>
+                  </div>
+
+                  <div class="ad-company-top">
+                    <span class="ad-company-logo">
+                      <img class="js-company-logo" src="https://www.google.com/s2/favicons?domain=andela.com&sz=128" alt="Andela logo" />
+                    </span>
+                    <div>
+                      <a href="./company-detail.html" class="ad-company-name js-company-name">Andela</a>
+                      <div class="ad-company-tags">
+                        <span class="ui-tag">Fintech</span>
+                        <span class="ui-tag">Remote · Lagos</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <ul class="ad-info-list">
+                    <li><strong>Industry:</strong> <span class="js-company-industry">Fintech</span></li>
+                    <li><strong>Location:</strong> <span class="js-company-location">Remote, Lagos</span></li>
+                    <li><strong>Website:</strong> <a href="https://andela.com" target="_blank" rel="noreferrer" class="js-company-website">andela.com</a></li>
+                  </ul>
+
+                  <a href="./company-detail.html" class="ui-btn ui-btn-secondary ui-btn-sm">View Company Profile</a>
+                </article>
+
+                <article class="ad-card ad-letter-card">
+                  <div class="ad-card-head">
+                    <h3>Your Application Letter</h3>
+                    <button type="button" class="ui-icon-btn js-copy-letter" aria-label="Copy letter">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <p class="ad-letter-subject"><strong>Subject:</strong> Internship Application - Product Design Intern</p>
+
+                  <pre class="ad-letter-body js-letter-body">Dear Hiring Manager,
+
+I am a 400-level Computer Science student with a strong interest in product design and frontend systems.
+
+Over the last year, I have built interfaces focused on accessibility, reusable components, and measurable user outcomes. I am excited about Andela's distributed culture and would value the opportunity to contribute as an intern.
+
+Thank you for your time and consideration.
+
+Sincerely,
+Jegede Olajide</pre>
+
+                  <div class="ad-letter-actions">
+                    <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm js-open-edit-letter">Edit Letter</button>
+                    <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-download-letter">Download PDF</button>
+                  </div>
+
+                  <section class="ad-revised" hidden>
+                    <h4>Revised Draft (Not yet sent)</h4>
+                    <pre class="ad-letter-body js-revised-letter"></pre>
+                  </section>
+                </article>
+
+                <article class="ad-card ad-private-card">
+                  <div class="ad-card-head">
+                    <h3>Your Private Notes</h3>
+                    <span class="ad-note-status js-note-status">Auto-save off</span>
+                  </div>
+
+                  <textarea class="ui-textarea js-private-note" placeholder="Example: Follow up on May 20 and attach portfolio case study.">Follow up on May 20 with portfolio case study and mention capstone outcome metrics.</textarea>
+                  <div class="ad-letter-actions">
+                    <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-save-note">Save Note</button>
+                  </div>
+                </article>
+              </div>
+
+              <div class="ad-col-right">
+                <article class="ad-card ad-status-card">
+                  <div class="ad-card-head">
+                    <h3>Application Status</h3>
+                    <span class="sa-status-badge sa-status-opened js-status-badge">👁️ Opened</span>
+                  </div>
+
+                  <p class="ad-status-copy js-status-copy">Opened by HR on May 14, 2025.</p>
+                  <p class="ad-status-copy">Match at apply time: <strong class="js-match-copy">94%</strong></p>
+
+                  <div class="ad-state-controls">
+                    <label class="ui-label" for="ad-state">State preview</label>
+                    <select id="ad-state" class="ui-select js-state-select">
+                      <option value="sent">Sent</option>
+                      <option value="opened" selected>Opened</option>
+                      <option value="replied">Replied</option>
+                      <option value="interview">Interview</option>
+                      <option value="rejected">Rejected</option>
+                      <option value="hired">Hired</option>
+                      <option value="withdrawn">Withdrawn</option>
+                    </select>
+                  </div>
+
+                  <div class="ad-primary-actions">
+                    <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm js-resend-btn">Resend Letter</button>
+                    <button type="button" class="ui-btn ui-btn-danger ui-btn-sm js-withdraw-btn">Withdraw</button>
+                    <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-message-btn">Reply to Company</button>
+                    <button type="button" class="ui-btn ui-btn-ghost ui-btn-sm js-schedule-btn">Schedule Interview</button>
+                  </div>
+                  <p class="ad-help js-resend-help"></p>
+                </article>
+
+                <article class="ad-card ad-timeline-card">
+                  <div class="ad-card-head">
+                    <h3>Timeline & Activity</h3>
+                  </div>
+
+                  <ul class="ad-timeline js-timeline"></ul>
+
+                  <section class="ad-company-notes">
+                    <h4>Company Notes</h4>
+                    <p class="js-company-note">No company notes yet.</p>
+                  </section>
+                </article>
+
+                <article class="ad-card ad-next-card">
+                  <div class="ad-card-head">
+                    <h3>Next Steps</h3>
+                  </div>
+
+                  <ul class="ad-next-list js-next-list"></ul>
+                  <div class="ad-letter-actions">
+                    <button type="button" class="ui-btn ui-btn-primary ui-btn-sm js-next-action">Send Portfolio</button>
+                    <a href="./companies.html" class="ui-btn ui-btn-ghost ui-btn-sm">View Similar Matches</a>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <section class="ad-modal" id="ad-edit-modal" hidden>
+      <div class="ad-modal-backdrop js-close-edit"></div>
+      <div class="ad-modal-card">
+        <h3>Edit Letter Draft</h3>
+        <p class="ad-help">The sent letter remains unchanged for audit clarity. This saves as a revised draft.</p>
+        <textarea class="ui-textarea js-edit-text"></textarea>
+        <div class="ad-letter-actions">
+          <button type="button" class="ui-btn ui-btn-ghost js-close-edit">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-primary js-save-draft">Save Draft</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ad-modal" id="ad-withdraw-modal" hidden>
+      <div class="ad-modal-backdrop js-close-withdraw"></div>
+      <div class="ad-modal-card">
+        <h3>Withdraw Application?</h3>
+        <p class="ad-help">This will mark the application as withdrawn and append it to the timeline.</p>
+        <div class="ad-letter-actions">
+          <button type="button" class="ui-btn ui-btn-ghost js-close-withdraw">Cancel</button>
+          <button type="button" class="ui-btn ui-btn-danger js-confirm-withdraw">Withdraw</button>
+        </div>
+      </div>
+    </section>
+
+    <script type="module">
+      import { showToast } from '../assets/js/toast.js';
+
+      const sidebarToggles = document.querySelectorAll('.js-sidebar-toggle, .js-sidebar-toggle-bar');
+      const sidebar = document.querySelector('.js-sidebar');
+      const sidebarBackdrop = document.querySelector('.js-sidebar-backdrop');
+
+      const openSidebar = () => {
+        sidebar.classList.remove('-translate-x-full');
+        sidebarBackdrop.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
+      };
+
+      const closeSidebar = () => {
+        sidebar.classList.add('-translate-x-full');
+        sidebarBackdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        sidebarToggles.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+      };
+
+      sidebarToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          if (sidebar.classList.contains('-translate-x-full')) {
+            openSidebar();
+          } else {
+            closeSidebar();
+          }
+        });
+      });
+
+      sidebarBackdrop.addEventListener('click', closeSidebar);
+
+      const profileBtn = document.querySelector('.js-profile-btn');
+      const dropdownMenu = document.querySelector('.js-dropdown-menu');
+      if (profileBtn && dropdownMenu) {
+        profileBtn.addEventListener('click', (event) => {
+          event.stopPropagation();
+          profileBtn.classList.toggle('is-open');
+          dropdownMenu.classList.toggle('is-open');
+          profileBtn.setAttribute('aria-expanded', profileBtn.classList.contains('is-open'));
+        });
+
+        document.addEventListener('click', () => {
+          profileBtn.classList.remove('is-open');
+          dropdownMenu.classList.remove('is-open');
+          profileBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        dropdownMenu.addEventListener('click', (event) => event.stopPropagation());
+      }
+
+      const statusMeta = {
+        sent: {
+          badge: '⏳ Sent',
+          badgeClass: 'sa-status-sent',
+          statusCopy: 'Your application has been sent. We will notify you when the company opens it.',
+          companyNote: 'No company notes yet.',
+          nextSteps: ['Work on your CV while waiting.', 'Apply to at least 2 more matching roles this week.'],
+          nextAction: 'Improve CV',
+          events: [
+            '📤 May 12, 9:34 AM - Application sent',
+            '⏳ May 19 - Resend allowed if no response'
+          ]
+        },
+        opened: {
+          badge: '👁️ Opened',
+          badgeClass: 'sa-status-opened',
+          statusCopy: 'Opened by HR on May 14, 2025.',
+          companyNote: 'No direct message yet. Keep your inbox active.',
+          nextSteps: ['Consider following up in 3 days.', 'Prepare one concise project story for recruiter outreach.'],
+          nextAction: 'Set Follow-up Reminder',
+          events: [
+            '📤 May 12, 9:34 AM - Application sent',
+            '👁️ May 14, 2:15 PM - Opened by company',
+            '⏳ May 16 - Suggested follow-up if no reply'
+          ]
+        },
+        replied: {
+          badge: '📨 Replied',
+          badgeClass: 'sa-status-replied',
+          statusCopy: 'Company responded and requested portfolio links.',
+          companyNote: 'Please send your portfolio and transcript before Friday.',
+          nextSteps: ['Reply with portfolio links and transcript.', 'Prepare for potential interview scheduling.'],
+          nextAction: 'Send Portfolio',
+          events: [
+            '📤 May 12, 9:34 AM - Application sent',
+            '👁️ May 14, 2:15 PM - Opened by company',
+            '💬 May 16, 10:00 AM - Company replied: "Please send your portfolio"'
+          ]
+        },
+        interview: {
+          badge: '🎤 Interview',
+          badgeClass: 'sa-status-interview',
+          statusCopy: 'Interview stage in progress. Prepare key project examples.',
+          companyNote: 'Interview is scheduled. Be ready with portfolio walkthrough.',
+          nextSteps: ['Review role requirements and your strongest project.', 'Prepare concise STAR answers for impact questions.'],
+          nextAction: 'Open Interview Prep',
+          events: [
+            '📤 May 12, 9:34 AM - Application sent',
+            '👁️ May 14, 2:15 PM - Opened by company',
+            '🎤 May 18, 11:00 AM - Interview scheduled'
+          ]
+        },
+        rejected: {
+          badge: '❌ Rejected',
+          badgeClass: 'sa-status-rejected',
+          statusCopy: 'Not this time. Keep applying to strong-fit opportunities.',
+          companyNote: 'We appreciate your interest, but we moved ahead with another candidate.',
+          nextSteps: ['Review similar roles by skill match.', 'Archive this application and continue momentum.'],
+          nextAction: 'See Similar Roles',
+          events: [
+            '📤 May 12, 9:34 AM - Application sent',
+            '👁️ May 14, 2:15 PM - Opened by company',
+            '❌ May 19, 9:02 AM - Application closed'
+          ]
+        },
+        hired: {
+          badge: '🎉 Hired',
+          badgeClass: 'sa-status-hired',
+          statusCopy: 'Offer accepted. Ready for onboarding.',
+          companyNote: 'Welcome on board. Complete onboarding documents by Monday.',
+          nextSteps: ['Complete onboarding checklist.', 'Download and sign offer documents.'],
+          nextAction: 'Start Onboarding',
+          events: [
+            '📤 May 12, 9:34 AM - Application sent',
+            '👁️ May 14, 2:15 PM - Opened by company',
+            '🎤 May 18, 11:00 AM - Interview completed',
+            '🎉 May 20, 4:45 PM - Offer accepted'
+          ]
+        },
+        withdrawn: {
+          badge: '🚫 Withdrawn',
+          badgeClass: 'sa-status-withdrawn',
+          statusCopy: 'You withdrew this application.',
+          companyNote: 'No additional company note available.',
+          nextSteps: ['Refocus on better-fit opportunities.', 'Update your letter for stronger targeting.'],
+          nextAction: 'View Similar Roles',
+          events: [
+            '📤 May 12, 9:34 AM - Application sent',
+            '🚫 May 19, 12:20 PM - Application withdrawn by candidate'
+          ]
+        }
+      };
+
+      const stateSelect = document.querySelector('.js-state-select');
+      const statusBadge = document.querySelector('.js-status-badge');
+      const statusCopy = document.querySelector('.js-status-copy');
+      const timelineList = document.querySelector('.js-timeline');
+      const companyNote = document.querySelector('.js-company-note');
+      const nextList = document.querySelector('.js-next-list');
+      const nextAction = document.querySelector('.js-next-action');
+      const celebrate = document.querySelector('.js-celebrate');
+      const resendButton = document.querySelector('.js-resend-btn');
+      const resendHelp = document.querySelector('.js-resend-help');
+      const pageTitle = document.querySelector('.js-page-title');
+      const appliedDateNode = document.querySelector('.js-applied-date');
+      const updatedDateNode = document.querySelector('.js-updated-date');
+      const companyNameNode = document.querySelector('.js-company-name');
+      const companyLogoNode = document.querySelector('.js-company-logo');
+      const matchBadgeNode = document.querySelector('.js-match-badge');
+      const matchCopyNode = document.querySelector('.js-match-copy');
+
+      const editModal = document.getElementById('ad-edit-modal');
+      const openEditButton = document.querySelector('.js-open-edit-letter');
+      const closeEditButtons = document.querySelectorAll('.js-close-edit');
+      const editTextarea = document.querySelector('.js-edit-text');
+      const saveDraftButton = document.querySelector('.js-save-draft');
+      const revisedWrap = document.querySelector('.ad-revised');
+      const revisedLetter = document.querySelector('.js-revised-letter');
+
+      const withdrawModal = document.getElementById('ad-withdraw-modal');
+      const withdrawButton = document.querySelector('.js-withdraw-btn');
+      const closeWithdrawButtons = document.querySelectorAll('.js-close-withdraw');
+      const confirmWithdrawButton = document.querySelector('.js-confirm-withdraw');
+
+      const shareButton = document.querySelector('.js-share-link');
+      const mobileBackButton = document.querySelector('.js-mobile-back');
+      const copyLetterButton = document.querySelector('.js-copy-letter');
+      const downloadButton = document.querySelector('.js-download-letter');
+      const messageButton = document.querySelector('.js-message-btn');
+      const scheduleButton = document.querySelector('.js-schedule-btn');
+      const privateNote = document.querySelector('.js-private-note');
+      const noteStatus = document.querySelector('.js-note-status');
+      const saveNoteButton = document.querySelector('.js-save-note');
+      const letterBody = document.querySelector('.js-letter-body');
+
+      const application = {
+        id: 'default',
+        sentDate: '2025-05-12',
+        updatedDate: '2025-05-14',
+        company: 'Andela',
+        logo: 'https://www.google.com/s2/favicons?domain=andela.com&sz=128',
+        match: 94,
+        status: 'opened',
+        revisedDraft: ''
+      };
+
+      const now = new Date('2025-05-16T08:00:00');
+
+      const formatDate = (value) => {
+        if (!value) {
+          return '';
+        }
+
+        const asDate = new Date(`${value}T00:00:00`);
+        if (Number.isNaN(asDate.getTime())) {
+          return value;
+        }
+
+        return asDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      };
+
+      const normalizeStatus = (value) => {
+        const allowed = ['sent', 'opened', 'replied', 'interview', 'rejected', 'hired', 'withdrawn'];
+        if (!value || !allowed.includes(value)) {
+          return 'opened';
+        }
+
+        return value;
+      };
+
+      const getMatchClass = (score) => {
+        if (score > 70) {
+          return 'sa-match-high';
+        }
+
+        if (score >= 40) {
+          return 'sa-match-mid';
+        }
+
+        return 'sa-match-low';
+      };
+
+      const hydrateFromQuery = () => {
+        const params = new URLSearchParams(window.location.search);
+        if (!params.toString()) {
+          return;
+        }
+
+        application.id = params.get('id') || application.id;
+        application.company = params.get('company') || application.company;
+        application.status = normalizeStatus(params.get('status'));
+        application.sentDate = params.get('sentDate') || application.sentDate;
+        application.updatedDate = params.get('updatedDate') || application.updatedDate;
+        application.logo = params.get('logo') || application.logo;
+
+        const parsedMatch = Number(params.get('match'));
+        if (!Number.isNaN(parsedMatch)) {
+          application.match = parsedMatch;
+        }
+
+        const queryNote = params.get('note');
+        if (queryNote) {
+          privateNote.value = queryNote;
+        }
+
+        pageTitle.textContent = `Application to ${application.company}`;
+        companyNameNode.textContent = application.company;
+        companyLogoNode.src = application.logo;
+        companyLogoNode.alt = `${application.company} logo`;
+        appliedDateNode.textContent = formatDate(application.sentDate);
+        updatedDateNode.textContent = formatDate(application.updatedDate);
+
+        matchBadgeNode.className = `sa-match-badge js-match-badge ${getMatchClass(application.match)}`;
+        matchBadgeNode.textContent = `${application.match}%`;
+        matchCopyNode.textContent = `${application.match}%`;
+
+        stateSelect.value = application.status;
+      };
+
+      const daysSinceSent = () => {
+        const sent = new Date(`${application.sentDate}T00:00:00`);
+        return Math.floor((now - sent) / (1000 * 60 * 60 * 24));
+      };
+
+      const renderState = () => {
+        const config = statusMeta[application.status];
+
+        statusBadge.className = `sa-status-badge js-status-badge ${config.badgeClass}`;
+        statusBadge.textContent = config.badge;
+        statusCopy.textContent = config.statusCopy;
+        companyNote.textContent = config.companyNote;
+        nextAction.textContent = config.nextAction;
+
+        timelineList.innerHTML = config.events
+          .map((event) => `<li>${event}</li>`)
+          .join('');
+
+        nextList.innerHTML = config.nextSteps
+          .map((step) => `<li>${step}</li>`)
+          .join('');
+
+        celebrate.hidden = application.status !== 'hired';
+
+        if (application.status === 'sent' && daysSinceSent() < 7) {
+          resendButton.disabled = true;
+          resendHelp.textContent = 'Resend is available 7 days after sending to avoid spam.';
+        } else if (application.status === 'hired' || application.status === 'rejected' || application.status === 'withdrawn') {
+          resendButton.disabled = true;
+          resendHelp.textContent = 'Resend is disabled for this final status.';
+        } else {
+          resendButton.disabled = false;
+          resendHelp.textContent = '';
+        }
+      };
+
+      stateSelect.addEventListener('change', () => {
+        application.status = stateSelect.value;
+        renderState();
+      });
+
+      shareButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          showToast('Application link copied.', 'success');
+        } catch {
+          showToast('Unable to copy link on this device.', 'warning');
+        }
+      });
+
+      mobileBackButton?.addEventListener('click', () => {
+        window.location.href = './student-applications.html';
+      });
+
+      copyLetterButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(letterBody.textContent || '');
+          showToast('Letter copied to clipboard.', 'success');
+        } catch {
+          showToast('Copy failed.', 'warning');
+        }
+      });
+
+      downloadButton.addEventListener('click', () => {
+        window.print();
+        showToast('Use Save as PDF in the print dialog.', 'info');
+      });
+
+      openEditButton.addEventListener('click', () => {
+        editTextarea.value = application.revisedDraft || letterBody.textContent || '';
+        editModal.hidden = false;
+      });
+
+      closeEditButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          editModal.hidden = true;
+        });
+      });
+
+      saveDraftButton.addEventListener('click', () => {
+        application.revisedDraft = editTextarea.value.trim();
+        revisedLetter.textContent = application.revisedDraft;
+        revisedWrap.hidden = !application.revisedDraft;
+        editModal.hidden = true;
+        showToast('Revised draft saved. Sent letter remains unchanged.', 'success');
+      });
+
+      withdrawButton.addEventListener('click', () => {
+        withdrawModal.hidden = false;
+      });
+
+      closeWithdrawButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          withdrawModal.hidden = true;
+        });
+      });
+
+      confirmWithdrawButton.addEventListener('click', () => {
+        application.status = 'rejected';
+        stateSelect.value = 'rejected';
+        withdrawModal.hidden = true;
+        renderState();
+        showToast('Application withdrawn.', 'success');
+      });
+
+      messageButton.addEventListener('click', () => {
+        window.location.href = 'mailto:careers@andela.com?subject=Re:%20Internship%20Application';
+      });
+
+      scheduleButton.addEventListener('click', () => {
+        showToast('Interview scheduling flow opened.', 'info');
+      });
+
+      const getNoteStorageKey = () => `ad-private-note-${application.id}`;
+
+      const saveNote = () => {
+        localStorage.setItem(getNoteStorageKey(), privateNote.value);
+        noteStatus.textContent = `Saved at ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+      };
+
+      saveNoteButton.addEventListener('click', () => {
+        saveNote();
+        showToast('Private note saved.', 'success');
+      });
+
+      let noteTimer;
+      privateNote.addEventListener('input', () => {
+        clearTimeout(noteTimer);
+        noteStatus.textContent = 'Saving...';
+        noteTimer = setTimeout(saveNote, 700);
+      });
+
+      hydrateFromQuery();
+
+      const saved = localStorage.getItem(getNoteStorageKey());
+      if (saved && !privateNote.value.trim()) {
+        privateNote.value = saved;
+        noteStatus.textContent = 'Loaded saved note';
+      }
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          editModal.hidden = true;
+          withdrawModal.hidden = true;
+        }
+      });
+
+      renderState();
+    </script>
+  </body>
+</html>

@@ -595,7 +595,7 @@
       const getActionItems = (application) => {
         if (application.status === 'sent' || application.status === 'opened') {
           return [
-            { key: 'view', label: 'View Company' },
+            { key: 'view', label: 'View Application' },
             { key: 'resend', label: 'Resend Letter' },
             { key: 'withdraw', label: 'Withdraw' }
           ];
@@ -603,36 +603,52 @@
 
         if (application.status === 'replied') {
           return [
-            { key: 'view', label: 'View Company' },
+            { key: 'view', label: 'View Application' },
             { key: 'reply', label: 'Reply to HR' }
           ];
         }
 
         if (application.status === 'interview') {
           return [
-            { key: 'view', label: 'View Company' },
+            { key: 'view', label: 'View Application' },
             { key: 'prepare', label: 'Prepare' }
           ];
         }
 
         if (application.status === 'hired') {
           return [
-            { key: 'view', label: 'View Company' },
+            { key: 'view', label: 'View Application' },
             { key: 'onboard', label: 'Start Onboarding' }
           ];
         }
 
         if (application.status === 'rejected') {
           return [
-            { key: 'view', label: 'View Company' },
+            { key: 'view', label: 'View Application' },
             { key: 'similar', label: 'See Similar' }
           ];
         }
 
         return [
-          { key: 'view', label: 'View Company' },
+          { key: 'view', label: 'View Application' },
           { key: 'resend', label: 'Resend Letter' }
         ];
+      };
+
+      const buildApplicationDetailUrl = (application) => {
+        const searchParams = new URLSearchParams({
+          id: String(application.id),
+          company: application.company,
+          status: application.status,
+          sentDate: application.dateSent,
+          updatedDate: application.timestamp.split('T')[0],
+          note: application.note || '',
+          match: String(application.match),
+          logo: application.logo,
+          statusDetail: application.statusDetail || ''
+        });
+
+        return `./application-detail.html?${searchParams.toString()}`;
       };
 
       const chipToStatus = (chipValue) => {
@@ -959,7 +975,7 @@
         }
 
         if (action === 'view') {
-          window.location.href = './company-detail.html';
+          window.location.href = buildApplicationDetailUrl(target);
           return;
         }
 
